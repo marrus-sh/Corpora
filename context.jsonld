@@ -1,0 +1,75 @@
+{ "@context": {
+	"@language": "en"
+	, "bns": "https://go.KIBI.family/Ontologies/BNS/#"
+	, "dc": "http://purl.org/dc/terms/"
+	, "dcterms": "http://purl.org/dc/terms/"
+	, "dcmitype": "http://purl.org/dc/dcmitype/"
+	, "foaf": "http://xmlns.com/foaf/0.1/"
+	, "owl": "http://www.w3.org/2002/07/owl#"
+	, "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	, "xsd": "http://www.w3.org/2001/XMLSchema#"
+	, "Arc": "bns:Arc"
+	, "Audio": "dcmitype:Sound"
+	, "Author": "bns:Author"
+	, "Book": "bns:Book"
+	, "Chapter": "bns:Chapter"
+	, "Concept": "bns:Concept"
+	, "Corpus": "bns:Corpus"
+	, "Cover": "bns:Cover"
+	, "Draft": "bns:Draft"
+	, "Image": "dcmitype:StillImage"
+	, "Note": "bns:Note"
+	, "Project": "bns:Project"
+	, "Section": "bns:Section"
+	, "Side": "bns:Side"
+	, "Text": "dcmitype:Text"
+	, "Verse": "bns:Verse"
+	, "Version": "bns:Version"
+	, "Video": "dcmitype:MovingImage"
+	, "Volume": "bns:Volume"
+	, "Sequence":
+		{ "@id": "rdf:Seq"
+		, "@context": { "@vocab": "rdf" } }
+	, "Set":
+		{ "@id": "rdf:Set"
+		, "@context": { "@vocab": "rdf" } }
+	, "IRI": "@id"
+	, "KIND": "@type"
+	, "LANG": "@language"
+	, "TEXT": "@value"
+	, "N": "bns:index"
+	, "TITLE": "bns:fullTitle"
+	, "SHORTTITLE": "bns:abbreviatedTitle"
+	, "ID":
+		{ "@id": "bns:identifier"
+		, "@type": "xsd:NCName" }
+	, "ABSTRACT":
+		{ "@id": "dc:abstract"
+		, "@type": "@id" }
+	, "AUTHOR":
+		{ "@id": "bns:forAuthor"
+		, "@type": "@id" }
+	, "AUTHORITY":
+		{ "@id": "bns:authority"
+		, "@type": "@id" }
+	, "CONTENTS":
+		{ "@id": "bns:identifier"
+		, "@type": "rdf:XMLLiteral" }
+	, "COVER":
+		{ "@id": "bns:hasCover"
+		, "@type": "@id" }
+	, "FORMAT":
+		{ "@id": "dc:format"
+		, "@type": "@id" }
+	, "INSPIRATION":
+		{ "@id": "bns:inspiration"
+		, "@type": "@id" }
+	, "MIMETYPE":
+		{ "@id": "dc:identifier"
+		, "@type": "xsd:string" }
+	, "PROJECTS":
+		{ "@id": "bns:hasProjects"
+		, "@type": "@id" }
+	, "PUBLISHED":
+		{ "@id": "bns:isPublishedAs"
+		, "@type": "@id" } } }

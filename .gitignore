@@ -1,0 +1,5 @@
+# This repository uses an allowlist because not every corpus is necessarily suitable for GitHub hosting.
+/*/
+!bjmns.tumblr.com,2013
+!marrus.xyz,2016
+!langdev.xyz,2017
