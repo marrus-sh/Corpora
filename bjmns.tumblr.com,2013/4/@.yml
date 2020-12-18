@@ -1,0 +1,15 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::4"
+KIND: Project
+ID: piwhall
+TITLE: Project Alchemy
+ABSTRACT:
+  CONTENTS: |-
+    <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    	<p>Follows an apprentice alchemist and his discovery of the existence of demons on another plane of existence.  For the sake of spellcasting, I invented an alternate Old English language, (termed “the Old Language”; see <a href="https://go.KIBI.family/Corpora/langdev.xyz,2017/cpe/oen/" resource="tag:langdev.xyz,2017:cpe:oen"><code>langdev:cpe:oen</code></a>), marking the beginnings of my interest in language development.</p>
+    </div>
+INSPIRATION:
+-  http://id.loc.gov/resources/works/13154660
+-  http://id.loc.gov/resources/works/14075923
+- http://id.loc.gov/resources/hubs/16ae8da271effbf3944940c8fd69a176
+-  http://id.loc.gov/resources/works/13445862
+- http://id.loc.gov/resources/hubs/de7f79fdf094c4fafdca4bb4884a7d79

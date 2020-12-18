@@ -1,0 +1,19 @@
+4.1.1.1.Script
+BJMNS
+
+Title Page :
+  BJMNS PRESENTS:
+  [INSERT TITLE HERE]
+
+Prologue :
+  1.
+    [Nicholas sits with his master in the study of their mansion]
+    MASTER : Well, Nicholas, your other studies are improving at such a fast rate, I think it is about time that you started _history_ lessons.
+  2.
+    [Close-up of master's face]
+    MASTER : Tell me, have you heard the story of the sorcerer Sullivan?
+  3.
+    [Looking at Nicholas from behind Master's shoulder]
+    NICHOLAS : I don't believe so, sir.
+  4.
+    [

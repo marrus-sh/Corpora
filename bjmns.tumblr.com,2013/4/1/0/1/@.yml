@@ -1,0 +1,21 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::4:1:0:1"
+KIND: Draft
+N: 1
+TITLE: The Dark Knights
+SHORTTITLE: Dark Knights
+PUBLISHED:
+- IRI: text.html
+  KIND: Text
+  FORMAT: { MIMETYPE: text/html }
+- IRI: text.pdf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/pdf }
+- KIND: [ Text, Sequence ]
+  FORMAT: { MIMETYPE: image/png }
+  _1: page01.png
+  _2: page02.png
+  _3: page03.png
+  _4: page04.png
+- IRI: text.rtf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/rtf }

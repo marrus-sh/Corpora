@@ -1,0 +1,8 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::4:1:1:1::notes:Script"
+KIND: Note
+ID: Script
+TITLE: "[INSERT TITLE HERE]"
+PUBLISHED:
+- IRI: text.txt
+  KIND: Text
+  FORMAT: { MIMETYPE: text/plain }
