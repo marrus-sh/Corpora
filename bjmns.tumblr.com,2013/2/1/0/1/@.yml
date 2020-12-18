@@ -1,0 +1,14 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::2:1:0:1"
+KIND: Draft
+N: 1
+TITLE: Nat Gets Attacked by Ele the Alien Under the Sea
+PUBLISHED:
+- IRI: text.txt
+  KIND: Text
+  FORMAT: { MIMETYPE: text/plain }
+- IRI: text.xhtml
+  KIND: Text
+  FORMAT: { MIMETYPE: application/xhtml+xml }
+- IRI: text.xml
+  KIND: Text
+  FORMAT: { MIMETYPE: application/tei+xml }

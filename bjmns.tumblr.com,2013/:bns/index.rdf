@@ -387,6 +387,185 @@
 		</includes>
 	</Project>
 		</rdf:_1>
+		<rdf:_2>
+	<Project rdf:about="tag:bjmns.tumblr.com,2013:bns::2">
+		<owl:sameAs rdf:resource="./2/"/>
+		<owl:sameAs rdf:resource="#bjmns:2"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">natele</identifier>
+		<fullTitle xml:lang="en">Drowned</fullTitle>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p><a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/2/1/0/1/" resource="tag:bjmns.tumblr.com,2013:bns::2:1:0:1"><code>bjmns:2:1:0:1</code></a> was a short story that I wrote for class in the third grade and is actually probably one of my better stories from that time.  (If you compare other works from around those dates, you'll see that they are . . . not great.)  It was originally set in the <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/1/" resource="tag:bjmns.tumblr.com,2013:bns::1"><code>bjmns:1</code></a> universe, because by default everything I wrote was at that time.</p>
+	<p>Later, in college, I realized that the story maybe actually had some metaphoric or symbolic potential, so I broke it off into its own project since it really didn't have anything to do with the larger <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/1/" resource="tag:bjmns.tumblr.com,2013:bns::1"><code>bjmns:1</code></a>verse in the first place.</p>
+</div></contents>
+		</dc:abstract>
+		<includes>
+	<Volume rdf:about="tag:bjmns.tumblr.com,2013:bns::2:1">
+		<owl:sameAs rdf:resource="./2/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:2:1"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<includes>
+	<Version rdf:about="tag:bjmns.tumblr.com,2013:bns::2:1:0">
+		<owl:sameAs rdf:resource="./2/1/0/"/>
+		<owl:sameAs rdf:resource="#bjmns:2:1:0"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">ele-alien</identifier>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</index>
+		<fullTitle xml:lang="en">Nat Gets Attacked</fullTitle>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <p>A boy named Nat goes cliffdiving and is abducted by underwater aliens.  He decides not to go cliffdiving anymore after that.</p>
+</div></contents>
+		</dc:abstract>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::2:1:0:_1e">
+		<owl:sameAs rdf:resource="./2/1/0/_1e/"/>
+		<owl:sameAs rdf:resource="#bjmns:2:1:0:_1e"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">_1e</index>
+		<fullTitle xml:lang="en">Nat Gets Attacked by Ele the Alien Under the Sea</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./2/1/0/_1e/text.xml">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/tei+xml</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::2:1:0:1">
+		<owl:sameAs rdf:resource="./2/1/0/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:2:1:0:1"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<fullTitle xml:lang="en">Nat Gets Attacked by Ele the Alien Under the Sea</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./2/1/0/1/text.txt">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/plain</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./2/1/0/1/text.xhtml">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/xhtml+xml</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./2/1/0/1/text.xml">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/tei+xml</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+	</Version>
+		</includes>
+		<includes>
+	<Version rdf:about="tag:bjmns.tumblr.com,2013:bns::2:1:1">
+		<owl:sameAs rdf:resource="./2/1/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:2:1:1"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">faest</identifier>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<fullTitle xml:lang="en">Drowned</fullTitle>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <p><em>Ostensibly</em> this was going to be a reboot of <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/2/1/0/" resource="tag:bjmns.tumblr.com,2013:bns::2:1:0"><code>bjmns:2:1:0</code></a>, but in actuality it amounted to nothing more than a few scattered paragraphs split across a few scattered “drafts”.  There’s nothing of substance there.</p>
+</div></contents>
+		</dc:abstract>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::2:1:1:1">
+		<owl:sameAs rdf:resource="./2/1/1/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:2:1:1:1"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./2/1/1/1/text.md">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/markdown</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./2/1/1/1/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::2:1:1:3">
+		<owl:sameAs rdf:resource="./2/1/1/3/"/>
+		<owl:sameAs rdf:resource="#bjmns:2:1:1:3"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</index>
+		<fullTitle xml:lang="en">faest</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./2/1/1/3/text.md">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/markdown</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./2/1/1/3/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::2:1:1:2">
+		<owl:sameAs rdf:resource="./2/1/1/2/"/>
+		<owl:sameAs rdf:resource="#bjmns:2:1:1:2"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</index>
+		<fullTitle xml:lang="en">DROWNED: A Short Story in Plain Text</fullTitle>
+		<abbreviatedTitle xml:lang="en">DROWNED</abbreviatedTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./2/1/1/2/text.md">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/markdown</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./2/1/1/2/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+	</Version>
+		</includes>
+	</Volume>
+		</includes>
+	</Project>
+		</rdf:_2>
 	</rdf:Seq>
 		</hasProjects>
 	</Corpus>

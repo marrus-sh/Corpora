@@ -1,0 +1,12 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::2:1:1:2"
+KIND: Draft
+N: 2
+TITLE: "DROWNED: A Short Story in Plain Text"
+SHORTTITLE: DROWNED
+PUBLISHED:
+- IRI: text.md
+  KIND: Text
+  FORMAT: { MIMETYPE: text/markdown }
+- IRI: text.html
+  KIND: Text
+  FORMAT: { MIMETYPE: text/html }

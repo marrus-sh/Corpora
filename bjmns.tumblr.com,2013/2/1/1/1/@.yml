@@ -1,0 +1,10 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::2:1:1:1"
+KIND: Draft
+N: 1
+PUBLISHED:
+- IRI: text.md
+  KIND: Text
+  FORMAT: { MIMETYPE: text/markdown }
+- IRI: text.html
+  KIND: Text
+  FORMAT: { MIMETYPE: text/html }

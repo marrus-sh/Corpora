@@ -1,0 +1,11 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::2:1:1:3"
+KIND: Draft
+N: 3
+TITLE: faest
+PUBLISHED:
+- IRI: text.md
+  KIND: Text
+  FORMAT: { MIMETYPE: text/markdown }
+- IRI: text.html
+  KIND: Text
+  FORMAT: { MIMETYPE: text/html }
