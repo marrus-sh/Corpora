@@ -566,6 +566,369 @@
 		</includes>
 	</Project>
 		</rdf:_2>
+		<rdf:_3>
+	<Project rdf:about="tag:bjmns.tumblr.com,2013:bns::3">
+		<owl:sameAs rdf:resource="./3/"/>
+		<owl:sameAs rdf:resource="#bjmns:3"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">palm</identifier>
+		<fullTitle xml:lang="en">In the Palm of My Hand</fullTitle>
+		<inspiration rdf:resource="http://www.wikidata.org/entity/Q16938261"/>
+		<inspiration rdf:resource="http://www.wikidata.org/entity/Q6816260"/>
+		<inspiration rdf:resource="http://id.loc.gov/resources/hubs/28f3ae7fcfe5d09906fbd8cc80e5781c"/>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>A story about technology, connectivity, transhumanism, and internet surveillance.  In what I’m now thinking to be the summer after sixth grade, I was sitting in my room and <a href="http://www.wikidata.org/entity/Q16938261"><code>wikidata:Q16938261</code></a> came on and that basically inspired this whole concept about smart devices and surveillance and resistance and all of that stuff.</p>
+	<p>The history of this project is recorded in more detail in <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/8/1/0/3/" resource="tag:bjmns.tumblr.com,2013:bns::8:1:0:3"><code>bjmns:8:1:0:3</code></a> if you can get past the highschool writing.  There isn’t any record of <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/3/-1/" resource="tag:bjmns.tumblr.com,2013:bns::3:-1"><code>bjmns:3:-1</code></a> or <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/3/0/" resource="tag:bjmns.tumblr.com,2013:bns::3:0"><code>bjmns:3:0</code></a> in the original BJMNS <abbr title="Branching Notational System">BNS</abbr> categorization, so I’ve added them as volumes −1 and 0 here.</p>
+</div></contents>
+		</dc:abstract>
+		<includes>
+	<Volume rdf:about="tag:bjmns.tumblr.com,2013:bns::3:-1">
+		<owl:sameAs rdf:resource="./3/-1/"/>
+		<owl:sameAs rdf:resource="#bjmns:3:-1"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">penny</identifier>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</index>
+		<fullTitle xml:lang="en">Vote for Penny</fullTitle>
+		<abbreviatedTitle xml:lang="en">Vote 4 Penny</abbreviatedTitle>
+		<inspiration rdf:resource="http://id.loc.gov/resources/works/4943220"/>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p> In . . . what evidence strongly suggests to be the sixth grade, student body elections happening at school (presumably, at the beginning of the year for sixth graders) inspired me to come up with a story about school elections of my own, featuring a protagonist named Penny, and with pennies‐the‐currency standing in as some symbol or other.  This is the <em>original</em> slice‐of‐life school fic, and inspired all the ones to come in varying degrees.</p>
+	<p>(In particular, the character of Penelope Baines from <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/41/" resource="tag:bjmns.tumblr.com,2013:bns::41"><code>bjmns:41</code></a> is inspired by this Penny.)</p>
+	<p>That said, I never actually wrote any of it.  But the protagonist of <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/3/1/" resource="tag:bjmns.tumblr.com,2013:bns::3:1"><code>bjmns:3:1</code></a> was ostensibly originally created for this story.</p>
+</div></contents>
+		</dc:abstract>
+		
+	</Volume>
+		</includes>
+		<includes>
+	<Volume rdf:about="tag:bjmns.tumblr.com,2013:bns::3:0">
+		<owl:sameAs rdf:resource="./3/0/"/>
+		<owl:sameAs rdf:resource="#bjmns:3:0"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">santa</identifier>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</index>
+		<fullTitle xml:lang="en">The Santa Affair</fullTitle>
+		<abbreviatedTitle xml:lang="en">Santa Affair</abbreviatedTitle>
+		<inspiration rdf:resource="http://www.wikidata.org/entity/Q97940458"/>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>Inspired not insignificantly by <a href="http://www.wikidata.org/entity/Q97940458"><code>wikidata:Q97940458</code></a>, tells the story of a boy who uncovers a global Santa conspiracy and I think almost ends Christmas.  The protagonist is the same as in <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/3/1/" resource="tag:bjmns.tumblr.com,2013:bns::3:1"><code>bjmns:3:1</code></a>, only as a teen.</p>
+</div></contents>
+		</dc:abstract>
+		<hasNote>
+	<Note rdf:about="tag:bjmns.tumblr.com,2013:bns::3:0::notes:outline">
+		<owl:sameAs rdf:resource="./3/0/:notes/outline/"/>
+		<owl:sameAs rdf:resource="#bjmns:3:0::notes:outline"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">outline</identifier>
+		<fullTitle xml:lang="en">The Santa Affair</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./3/0/:notes/outline/text.pdf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/pdf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<rdf:Seq rdf:type="dcmitype:Text">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+		<rdf:_1 rdf:resource="./3/0/:notes/outline/page01.png"/>
+		<rdf:_2 rdf:resource="./3/0/:notes/outline/page02.png"/>
+		<rdf:_3 rdf:resource="./3/0/:notes/outline/page03.png"/>
+		<rdf:_4 rdf:resource="./3/0/:notes/outline/page04.png"/>
+		<rdf:_5 rdf:resource="./3/0/:notes/outline/page05.png"/>
+		<rdf:_6 rdf:resource="./3/0/:notes/outline/page06.png"/>
+	</rdf:Seq>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./3/0/:notes/outline/text.xml">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/tei+xml</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Note>
+		</hasNote>
+	</Volume>
+		</includes>
+		<includes>
+	<Volume rdf:about="tag:bjmns.tumblr.com,2013:bns::3:7">
+		<owl:sameAs rdf:resource="./3/7/"/>
+		<owl:sameAs rdf:resource="#bjmns:3:7"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</index>
+		<fullTitle xml:lang="en">Welcome to Earth</fullTitle>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>From the original project notes:</p>
+	<blockquote>
+		<p>Humans move to a new planet, name it Earth after their original planet. It is in the <strong style="Font-Weight: Inherit; Text-Transform: Uppercase">Ice Age</strong> and humans are forced to take a step back in evolution if they are to survive.</p>
+	</blockquote>
+</div></contents>
+		</dc:abstract>
+		
+	</Volume>
+		</includes>
+		<includes>
+	<Volume rdf:about="tag:bjmns.tumblr.com,2013:bns::3:6">
+		<owl:sameAs rdf:resource="./3/6/"/>
+		<owl:sameAs rdf:resource="#bjmns:3:6"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</index>
+		<fullTitle xml:lang="en">Explosion</fullTitle>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>From the original project notes:</p>
+	<blockquote>
+		<p>The Sun is going to blow, threatening the survival of the human race.</p>
+	</blockquote>
+</div></contents>
+		</dc:abstract>
+		
+	</Volume>
+		</includes>
+		<includes>
+	<Volume rdf:about="tag:bjmns.tumblr.com,2013:bns::3:1">
+		<owl:sameAs rdf:resource="./3/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:3:1"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">rylie</identifier>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<fullTitle xml:lang="en">In the Palm of My Hand</fullTitle>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>From the original project notes (revised):</p>
+	<blockquote>
+		<h1 style="Margin-Block: 0 1.25EM; Margin-Inline: 0; Border: None; Padding: 0; Font: Inherit; Text-Align: Start; Text-Align-Last: Auto; Text-Decoration: Underline">The Story of Rylielectronics</h1>
+		<ul>
+			<li>I.U. starts “chip project”.</li>
+			<li>Adjusts power lines to only give power to Rylielectronics; would take other products and make them compatible. (Also added chip!)</li>
+			<li>chip instaled..</li>
+			<li>chip (&amp; me) sustained for gov. purposes.</li>
+		</ul>
+	</blockquote>
+	<p>See also <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/8/1/0/3/" resource="tag:bjmns.tumblr.com,2013:bns::8:1:0:3"><code>bjmns:8:1:0:3</code></a>.</p>
+</div></contents>
+		</dc:abstract>
+		<includes>
+	<Version rdf:about="tag:bjmns.tumblr.com,2013:bns::3:1:0">
+		<owl:sameAs rdf:resource="./3/1/0/"/>
+		<owl:sameAs rdf:resource="#bjmns:3:1:0"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</index>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::3:1:0:1">
+		<owl:sameAs rdf:resource="./3/1/0/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:3:1:0:1"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<fullTitle xml:lang="en">In the Palm of My Hand</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./3/1/0/1/text.pdf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/pdf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<rdf:Seq rdf:type="dcmitype:Text">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+		<rdf:_1 rdf:resource="./3/1/0/1/page00.png"/>
+		<rdf:_2 rdf:resource="./3/1/0/1/page01.png"/>
+		<rdf:_3 rdf:resource="./3/1/0/1/page02.png"/>
+		<rdf:_4 rdf:resource="./3/1/0/1/page03.png"/>
+	</rdf:Seq>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./3/1/0/1/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./3/1/0/1/text.xml">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/tei+xml</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::3:1:0:2">
+		<owl:sameAs rdf:resource="./3/1/0/2/"/>
+		<owl:sameAs rdf:resource="#bjmns:3:1:0:2"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</index>
+		<fullTitle xml:lang="en">In the Palm of My Hand</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./3/1/0/2/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./3/1/0/2/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+	</Version>
+		</includes>
+	</Volume>
+		</includes>
+		<includes>
+	<Volume rdf:about="tag:bjmns.tumblr.com,2013:bns::3:4">
+		<owl:sameAs rdf:resource="./3/4/"/>
+		<owl:sameAs rdf:resource="#bjmns:3:4"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</index>
+		<fullTitle xml:lang="en">The aftermath of WWIII</fullTitle>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>From the original project notes:</p>
+	<blockquote>
+		<p>Now Tyler’s existence is no longer secret, and not everybody wants him to exist.</p>
+	</blockquote>
+</div></contents>
+		</dc:abstract>
+		
+	</Volume>
+		</includes>
+		<includes>
+	<Volume rdf:about="tag:bjmns.tumblr.com,2013:bns::3:3">
+		<owl:sameAs rdf:resource="./3/3/"/>
+		<owl:sameAs rdf:resource="#bjmns:3:3"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</index>
+		<fullTitle xml:lang="en">We will be Invincible</fullTitle>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>From the original project notes:</p>
+	<blockquote>
+		<p>The 3rd World War is coming, and only Tyler can stop it.</p>
+	</blockquote>
+</div></contents>
+		</dc:abstract>
+		
+	</Volume>
+		</includes>
+		<includes>
+	<Volume rdf:about="tag:bjmns.tumblr.com,2013:bns::3:2">
+		<owl:sameAs rdf:resource="./3/2/"/>
+		<owl:sameAs rdf:resource="#bjmns:3:2"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</index>
+		<fullTitle xml:lang="en">Download Complete</fullTitle>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>From the original project notes:</p>
+	<blockquote>
+		<p>Story of how Tyler is killed, and why his mind still lives.</p>
+	</blockquote>
+</div></contents>
+		</dc:abstract>
+		
+	</Volume>
+		</includes>
+		<includes>
+	<Volume rdf:about="tag:bjmns.tumblr.com,2013:bns::3:5">
+		<owl:sameAs rdf:resource="./3/5/"/>
+		<owl:sameAs rdf:resource="#bjmns:3:5"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</index>
+		<fullTitle xml:lang="en">Breaking the Code</fullTitle>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>From the original project notes:</p>
+	<blockquote>
+		<p>The technicians want Tyler dead, and try to break the code of his existence.</p>
+	</blockquote>
+</div></contents>
+		</dc:abstract>
+		
+	</Volume>
+		</includes>
+		<hasNote>
+	<Note rdf:about="tag:bjmns.tumblr.com,2013:bns::3::notes:Create-a-Character">
+		<owl:sameAs rdf:resource="./3/:notes/Create-a-Character/"/>
+		<owl:sameAs rdf:resource="#bjmns:3::notes:Create-a-Character"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Create-a-Character</identifier>
+		<fullTitle xml:lang="en">Create‐a‐Character</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./3/:notes/Create-a-Character/text.pdf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/pdf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<rdf:Seq rdf:type="dcmitype:Text">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+		<rdf:_1 rdf:resource="./3/:notes/Create-a-Character/page01.png"/>
+		<rdf:_2 rdf:resource="./3/:notes/Create-a-Character/page02.png"/>
+	</rdf:Seq>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./3/:notes/Create-a-Character/text.xml">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/tei+xml</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Note>
+		</hasNote>
+		<hasNote>
+	<Note rdf:about="tag:bjmns.tumblr.com,2013:bns::3::notes:The_story_of_Rylielectronics">
+		<owl:sameAs rdf:resource="./3/:notes/The_story_of_Rylielectronics/"/>
+		<owl:sameAs rdf:resource="#bjmns:3::notes:The_story_of_Rylielectronics"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">The_story_of_Rylielectronics</identifier>
+		<fullTitle xml:lang="en">The story of Rylielectronics</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./3/:notes/The_story_of_Rylielectronics/text.png">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./3/:notes/The_story_of_Rylielectronics/text.xml">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/tei+xml</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Note>
+		</hasNote>
+	</Project>
+		</rdf:_3>
 	</rdf:Seq>
 		</hasProjects>
 	</Corpus>

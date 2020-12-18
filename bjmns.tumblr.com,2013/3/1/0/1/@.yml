@@ -1,0 +1,20 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::3:1:0:1"
+KIND: Draft
+N: 1
+TITLE: In the Palm of My Hand
+PUBLISHED:
+- IRI: text.pdf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/pdf }
+- KIND: [ Text, Sequence ]
+  FORMAT: { MIMETYPE: image/png }
+  _1: page00.png
+  _2: page01.png
+  _3: page02.png
+  _4: page03.png
+- IRI: text.rtf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/rtf }
+- IRI: text.xml
+  KIND: Text
+  FORMAT: { MIMETYPE: application/tei+xml }

@@ -1,0 +1,19 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::3:0::notes:outline"
+KIND: Note
+ID: outline
+TITLE: The Santa Affair
+PUBLISHED:
+- IRI: text.pdf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/pdf }
+- KIND: [ Text, Sequence ]
+  FORMAT: { MIMETYPE: image/png }
+  _1: page01.png
+  _2: page02.png
+  _3: page03.png
+  _4: page04.png
+  _5: page05.png
+  _6: page06.png
+- IRI: text.xml
+  KIND: Text
+  FORMAT: { MIMETYPE: application/tei+xml }

@@ -1,0 +1,14 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::3"
+KIND: Project
+ID: palm
+TITLE: In the Palm of My Hand
+ABSTRACT:
+  CONTENTS: |-
+    <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    	<p>A story about technology, connectivity, transhumanism, and internet surveillance.  In what I’m now thinking to be the summer after sixth grade, I was sitting in my room and <a href="http://www.wikidata.org/entity/Q16938261"><code>wikidata:Q16938261</code></a> came on and that basically inspired this whole concept about smart devices and surveillance and resistance and all of that stuff.</p>
+    	<p>The history of this project is recorded in more detail in <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/8/1/0/3/" resource="tag:bjmns.tumblr.com,2013:bns::8:1:0:3"><code>bjmns:8:1:0:3</code></a> if you can get past the highschool writing.  There isn’t any record of <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/3/-1/" resource="tag:bjmns.tumblr.com,2013:bns::3:-1"><code>bjmns:3:-1</code></a> or <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/3/0/" resource="tag:bjmns.tumblr.com,2013:bns::3:0"><code>bjmns:3:0</code></a> in the original BJMNS <abbr title="Branching Notational System">BNS</abbr> categorization, so I’ve added them as volumes −1 and 0 here.</p>
+    </div>
+INSPIRATION:
+- http://www.wikidata.org/entity/Q16938261
+- http://www.wikidata.org/entity/Q6816260
+- http://id.loc.gov/resources/hubs/28f3ae7fcfe5d09906fbd8cc80e5781c

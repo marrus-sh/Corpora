@@ -1,0 +1,13 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::3:0"
+KIND: Volume
+ID: santa
+N: 0
+TITLE: The Santa Affair
+SHORTTITLE: Santa Affair
+ABSTRACT:
+  CONTENTS: |-
+    <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    	<p>Inspired not insignificantly by <a href="http://www.wikidata.org/entity/Q97940458"><code>wikidata:Q97940458</code></a>, tells the story of a boy who uncovers a global Santa conspiracy and I think almost ends Christmas.  The protagonist is the same as in <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/3/1/" resource="tag:bjmns.tumblr.com,2013:bns::3:1"><code>bjmns:3:1</code></a>, only as a teen.</p>
+    </div>
+INSPIRATION:
+- http://www.wikidata.org/entity/Q97940458
