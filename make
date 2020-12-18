@@ -6,6 +6,36 @@ const NREGEX = /^(?:[-+]?[0-9]+|-?(?:[1-9][0-9]{3,}|0[0-9]{3})-(?:0[1-9]|1[0-2])
 function esc ( text ) {
 	return text.replace(/&/g, "&amp;").replace(/</g, "&lt;") }
 
+function generateIndex ( base, path, id ) {
+	let gitattributes = null
+	let hasGitAttribute = false
+	try { // remove index.html if generated
+		gitattributes = Deno.readTextFileSync(`${ base }${ path }/.gitattributes`)
+		hasGitAttribute = gitattributes?.split?.("\n")?.includes?.("/index.html linguist-generated")
+		if ( hasGitAttribute )
+			Deno.removeSync(`${ base }${ path }/index.html`) }
+	catch ( e ) { }
+	try { // quit if index.html is not generated
+		if ( Deno.statSync(`${ base }${ path }/index.html`).isFile )
+			return }
+	catch ( e ) { }
+	try { // add generated marker for index.html
+		if ( !hasGitAttribute )
+			Deno.writeTextFileSync(`${ base }${ path }/.gitattributes`, `/index.html linguist-generated
+${ gitattributes ?? "" }`) }
+	catch ( e ) { }
+	try { // generate index.html
+		Deno.writeTextFileSync(`${ base }${ path }/index.html`, `<!dOcTyPe HtMl>
+<HTML Lang=en>
+	<TITLE>Redirect to description</TITLE>
+	<BASE HRef="${ new Array (path.split("/").length).fill("..").join("/") }">
+	<LINK Rel=alternate HRef=":bns/index.rdf" Type=application/rdf+xml>
+	<META Http-Equiv=refresh Content="0; ${ new Array (path.split("/").length).fill("..").join("/") }/#${ id }"/>
+	<P>
+		<A HRef="#${ id }">View this directory’s description in the BNS corpus.</A>
+`) }
+	catch ( e ) { } }
+
 function document ( object, path = "" ) {
 	if ( object.KIND == null )
 		return null
@@ -131,14 +161,16 @@ function branches ( base, path ) {
 		try {
 			let info = YAML(Deno.readTextFileSync(`${ base }${ subpath }/@.yml`))
 			let iri = info.IRI ?? (this.IRI ?? `tag:${ base.substring(2, base.length - 1) }:bns::`) + `:${ subpath.replace(/\//g, ":") }`
+			let id = iri.replace(this.IRI ?? `tag:${ base.substring(2, base.length - 1) }:bns::`, `${ this.ID ?? base.substring(2, base.length - 1) }:`)
 			result.push(`<includes>
 	<${ info.KIND ?? "Branch" } rdf:about="${ iri }">
 		<owl:sameAs rdf:resource="./${ subpath }/"/>
-		${ this.ID != null ? String.raw `<owl:sameAs rdf:resource="#${ iri.replace(this.IRI ?? `tag:${ base.substring(2, base.length - 1) }:bns::`, `${ this.ID }:`) }"/>
-		` : "" }${ properties(info, subpath) ?? "" }${ info.PUBLISHED == null ? `
+		<owl:sameAs rdf:resource="#${ id }"/>
+		${ properties(info, subpath) ?? "" }${ info.PUBLISHED == null ? `
 		${ branches.call(this, base, subpath) }` : "" }
 	</${ info.KIND ?? "Branch" }>
-		</includes>`) }
+		</includes>`)
+			generateIndex(base, subpath, id) }
 		catch ( e ) { result.push(`<includes>
 	<Branch rdf:about="./${ subpath }/">
 		${ branches.call(this, base, subpath) || "<!-- empty -->" }
@@ -153,13 +185,15 @@ function branches ( base, path ) {
 			try {
 				let info = YAML(Deno.readTextFileSync(`${ base }${ subpath }/@.yml`))
 				let iri = info.IRI ?? (this.IRI ?? `tag:${ base.substring(2, base.length - 1) }:bns::`) + `:${ path.replace(/\//g, ":") }::notes:${ note }`
+				let id = iri.replace(this.IRI ?? `tag:${ base.substring(2, base.length - 1) }:bns::`, `${ this.ID ?? base.substring(2, base.length - 1) }:`)
 				result.push(`<hasNote>
 	<Note rdf:about="${ iri }">
 		<owl:sameAs rdf:resource="./${ subpath }/"/>
-		${ this.ID != null ? String.raw `<owl:sameAs rdf:resource="#${ iri.replace(this.IRI ?? `tag:${ base.substring(2, base.length - 1) }:bns::`, `${ this.ID }:`) }"/>
-		` : "" }${ properties(info, subpath) || "<!-- empty -->" }
+		<owl:sameAs rdf:resource="#${ id }"/>
+		${ properties(info, subpath) || "<!-- empty -->" }
 	</Note>
-		</hasNote>`) }
+		</hasNote>`)
+				generateIndex(base, subpath, id) }
 			catch ( e ) { result.push(`<hasNote>
 	<Note rdf:about="./${ subpath }/"/>
 		</hasNote>`) } } }
@@ -177,16 +211,18 @@ function projects ( base ) {
 		try {
 			let info = YAML(Deno.readTextFileSync(`${ base }${ project }/@.yml`))
 			let iri = info.IRI ?? (this.IRI ?? `tag:${ base.substring(2, base.length - 1) }:bns::`) + `:${ project }`
+			let id = iri.replace(this.IRI ?? `tag:${ base.substring(2, base.length - 1) }:bns::`, `${ this.ID ?? base.substring(2, base.length - 1) }:`)
 			if ( info.KIND != "Project" )
 				throw new Error
 			result.push(`<rdf:${ _nnn }>
 	<Project rdf:about="${ iri }">
 		<owl:sameAs rdf:resource="./${ project }/"/>
-		${ this.ID != null ? String.raw `<owl:sameAs rdf:resource="#${ iri.replace(this.IRI ?? `tag:${ base.substring(2, base.length - 1) }:bns::`, `${ this.ID }:`) }"/>
-		` : "" }${ properties(info, project) ?? "" }
+		<owl:sameAs rdf:resource="#${ id }"/>
+		${ properties(info, project) ?? "" }
 		${ branches.call(this, base, project) }
 	</Project>
-		</rdf:${ _nnn }>`) }
+		</rdf:${ _nnn }>`)
+			generateIndex(base, project, id) }
 		catch ( e ) { result.push(`<rdf:${ _nnn }>
 	<Project rdf:about="./${ project }/">
 		${ branches.call(this, base, project) || "<!-- empty -->" }
@@ -217,8 +253,8 @@ function corpus ( path ) {
 	</owl:Ontology>
 	<Corpus rdf:about="${ info.IRI ?? `tag:${ path.substring(2, path.length - 1) }:bns::` }">
 		<owl:sameAs rdf:resource="./"/>
-		${ info.ID != null ? `<owl:sameAs rdf:resource="#${ info.ID }:"/>
-		` : "" }${ properties(info) ?? "" }
+		<owl:sameAs rdf:resource="#${ info.ID ?? path.substring(2, path.length - 1) }:"/>
+		${ properties(info) ?? "" }
 		${ info.AUTHOR != null ? `<forAuthor>
 	<Author rdf:about="${ info.AUTHOR.IRI ?? info.AUTHOR }">
 		${ properties(info.AUTHOR) || "<!-- empty -->" }
