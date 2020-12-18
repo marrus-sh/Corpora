@@ -1,0 +1,89 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::"
+KIND: Corpus
+ID: bjmns
+AUTHORITY: https://go.KIBI.family/About/#me
+AUTHOR:
+  IRI: https://go.KIBI.family/About/#me
+  TITLE:
+    TEXT: BJMNS
+    LANG: en
+TITLE:
+  TEXT: "BJMNS Presents:"
+  LANG: en
+COVER:
+  CONTENTS: |-
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512" fill="currentColor" stroke="none">
+    	<title lang="en" xml:lang="en">A monogram of the letters ‹ BRS ›, which I used in conjunction with the BJMNS moniker, again replacing a TF monogram.</title>
+    	<g transform="translate(0,-540.36218)">
+    		<g transform="matrix(1.28,0,0,1.28,-64,-230.66142)">
+    			<g transform="translate(-20,10)">
+    				<path d="m 260,642.36218 c 60,0 80,10 80,50 0,40 -20,50 -60,50 l -10,0 c 0,0 50,0 50,-50 0,-50 -70,-50 -70,-50 z"/>
+    				<path d="m 280,742.36218 c 40,0 60,10 60,50 0,40 -20,50 -80,50 l -10,0 c 0,0 70,0 70,-50 0,-50 -50,-50 -50,-50 z"/>
+    				<path d="m 220,742.36218 c -40,0 -60,10 -60,50 0,40 40,50 90,50 l 0,0 c 0,0 -70,0 -70,-50 0,-50 50,-50 50,-50 z"/>
+    				<path d="m 260,942.36218 c 60,0 80,-10 80,-50 0,-40 -40,-50 -90,-50 l 0,0 c 0,0 70,0 70,50 0,50 -70,50 -70,50 z"/>
+    				<path d="m 280,742.36218 c 40,0 60,10 60,50 0,40 50,50 50,50 l -10,0 c 0,0 -60,0 -60,-50 0,-50 -50,-50 -50,-50 z"/>
+    				<path d="m 250,120 c 0,0 10,0 10,70 l 0,10 c 0,70 -10,70 -10,70 0,0 -10,-10 -10,-70 l 0,-10 c 0,-70 10,-70 10,-70 z" transform="translate(0,552.36218)"/>
+    			</g>
+    			<path d="M 250,50 C 139.54305,50 50,139.54305 50,250 50,360.45695 139.54305,450 250,450 360.45695,450 450,360.45695 450,250 450,139.54305 360.45695,50 250,50 z m 0,10 c 99.41125,0 180,85.0659 180,190 0,104.9341 -80.58875,190 -180,190 C 150.58875,440 70,354.9341 70,250 70,145.0659 150.58875,60 250,60 z" transform="translate(0,552.36218)"/>
+    		</g>
+    	</g>
+    </svg>
+ABSTRACT:
+  CONTENTS: |-
+    <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    	<p>A corpus of, roughly speaking, every creative work that I (<a href="https://go.KIBI.family/">KIBI Gô</a>) created prior to graduating college mid‐2016, based on the categorization system I used circa 2013 and updated periodically thereafter.  Back in these days I cared a lot about keeping a record of <em>literally everything</em>, so you will find a lot of inconsequential stuff in this collection.</p>
+    	<p><i>BJMNS</i> is a generic username that I employed often during this time, replacing the earlier <i>TF</i> which I had used for artistic works in middle and high school.  There is no clear delineation between projects created under the two monikers, so they are unified here.</p>
+    	<p>In a similar fashion, projects were associated with a variety of “publishing houses”, including <i>Testing Hat</i>, <i>Storytime Magic!</i>, and <i>B@N</i>.  You’ll see marks such as these appearing on many of the (especially early) drafts.</p>
+    </div>
+PROJECTS:
+  TYPE: Sequence
+  _1: "1"
+ # _2: "2"
+ # _3: "3"
+ # _4: "4"
+ # _5: "5"
+#  _6: "6"
+#  _7: "7"
+#  _8: "8"
+#  _9: "9"
+#  _10: "10"
+#  _11: "11"
+#  _12: "12"
+#  _13: "13"
+#  _14: "14"
+#  _15: "15"
+#  _16: "16"
+#  _17: "17"
+#  _18: "18"
+#  _19: "19"
+#  _20: "20"
+#  _21: "21"
+#  _22: "22"
+#  _23: "23"
+#  _24: "24"
+#  _25: "25"
+#  _26: "26"
+#  _27: "27"
+#  _28: "28"
+#  _29: "29"
+#  _30: "30"
+#  _31: "31"
+#  _32: "32"
+#  _33: "33"
+#  _34: "34"
+#  _35: "35"
+#  _36: "36"
+#  _37: "37"
+#  _38: "38"
+#  _39: "39"
+#  _40: "40"
+#  _41: "41"
+#  _42: "42"
+#  _43: "43"
+#  _44: "44"
+#  _45: "45"
+#  _46: "46"
+#  _47: "47"
+#  _48: "48"
+#  _49: "49"
+#  _50: "50"

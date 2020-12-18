@@ -1,0 +1,8 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::1:1:2003-09:_1e"
+KIND: Draft
+N: _1e
+TITLE: Tally Magiczl
+PUBLISHED:
+- IRI: text.xml
+  KIND: Text
+  FORMAT: { MIMETYPE: application/tei+xml }
