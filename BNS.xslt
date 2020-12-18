@@ -369,7 +369,8 @@ body{ Margin: 0; Padding: 0 }
 #BNS>div>*>figure>*{ Border: None; Grid-Row: 1 / Span 1; Grid-Column: 1 / Span 1; Block-Size: 100%; Inline-Size: 100%; Object-Fit: Contain }
 #BNS>div>*>div{ Display: Grid; Grid-Row: 2 / Span 1; Margin-Block: -1REM; Margin-Inline: -2REM; Padding-Block: 2REM 0; Padding-Inline: 2REM; Block-Size: 100%; Grid-Template-Rows: 1FR Max-Content; Grid-Auto-Flow: Row; Overflow: Auto; Background: Var(--Shade); Color: Var(--Canvas) }
 #BNS>div>*>div>div{ Display: Contents }
-#BNS>div>*>div>div>*{ Box-Sizing: Border-Box; Block-Size: 100%; Inline-Size: 100%; Overflow: Auto; Object-Fit: Contain }
+#BNS>div>*>div>div>*{ Display: Block; Box-Sizing: Border-Box; Block-Size: 100%; Inline-Size: 100%; Overflow: Auto; Object-Fit: Contain }
+#BNS>div>*>div>div>div.CONTAINER>div>*{ Display: Block; Box-Sizing: Border-Box; Margin: Auto; Block-Size: Auto; Max-Inline-Size: 100%; Overflow: Auto; Object-Fit: Contain }
 #BNS>div>*>div>footer{ Padding-Block: .5EM }
 #BNS>div>*>div>footer p{ Text-Align: Start; Text-Align-Last: Auto }
 #BNS>div>*>div>footer a:Not(:Hover){ Color: Inherit }
@@ -1317,12 +1318,14 @@ window.addEventListener(`load`, ( ) => {
 							<variable name="contents">
 								<choose>
 									<when test="self::rdf:Bag|self::rdf:Seq">
-										<for-each select="*[substring(local-name(), 1, 1)='_'][translate(substring(local-name(), 2, 1), '123456789', '')=''][translate(substring(local-name(), 3), '0123456789', '')=''][namespace-uri()='http://www.w3.org/1999/02/22-rdf-syntax-ns#']">
-											<sort select="substring(local-name(), 2)" data-type="number"/>
-											<html:div>
-												<apply-templates select="." mode="contents"/>
-											</html:div>
-										</for-each>
+										<html:div class="CONTAINER">
+											<for-each select="*[substring(local-name(), 1, 1)='_'][translate(substring(local-name(), 2, 1), '123456789', '')=''][translate(substring(local-name(), 3), '0123456789', '')=''][namespace-uri()='http://www.w3.org/1999/02/22-rdf-syntax-ns#']">
+												<sort select="substring(local-name(), 2)" data-type="number"/>
+												<html:div>
+													<apply-templates select="." mode="contents"/>
+												</html:div>
+											</for-each>
+										</html:div>
 									</when>
 									<otherwise>
 										<apply-templates select="." mode="contents"/>
@@ -1394,7 +1397,7 @@ window.addEventListener(`load`, ( ) => {
 											<call-template name="shorten">
 												<with-param name="uri" select="../../@rdf:about"/>
 											</call-template>
-											<text>&lt;/html:title>&lt;html:style>body>div>*{ Margin: Auto; Max-Width: 100% }&lt;/html:style>&lt;/html:head>&lt;html:body></text>
+											<text>&lt;/html:title>&lt;html:style>body>div.CONTAINER>div>*{ Display: Block; Box-Sizing: Border-Box; Margin: Auto; Block-Size: Auto; Max-Inline-Size: 100%; Overflow: Auto; Object-Fit: Contain }&lt;/html:style>&lt;/html:head>&lt;html:body></text>
 											<apply-templates select="exsl:node-set($contents)" mode="xml-serialize"/>
 											<text>&lt;/html:body>&lt;/html:html></text>
 										</attribute>
