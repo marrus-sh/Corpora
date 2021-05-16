@@ -9,7 +9,7 @@ Branching Notational System XSL Transformation (BNS.xslt)
 
 § Usage:
 
-Requires both XSLT 1.0 and EXSLT Common support.  CSS features require at least Firefox 76.  Stick the following at the beginning of your XML file:
+Requires both XSLT 1.0 and EXSLT Common support.  CSS features require at least Firefox 76 / Safari 14.1 / Chrome 89.  Stick the following at the beginning of your XML file:
 
 ```
 <?xml-stylesheet type="text/xsl" href="/path/to/BNS.xslt"?>
@@ -20,7 +20,7 @@ Requires both XSLT 1.0 and EXSLT Common support.  CSS features require at leas
 ☞ The first ‹ <html:link rel="alternate" type="application/rdf+xml"> › element with an @href attribute is used to source the RDF for the corpus.
 ☞ The @lang attribute on the document element is used to prioritize titles from fetched resources.
 ☞ The @prefix attribute on the <html:html> element (with the RDFa syntax) is used for shortening of displayed links (and branch IDs).
-☞ Exactly one ‹ <article id="BNS"> › must be supplied; the corpus will be placed in here!
+☞ Exactly one ‹ <html:article id="BNS"> › must be supplied; the corpus will be placed in here!
 ☞ Feel free to add your own <html:style> elements or other content.
 
 §§ Things to be sure to define:
@@ -342,19 +342,19 @@ body{ Margin: 0; Padding: 0 }
 #BNS>header>nav a{ Color: Var(--Text); Text-Decoration: None }
 #BNS>header>nav a:Focus,#BNS>header>nav a:Hover{ Text-Decoration: Underline }
 #BNS>div{ Position: Relative; Flex: Auto; Margin-Block: 0 -1REM; Margin-Inline: -5REM; Min-Block-Size: 24REM; Overflow: Hidden }
-#BNS>div>*{ Display: Grid; Position: Absolute; Box-Sizing: Border-Box; Inset-Block: 0; Inset-Inline: 0 Auto; Border: .25REM Var(--Shade) Solid; Border-Radius: 4REM; Padding: 2REM; Inline-Size: 100%; Gap: 1REM 2REM; Grid-Template-Rows: Min-Content 1FR Min-Content; Grid-Template-Columns: 1FR 23EM; Overflow: Hidden; Background: Var(--Canvas) }
+#BNS>div>*{ Display: Grid; Position: Absolute; Box-Sizing: Border-Box; Inset-Block: 0; Inset-Inline: 0 Auto; Border: .25REM Var(--Shade) Solid; Border-Radius: 4REM; Padding: 2REM; Inline-Size: 100%; Gap: 1REM 2REM; Grid-Template-Rows: Min-Content 1FR Min-Content; Grid-Template-Columns: 1FR 23EM; Overflow: Auto; Background: Var(--Canvas) }
 #BNS>div>*[data-slide=in]{ Animation: In-From-End 1S Both }
 #BNS>div>*[data-direction=reverse][data-slide=in]{ Animation: In-From-Start 1S Both }
 #BNS>div>*[data-slide=out]{ Animation: Out-To-Start 1S Both }
 #BNS>div>*[data-direction=reverse][data-slide=out]{ Animation: Out-To-End 1S Both }
 #BNS>div>*[hidden]{ Display: None }
 #BNS>div>*>header,#BNS>div>*>header+section,#BNS>div>*>div,#BNS>div>*>footer{ Grid-Column: 1 / Span 2 }
-#BNS>div>*>header{ Display: Grid; Grid-Auto-Flow: Dense Column; Grid-Row: 1 / Span 1; Margin-Block: -1REM 0; Margin-Inline: -2REM; Border-Block-End: Thin Var(--Shade) Solid; Padding-Block: 0 1REM; Padding-Inline: 2REM; Grid-Template-Rows: Auto Auto Auto; Grid-Template-Columns: Auto 1EM 1EM Min-Content 1EM 1EM Auto; Gap: .3125EM .5REM; Text-Align: Center }
+#BNS>div>*>header{ Display: Grid; Grid-Auto-Flow: Dense Column; Grid-Row: 1 / Span 1; Margin-Block: -1REM 0; Margin-Inline: -2REM; Border-Block-End: Thin Var(--Shade) Solid; Padding-Block: 0 1REM; Padding-Inline: 2REM; Grid-Template-Rows: Auto Auto Auto; Grid-Template-Columns: Auto 1EM 1EM Max-Content 1EM 1EM Auto; Gap: .3125EM .5REM; Text-Align: Center }
 #BNS>div>*>header>p{ Grid-Column: 2 / Span 5; Margin-Block: 0; Min-Width: Max-Content; Color: Var(--Bold); Font-Variant-Caps: Small-Caps; Text-Align: Center; Text-Decoration: Underline }
 #BNS>div>*>header>p>a{ Color: Inherit }
 #BNS>div>*>header>p>a:Focus,#BNS>div>*>header>p>a:Hover{ Color: Var(--Shade); Text-Decoration: Double Underline }
 #BNS>div>*>header>hgroup>h1{ Grid-Column: 1 / Span 7; Margin-Block: 0; Border: None; Padding: 0; Color: Var(--Shade) }
-#BNS>div>*>header>hgroup>h2{ Grid-Column: 4 / Span 1; Margin-Block: 0; Min-Width: Max-Content; Color: Var(--Attn); Font-Size: Inherit; Font-Weight: Inherit; Font-Variant-Caps: Small-Caps }
+#BNS>div>*>header>hgroup>h2{ Grid-Column: 4 / Span 1; Margin-Block: 0; Color: Var(--Attn); Font-Size: Inherit; Font-Weight: Inherit; Font-Variant-Caps: Small-Caps }
 #BNS>div>*>header>hgroup,#BNS>div>*>header>nav{ Display: Contents }
 #BNS>div>*>header>nav>a{ Text-Decoration: None }
 #BNS>div>*>header>nav>a[data-nav=prev]{ Grid-Column: 2 / Span 1 }
@@ -370,7 +370,9 @@ body{ Margin: 0; Padding: 0 }
 #BNS>div>*>div{ Display: Grid; Grid-Row: 2 / Span 1; Margin-Block: -1REM; Margin-Inline: -2REM; Padding-Block: 2REM 0; Padding-Inline: 2REM; Block-Size: 100%; Grid-Template-Rows: 1FR Max-Content; Grid-Auto-Flow: Row; Overflow: Auto; Background: Var(--Shade); Color: Var(--Canvas) }
 #BNS>div>*>div>div{ Display: Contents }
 #BNS>div>*>div>div>*{ Display: Block; Box-Sizing: Border-Box; Block-Size: 100%; Inline-Size: 100%; Overflow: Auto; Object-Fit: Contain }
+#BNS>div>*>div>div>div.CONTAINER>div{ Height: 100% }
 #BNS>div>*>div>div>div.CONTAINER>div>*{ Display: Block; Box-Sizing: Border-Box; Margin: Auto; Block-Size: Auto; Max-Inline-Size: 100%; Overflow: Auto; Object-Fit: Contain }
+#BNS>div>*>div>div>div.CONTAINER>div>iframe{ Block-Size: 100%; Inline-Size: 100% }
 #BNS>div>*>div>footer{ Padding-Block: .5EM }
 #BNS>div>*>div>footer p{ Text-Align: Start; Text-Align-Last: Auto }
 #BNS>div>*>div>footer a:Not(:Hover){ Color: Inherit }
@@ -866,9 +868,39 @@ window.addEventListener(`load`, ( ) => {
 			<when test="self::bns:Section">
 				<choose>
 					<when test="bns:index/@rdf:datatype='&integer;'">
-						<call-template name="formatnumber">
-							<with-param name="number" select="bns:index"/>
-						</call-template>
+						<choose>
+							<when test="bns:index=1">a</when>
+							<when test="bns:index=2">b</when>
+							<when test="bns:index=3">c</when>
+							<when test="bns:index=4">d</when>
+							<when test="bns:index=5">e</when>
+							<when test="bns:index=6">f</when>
+							<when test="bns:index=7">g</when>
+							<when test="bns:index=8">h</when>
+							<when test="bns:index=9">i</when>
+							<when test="bns:index=10">j</when>
+							<when test="bns:index=11">k</when>
+							<when test="bns:index=12">l</when>
+							<when test="bns:index=13">m</when>
+							<when test="bns:index=14">n</when>
+							<when test="bns:index=15">o</when>
+							<when test="bns:index=16">p</when>
+							<when test="bns:index=17">q</when>
+							<when test="bns:index=18">r</when>
+							<when test="bns:index=19">s</when>
+							<when test="bns:index=20">t</when>
+							<when test="bns:index=21">u</when>
+							<when test="bns:index=22">v</when>
+							<when test="bns:index=23">w</when>
+							<when test="bns:index=24">x</when>
+							<when test="bns:index=25">y</when>
+							<when test="bns:index=26">z</when>
+							<otherwise>
+								<call-template name="formatnumber">
+									<with-param name="number" select="bns:index"/>
+								</call-template>
+							</otherwise>
+						</choose>
 					</when>
 					<when test="bns:index/@rdf:datatype='&gYearMonth;' or bns:index/@rdf:datatype='&date;'">
 						<value-of select="translate(bns:index, '-', '–')"/>
@@ -1309,7 +1341,7 @@ window.addEventListener(`load`, ( ) => {
 		<variable name="contents">
 			<apply-templates select="." mode="header"/>
 			<choose>
-				<when test="bns:isPublishedAs/*[@rdf:about]|bns:isPublishedAs/@rdf:resource">
+				<when test="bns:isPublishedAs/*[self::rdf:Bag|self::rdf:Seq|@rdf:about]|bns:isPublishedAs/@rdf:resource">
 					<variable name="documents">
 						<for-each select="bns:isPublishedAs/*[self::rdf:Bag|self::rdf:Seq|@rdf:about]|bns:isPublishedAs[@rdf:resource]">
 							<variable name="mediatype">
@@ -1397,7 +1429,7 @@ window.addEventListener(`load`, ( ) => {
 											<call-template name="shorten">
 												<with-param name="uri" select="../../@rdf:about"/>
 											</call-template>
-											<text>&lt;/html:title>&lt;html:style>body>div.CONTAINER>div>*{ Display: Block; Box-Sizing: Border-Box; Margin: Auto; Block-Size: Auto; Max-Inline-Size: 100%; Overflow: Auto; Object-Fit: Contain }&lt;/html:style>&lt;/html:head>&lt;html:body></text>
+											<text>&lt;/html:title>&lt;html:style>body>div.CONTAINER>div>*{ Display: Block; Box-Sizing: Border-Box; Margin: Auto; Block-Size: Auto; Max-Inline-Size: 100%; Overflow: Auto; Object-Fit: Contain } body>div.CONTAINER>div>iframe{ Block-Size: 100VH; Inline-Size: 100% }&lt;/html:style>&lt;/html:head>&lt;html:body></text>
 											<apply-templates select="exsl:node-set($contents)" mode="xml-serialize"/>
 											<text>&lt;/html:body>&lt;/html:html></text>
 										</attribute>
