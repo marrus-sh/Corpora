@@ -1,0 +1,13 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::6:Α:0:1"
+KIND: Draft
+N: 1
+TITLE: The Legend of Ilia
+PUBLISHED:
+- KIND: [ Text, Sequence ]
+  FORMAT: { MIMETYPE: text/markdown }
+  _1: texta.md
+  _2: textb.md
+- KIND: [ Text, Sequence ]
+  FORMAT: { MIMETYPE: text/html }
+  _1: texta.html
+  _2: textb.html

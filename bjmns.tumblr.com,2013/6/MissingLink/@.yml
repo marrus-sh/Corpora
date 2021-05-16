@@ -1,0 +1,10 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::6:MissingLink"
+KIND: Volume
+ID: MissingLink
+N: MissingLink
+TITLE: "The Legend of Zelda: A Missing Link"
+SHORTTITLE: A Missing Link
+COVER:
+  IRI: cover.jpg
+  KIND: Image
+  FORMAT: { MIMETYPE: image/jpeg }

@@ -1,0 +1,12 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::6:SSBB:0:1:2"
+KIND: Verse
+N: 2
+TITLE: "Super Smash Bros. Brawl: The Revenge of Metaknight!"
+SHORTTITLE: "The Revenge of Metaknight!"
+PUBLISHED:
+- IRI: text.html
+  KIND: Text
+  FORMAT: { MIMETYPE: text/html }
+- IRI: text.rtf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/rtf }

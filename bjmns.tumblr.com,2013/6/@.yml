@@ -1,0 +1,13 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::6"
+KIND: Project
+ID: TLoI
+TITLE: The Legend of Ilia
+ABSTRACT:
+  CONTENTS: |-
+    <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    	<p>A <a href="http://id.loc.gov/resources/hubs/4a3df29ff3a489e191b1df29386dd28b"><code>lcbh:4a3df29ff3a489e191b1df29386dd28b</code></a>‐inspired collection of stories that were written mostly at the end of seventh and beginning of eighth grade.  Most of these stories made no attempt was made to portray the events of the Zelda franchise with any level of accuracy, and instead were sort of a working‐ground for fantasy ideas with a more controlled cast and setting.</p>
+    	<p>Many of these stories were written collaboratively with various classmates; I tried to get my friends writing whenever I could.  Often, they would incorporate elements from <a href="http://www.wikidata.org/entity/Q843131"><code>wikidata:Q843131</code></a> as well.</p>
+    </div>
+INSPIRATION:
+- http://id.loc.gov/resources/hubs/4a3df29ff3a489e191b1df29386dd28b
+- http://www.wikidata.org/entity/Q843131

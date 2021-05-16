@@ -1,0 +1,9 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::6:MissingLink:0::notes:preview"
+KIND: Note
+ID: preview
+TITLE: "Testing Hat Studios Presents… The Legend of Zelda: A Missing Link"
+SHORTTITLE: Testing Hat Studios Presents…
+PUBLISHED:
+- IRI: video.m4v
+  KIND: Video
+  FORMAT: { MIMETYPE: video/mp4 }

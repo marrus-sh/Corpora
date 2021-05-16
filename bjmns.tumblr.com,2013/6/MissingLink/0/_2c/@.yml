@@ -1,0 +1,25 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::6:MissingLink:0:_2c"
+KIND: Draft
+N: _2c
+TITLE: "The Legend of Zelda: A Missing Link – [[ author’s friend ]] Edition"
+SHORTTITLE: A Missing Link
+COVER:
+  IRI: cover.jpg
+  KIND: Image
+  FORMAT: { MIMETYPE: image/jpeg }
+PUBLISHED:
+- IRI: text.html
+  KIND: Text
+  FORMAT: { MIMETYPE: text/html }
+- IRI: text.pdf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/pdf }
+- KIND: [ Text, Sequence ]
+  FORMAT: { MIMETYPE: image/png }
+  _1: page00-0.png
+  _2: page00-1.png
+  _3: page00-2.png
+  _4: page01.png
+- IRI: text.rtf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/rtf }

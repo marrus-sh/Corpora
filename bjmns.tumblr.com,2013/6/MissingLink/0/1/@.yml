@@ -1,0 +1,14 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::6:MissingLink:0:1"
+KIND: Draft
+N: 1
+TITLE: "The Legend of Zelda: A Missing Link"
+SHORTTITLE: A Missing Link
+ABSTRACT:
+  CONTENTS: |-
+    <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    	<p>Originally written for a writing competition among friends I was trying to make happen but never did.  The original file was a ClarisWorks document; the provided plaintext was extracted by opening it in an ordinary text editor.</p>
+    </div>
+PUBLISHED:
+- IRI: text.txt
+  KIND: Text
+  FORMAT: { MIMETYPE: text/plain }

@@ -1,0 +1,13 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::6:Θ:0:1"
+KIND: Draft
+ID: Θ1
+N: 1
+TITLE: Theta One
+SHORTTITLE: Θ1
+PUBLISHED:
+- IRI: text.html
+  KIND: Text
+  FORMAT: { MIMETYPE: text/html }
+- IRI: text.rtf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/rtf }

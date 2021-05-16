@@ -353,7 +353,7 @@ body{ Margin: 0; Padding: 0 }
 #BNS>div>*>header>p{ Grid-Column: 2 / Span 5; Margin-Block: 0; Min-Width: Max-Content; Color: Var(--Bold); Font-Variant-Caps: Small-Caps; Text-Align: Center; Text-Decoration: Underline }
 #BNS>div>*>header>p>a{ Color: Inherit }
 #BNS>div>*>header>p>a:Focus,#BNS>div>*>header>p>a:Hover{ Color: Var(--Shade); Text-Decoration: Double Underline }
-#BNS>div>*>header>hgroup>h1{ Grid-Column: 1 / Span 7; Margin-Block: 0; Border: None; Padding: 0; Color: Var(--Shade) }
+#BNS>div>*>header>hgroup>h1{ Grid-Column: 1 / Span 7; Margin-Block: 0; Border: None; Padding: 0; Width: Min-Content; Min-Width: 100%; Color: Var(--Shade) }
 #BNS>div>*>header>hgroup>h2{ Grid-Column: 4 / Span 1; Margin-Block: 0; Color: Var(--Attn); Font-Size: Inherit; Font-Weight: Inherit; Font-Variant-Caps: Small-Caps }
 #BNS>div>*>header>hgroup,#BNS>div>*>header>nav{ Display: Contents }
 #BNS>div>*>header>nav>a{ Text-Decoration: None }
@@ -367,12 +367,14 @@ body{ Margin: 0; Padding: 0 }
 #BNS>div>*>section>*:Empty:Not(:Only-Child){ Display: None }
 #BNS>div>*>figure{ Display: Grid; Grid-Row: 2 / Span 1; Grid-Column: 1 / Span 1; Margin: 0; Padding: 0; Block-Size: 100%; Inline-Size: 100%; Overflow: Hidden }
 #BNS>div>*>figure>*{ Border: None; Grid-Row: 1 / Span 1; Grid-Column: 1 / Span 1; Block-Size: 100%; Inline-Size: 100%; Object-Fit: Contain }
+#BNS>div>*>figure>iframe{ Object-Fit: Fill }
 #BNS>div>*>div{ Display: Grid; Grid-Row: 2 / Span 1; Margin-Block: -1REM; Margin-Inline: -2REM; Padding-Block: 2REM 0; Padding-Inline: 2REM; Block-Size: 100%; Grid-Template-Rows: 1FR Max-Content; Grid-Auto-Flow: Row; Overflow: Auto; Background: Var(--Shade); Color: Var(--Canvas) }
 #BNS>div>*>div>div{ Display: Contents }
 #BNS>div>*>div>div>*{ Display: Block; Box-Sizing: Border-Box; Block-Size: 100%; Inline-Size: 100%; Overflow: Auto; Object-Fit: Contain }
-#BNS>div>*>div>div>div.CONTAINER>div{ Height: 100% }
+#BNS>div>*>div>div>iframe{ Object-Fit: Fill }
+#BNS>div>*>div>div>div.CONTAINER>div{ Display: Contents }
 #BNS>div>*>div>div>div.CONTAINER>div>*{ Display: Block; Box-Sizing: Border-Box; Margin: Auto; Block-Size: Auto; Max-Inline-Size: 100%; Overflow: Auto; Object-Fit: Contain }
-#BNS>div>*>div>div>div.CONTAINER>div>iframe{ Block-Size: 100%; Inline-Size: 100% }
+#BNS>div>*>div>div>div.CONTAINER>div>iframe{ Block-Size: 100%; Inline-Size: 100%; Object-Fit: Fill }
 #BNS>div>*>div>footer{ Padding-Block: .5EM }
 #BNS>div>*>div>footer p{ Text-Align: Start; Text-Align-Last: Auto }
 #BNS>div>*>div>footer a:Not(:Hover){ Color: Inherit }
@@ -971,7 +973,6 @@ window.addEventListener(`load`, ( ) => {
 				</choose>
 			</when>
 			<when test="self::bns:Concept">
-				<text>c</text>
 				<choose>
 					<when test="bns:index/@rdf:datatype='&integer;'">
 						<call-template name="formatnumber">
@@ -994,7 +995,6 @@ window.addEventListener(`load`, ( ) => {
 				</choose>
 			</when>
 			<when test="self::bns:Version">
-				<text>v</text>
 				<choose>
 					<when test="bns:index/@rdf:datatype='&integer;'">
 						<call-template name="formatnumber">
@@ -1017,7 +1017,6 @@ window.addEventListener(`load`, ( ) => {
 				</choose>
 			</when>
 			<when test="self::bns:Draft">
-				<text>d</text>
 				<choose>
 					<when test="bns:index/@rdf:datatype='&integer;'">
 						<call-template name="formatnumber">
@@ -1078,11 +1077,29 @@ window.addEventListener(`load`, ( ) => {
 								<value-of select="bns:identifier"/>
 							</when>
 							<otherwise>
-								<if test="self::bns:Draft">
-									<for-each select="ancestor::bns:Version[1]">
-										<call-template name="formatted"/>
-									</for-each>
-								</if>
+								<choose>
+									<when test="self::bns:Concept">
+										<text>@ </text>
+									</when>
+									<when test="self::bns:Version">
+										<for-each select="ancestor::bns:Concept[1]">
+											<text>@ </text>
+											<call-template name="formatted"/>
+											<text>·</text>
+										</for-each>
+									</when>
+									<when test="self::bns:Draft">
+										<for-each select="ancestor::bns:Concept[1]">
+											<text>@ </text>
+											<call-template name="formatted"/>
+											<text>·</text>
+										</for-each>
+										<for-each select="ancestor::bns:Version[1]">
+											<call-template name="formatted"/>
+											<text>·</text>
+										</for-each>
+									</when>
+								</choose>
 								<call-template name="formatted"/>
 							</otherwise>
 						</choose>
@@ -1096,9 +1113,6 @@ window.addEventListener(`load`, ( ) => {
 			<choose>
 				<when test="self::bns:Project|parent::*[string-length(local-name())>1][substring(local-name(), 1, 1)='_'][translate(substring(local-name(), 2, 1), '123456789', '')=''][translate(substring(local-name(), 3), '0123456789', '')=''][namespace-uri()='http://www.w3.org/1999/02/22-rdf-syntax-ns#']/../parent::bns:hasProjects">
 					<text>Project </text>
-					<call-template name="formatted"/>
-				</when>
-				<when test="self::bns:Concept|self::bns:Version|self::bns:Draft">
 					<call-template name="formatted"/>
 				</when>
 				<when test="self::bns:Note|parent::bns:hasNote">
@@ -1429,7 +1443,7 @@ window.addEventListener(`load`, ( ) => {
 											<call-template name="shorten">
 												<with-param name="uri" select="../../@rdf:about"/>
 											</call-template>
-											<text>&lt;/html:title>&lt;html:style>body>div.CONTAINER>div>*{ Display: Block; Box-Sizing: Border-Box; Margin: Auto; Block-Size: Auto; Max-Inline-Size: 100%; Overflow: Auto; Object-Fit: Contain } body>div.CONTAINER>div>iframe{ Block-Size: 100VH; Inline-Size: 100% }&lt;/html:style>&lt;/html:head>&lt;html:body></text>
+											<text>&lt;/html:title>&lt;html:style>body>div.CONTAINER>div>*{ Display: Block; Box-Sizing: Border-Box; Margin: Auto; Block-Size: Auto; Max-Inline-Size: 100%; Overflow: Auto; Object-Fit: Contain } body>div.CONTAINER>div>iframe{ Block-Size: 100VH; Inline-Size: 100%; Object-Fit: Fill }&lt;/html:style>&lt;/html:head>&lt;html:body></text>
 											<apply-templates select="exsl:node-set($contents)" mode="xml-serialize"/>
 											<text>&lt;/html:body>&lt;/html:html></text>
 										</attribute>
@@ -1588,13 +1602,8 @@ window.addEventListener(`load`, ( ) => {
 						</attribute>
 						<call-template name="namedformat"/>
 					</html:a>
-					<if test="not(self::bns:Version)">
-						<text> :: </text>
-					</if>
-				</for-each>
-				<if test="parent::bns:hasNote/parent::bns:Version">
 					<text> :: </text>
-				</if>
+				</for-each>
 				<call-template name="namedformat"/>
 			</html:p>
 			<call-template name="name"/>

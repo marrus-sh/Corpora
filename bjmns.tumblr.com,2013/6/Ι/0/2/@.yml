@@ -1,0 +1,13 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::6:Ι:0:2"
+KIND: Draft
+ID: Ι2
+N: 2
+TITLE: Iota Two
+SHORTTITLE: Ι2
+PUBLISHED:
+- IRI: text.html
+  KIND: Text
+  FORMAT: { MIMETYPE: text/html }
+- IRI: text.rtf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/rtf }

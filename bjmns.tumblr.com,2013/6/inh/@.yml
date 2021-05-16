@@ -1,0 +1,10 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::6:inh"
+KIND: Volume
+ID: inh
+N: inh
+TITLE: "The Legend of Zelda: (insert name here)"
+SHORTTITLE: "(insert name here)"
+COVER:
+  IRI: cover.jpg
+  KIND: Image
+  FORMAT: { MIMETYPE: image/jpeg }
