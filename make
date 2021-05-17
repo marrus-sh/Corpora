@@ -28,11 +28,10 @@ ${ gitattributes ?? "" }`) }
 		Deno.writeTextFileSync(`${ base }${ path }/index.html`, `<!dOcTyPe HtMl>
 <HTML Lang=en>
 	<TITLE>Redirect to description</TITLE>
-	<BASE HRef="${ new Array (path.split("/").length).fill("..").join("/") }">
-	<LINK Rel=alternate HRef=":bns/index.rdf" Type=application/rdf+xml>
+	<LINK Rel=alternate HRef="${ new Array (path.split("/").length).fill("..").join("/") }/bns:/index.rdf" Type=application/rdf+xml>
 	<META Http-Equiv=refresh Content="0; ${ new Array (path.split("/").length).fill("..").join("/") }/#${ id }"/>
 	<P>
-		<A HRef="#${ id }">View this directory’s description in the BNS corpus.</A>
+		<A HRef="${ new Array (path.split("/").length).fill("..").join("/") }/#${ id }">View this directory’s description in the BNS corpus.</A>
 `) }
 	catch ( e ) { } }
 
@@ -273,6 +272,6 @@ for ( const entry of Deno.readDirSync(".") ) {
 		continue
 	const document = corpus(`./${ entry.name }/`)
 	if ( document != null ) {
-		console.log(`Writing corpus: ./${ entry.name }/:bns/index.rdf`)
-		Deno.mkdirSync(`./${ entry.name }/:bns`, { recursive: true })
-		Deno.writeTextFileSync(`./${ entry.name }/:bns/index.rdf`, document) } }
+		console.log(`Writing corpus: ./${ entry.name }/bns:/index.rdf`)
+		Deno.mkdirSync(`./${ entry.name }/bns:`, { recursive: true })
+		Deno.writeTextFileSync(`./${ entry.name }/bns:/index.rdf`, document) } }
