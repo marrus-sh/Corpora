@@ -350,10 +350,10 @@ body{ Margin: 0; Padding: 0 }
 #BNS>div>*[hidden]{ Display: None }
 #BNS>div>*>header,#BNS>div>*>header+section,#BNS>div>*>div,#BNS>div>*>footer{ Grid-Column: 1 / Span 2 }
 #BNS>div>*>header{ Display: Grid; Grid-Auto-Flow: Dense Column; Grid-Row: 1 / Span 1; Margin-Block: -1REM 0; Margin-Inline: -2REM; Border-Block-End: Thin Var(--Shade) Solid; Padding-Block: 0 1REM; Padding-Inline: 2REM; Grid-Template-Rows: Auto Auto Auto; Grid-Template-Columns: Auto 1EM 1EM Max-Content 1EM 1EM Auto; Gap: .3125EM .5REM; Text-Align: Center }
-#BNS>div>*>header>p{ Grid-Column: 2 / Span 5; Margin-Block: 0; Min-Width: Max-Content; Color: Var(--Bold); Font-Variant-Caps: Small-Caps; Text-Align: Center; Text-Decoration: Underline }
+#BNS>div>*>header>p{ Grid-Column: 2 / Span 5; Margin-Block: 0; Min-Inline-Size: Max-Content; Color: Var(--Bold); Font-Variant-Caps: Small-Caps; Text-Align: Center; Text-Decoration: Underline }
 #BNS>div>*>header>p>a{ Color: Inherit }
 #BNS>div>*>header>p>a:Focus,#BNS>div>*>header>p>a:Hover{ Color: Var(--Shade); Text-Decoration: Double Underline }
-#BNS>div>*>header>hgroup>h1{ Grid-Column: 1 / Span 7; Margin-Block: 0; Border: None; Padding: 0; Width: Min-Content; Min-Width: 100%; Color: Var(--Shade) }
+#BNS>div>*>header>hgroup>h1{ Grid-Column: 1 / Span 7; Margin-Block: 0; Border: None; Padding: 0; Inline-Size: Min-Content; Min-Inline-Size: 100%; Color: Var(--Shade) }
 #BNS>div>*>header>hgroup>h2{ Grid-Column: 4 / Span 1; Margin-Block: 0; Color: Var(--Attn); Font-Size: Inherit; Font-Weight: Inherit; Font-Variant-Caps: Small-Caps }
 #BNS>div>*>header>hgroup,#BNS>div>*>header>nav{ Display: Contents }
 #BNS>div>*>header>nav>a{ Text-Decoration: None }
@@ -384,6 +384,13 @@ body{ Margin: 0; Padding: 0 }
 #BNS>div>*>footer>*+*:Last-Child{ Display: Grid; Margin-Inline-Start: 1EM; Grid-Template-Columns: Max-Content 1FR Max-Content }
 #BNS>div>*>footer>*+*:Last-Child>a{ Max-Inline-Size: 100%; Overflow: Hidden; Text-Overflow: Ellipsis }
 #BNS>div>span{ Display: Block; Border: None; Padding: 0; Block-Size: 1EM; Inline-Size: Max-Content; Line-Height: 1; White-Space: Pre }
+span.LOOKUP{ White-Space: NoWrap }
+span.LOOKUP>a{ White-Space: Normal }
+span.LOOKUP>a:Not([data-expanded]){ Word-Break: Break-All }
+span.LOOKUP>a[data-expanded]+small{ Vertical-Align: Sub; Font-Size: Smaller; Line-Height: 1; White-Space: NoWrap }
+span.LOOKUP>a[data-expanded]+small>code{ Display: Inline-Block; Max-Inline-Size: 50%; Vertical-Align: Text-Bottom; Overflow: Hidden; Overflow-Wrap: Normal; Text-Overflow: Ellipsis }
+span.LOOKUP>a[data-expanded]+small::before{ Content: "[" }
+span.LOOKUP>a[data-expanded]+small::after{ Content: "]" }
 h1{ Margin-Block: 0 .5REM; Margin-Inline: Auto; Border-Width: Thin; Border-Block-Style: Dotted Solid; Border-Block-Color: Var(--Fade) Var(--Shade); Border-Inline-Style: Dashed; Border-Inline-Color: Var(--Text); Padding-Block: .3125EM; Padding-Inline: 1EM; Max-Inline-Size: Max-Content; Color: Var(--Text); Font-Size: X-Large; Font-Family: Sans-Serif; Line-Height: 1; Text-Align: Center }
 blockquote,p{ Margin-Block: 0; Margin-Inline: Auto; Text-Align: Justify; Text-Align-Last: Center }
 blockquote:Not(:First-Child),p:Not(:First-Child){ Margin-Block: .625EM 0 }
@@ -401,12 +408,9 @@ dt{ Font-Weight: Bold }
 dd{ Display: List-Item; List-Style-Type: Square }
 *:Any-Link{ Color: Var(--Text) }
 *:Any-Link:Hover{ Color: Var(--Fade) }
-a{ White-Space: Normal }
-a[data-expanded]+small{ Display: Inline-Block; Vertical-Align: Sub; Font-Size: Smaller; Line-Height: 1 }
-a[data-expanded]+small::before{ Content: "[" }
-a[data-expanded]+small::after{ Content: "]" }
 button,sup{ Line-Height: 1 }
 button{ Margin-Inline: 0; Border-Color: CurrentColor; Border-Width: Thin; Border-Block-Style: None Dotted; Border-Inline-Style: None; Padding: 0; Vertical-Align: Super; Color: Var(--Magic); Background: Transparent; Font: Smaller; Cursor: Pointer }
+code{ Overflow-Wrap: Break-Word }
 strong{ Color: Var(--Attn) }
 a:Hover strong{ Color: Var(--Shade) }
 			</html:style>
@@ -448,6 +452,7 @@ const i = ( { target: e } ) => {
 		const s = document.createElementNS(`http://www.w3.org/1999/xhtml`, `small`)
 		if ( n.hasAttributeNS(`http://www.w3.org/XML/1998/namespace`, `lang`) ) c.setAttribute(`lang`, n.getAttributeNS(`http://www.w3.org/XML/1998/namespace`, `lang`))
 		c.textContent = n.textContent
+		s.title = a.textContent
 		for ( const h of a.childNodes ) { s.appendChild(h) }
 		a.appendChild(c)
 		e.parentNode.replaceChild(s, e)
@@ -565,7 +570,7 @@ window.addEventListener(`load`, ( ) => {
 		</variable>
 		<choose>
 			<when test="count(*)=1 and html:code">
-				<html:span style="White-Space: NoWrap">
+				<html:span class="LOOKUP">
 					<copy-of select="$result"/>
 					<text>&#x2060;</text>
 					<html:button title="Attempt to fetch link metadata." onclick="i(event)" type="button">[?]</html:button>

@@ -31,7 +31,7 @@
 		{ "@id": "rdf:Seq"
 		, "@context": { "@vocab": "rdf" } }
 	, "Set":
-		{ "@id": "rdf:Set"
+		{ "@id": "rdf:Bag"
 		, "@context": { "@vocab": "rdf" } }
 	, "IRI": "@id"
 	, "KIND": "@type"
