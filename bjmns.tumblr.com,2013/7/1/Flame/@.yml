@@ -1,0 +1,12 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::7:1:Flame"
+KIND: Version
+ID: Flame
+N: Flame
+ABSTRACT:
+  CONTENTS: |-
+    <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    	<p>This was an early attempt at a darker, more political story with suspense and intrigue.  From reading the author’s note, apparently there was some <a href="http://id.loc.gov/resources/works/2615279"><code>lcbw:2615279</code></a> influence?  I couldn’t say.</p>
+    	<p>Elements of the conflict would eventually develop into <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/17/" resource="tag:bjmns.tumblr.com,2013:bns::17"><code>bjmns:17</code></a>, although the plot itself would be mostly left in the rubbish bin.</p>
+    </div>
+INSPIRATION:
+- http://id.loc.gov/resources/works/2615279

@@ -1,0 +1,14 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::7"
+KIND: Project
+ID: forces
+TITLE: Tyneland
+SHORTTITLE: c(x)
+ABSTRACT:
+  CONTENTS: |-
+    <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    	<p>A reworking of <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/" resource="tag:bjmns.tumblr.com,2013:bns::6"><code>bjmns:6</code></a> into more original content.  In some cases the <a href="http://id.loc.gov/resources/hubs/4a3df29ff3a489e191b1df29386dd28b"><code>lcbh:4a3df29ff3a489e191b1df29386dd28b</code></a> influence is more apparent; others are more of an exploration of ideas I had which took things in a different direction.  Most of these stories involve “Bearers” of “Forces” in some fashion; this concept would eventually mature into <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/15/" resource="tag:bjmns.tumblr.com,2013:bns::15"><code>bjmns:15</code></a>.</p>
+    	<p>I was reading <a href="http://id.loc.gov/resources/hubs/4c63f94b899a65e4bae19a5eadcb16ed"><code>lcbh:4c63f94b899a65e4bae19a5eadcb16ed</code></a> at the time although I am not sure the influence is necessarily apparent.</p>
+    </div>
+INSPIRATION:
+- http://id.loc.gov/resources/hubs/4a3df29ff3a489e191b1df29386dd28b
+- http://id.loc.gov/resources/hubs/4c63f94b899a65e4bae19a5eadcb16ed

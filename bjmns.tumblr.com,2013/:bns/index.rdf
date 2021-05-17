@@ -1361,10 +1361,10 @@
 		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
 	</dc:FileFormat>
 		</dc:format>
-		<rdf:_1 rdf:resource="./6/MissingLink/0/_2c/page00-0.png"/>
-		<rdf:_2 rdf:resource="./6/MissingLink/0/_2c/page00-1.png"/>
-		<rdf:_3 rdf:resource="./6/MissingLink/0/_2c/page00-2.png"/>
-		<rdf:_4 rdf:resource="./6/MissingLink/0/_2c/page01.png"/>
+		<rdf:_1 rdf:resource="./6/MissingLink/0/_2c/page101.png"/>
+		<rdf:_2 rdf:resource="./6/MissingLink/0/_2c/page102.png"/>
+		<rdf:_3 rdf:resource="./6/MissingLink/0/_2c/page103.png"/>
+		<rdf:_4 rdf:resource="./6/MissingLink/0/_2c/page104.png"/>
 	</rdf:Seq>
 		</isPublishedAs>
 		<isPublishedAs>
@@ -1442,9 +1442,9 @@
 		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
 	</dc:FileFormat>
 		</dc:format>
-		<rdf:_1 rdf:resource="./6/MissingLink/0/2/page00.png"/>
-		<rdf:_2 rdf:resource="./6/MissingLink/0/2/page01.png"/>
-		<rdf:_3 rdf:resource="./6/MissingLink/0/2/page02.png"/>
+		<rdf:_1 rdf:resource="./6/MissingLink/0/2/page101.png"/>
+		<rdf:_2 rdf:resource="./6/MissingLink/0/2/page102.png"/>
+		<rdf:_3 rdf:resource="./6/MissingLink/0/2/page103.png"/>
 	</rdf:Seq>
 		</isPublishedAs>
 		<isPublishedAs>
@@ -1486,7 +1486,8 @@
 		<owl:sameAs rdf:resource="#bjmns:6:Α"/>
 		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Α</identifier>
 		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Α</index>
-		<fullTitle xml:lang="en">Alpha</fullTitle>
+		<fullTitle xml:lang="en">The Legend of Ilia: Alpha</fullTitle>
+		<abbreviatedTitle xml:lang="en">Alpha</abbreviatedTitle>
 		<dc:abstract rdf:parseType="Resource">
 			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 	<p>The <em>original</em> <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/" resource="tag:bjmns.tumblr.com,2013:bns::6"><code>bjmns:6</code></a> story, and also both my first time writing fanfiction and my first time writing romance (<a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/1/1/2003-03/" resource="tag:bjmns.tu mblr.com,2013:bns::1:1:2003-03"><code>bjmns:6</code></a> aside).  It’s also the only <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/" resource="tag:bjmns.tumblr.com,2013:bns::6"><code>bjmns:6</code></a> to actually ever be <em>finished</em> (for some sense of the word).</p>
@@ -1537,7 +1538,8 @@
 		<owl:sameAs rdf:resource="#bjmns:6:Θ"/>
 		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Θ</identifier>
 		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Θ</index>
-		<fullTitle xml:lang="en">Theta</fullTitle>
+		<fullTitle xml:lang="en">The Legend of Ilia: Theta</fullTitle>
+		<abbreviatedTitle xml:lang="en">Theta</abbreviatedTitle>
 		<dc:abstract rdf:parseType="Resource">
 			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 	<p>I quite liked the decision to begin this story from the monsters’ perspective at the time.  As I recall, it was going to focus much more heavily on monster (i.e., blin) culture and their feelings regarding the events of <a href="http://id.loc.gov/resources/hubs/4a3df29ff3a489e191b1df29386dd28b"><code>lcbh:4a3df29ff3a489e191b1df29386dd28b</code></a>, with perhaps some kind of animosity towards Link due to the actions of his previous incarnation.</p>
@@ -1554,8 +1556,8 @@
 		<owl:sameAs rdf:resource="#bjmns:6:Θ:0:1"/>
 		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Θ1</identifier>
 		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
-		<fullTitle xml:lang="en">Theta One</fullTitle>
-		<abbreviatedTitle xml:lang="en">Θ1</abbreviatedTitle>
+		<fullTitle xml:lang="en">The Legend of Ilia: Theta One</fullTitle>
+		<abbreviatedTitle xml:lang="en">TLoI-Θ1</abbreviatedTitle>
 		<isPublishedAs>
 	<dcmitype:Text rdf:about="./6/Θ/0/1/text.html">
 		<dc:format>
@@ -1662,10 +1664,10 @@
 		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
 	</dc:FileFormat>
 		</dc:format>
-		<rdf:_1 rdf:resource="./6/LinkXXX/0/1/1/page01.png"/>
-		<rdf:_2 rdf:resource="./6/LinkXXX/0/1/1/page02.png"/>
-		<rdf:_3 rdf:resource="./6/LinkXXX/0/1/1/page03.png"/>
-		<rdf:_4 rdf:resource="./6/LinkXXX/0/1/1/page04.png"/>
+		<rdf:_1 rdf:resource="./6/LinkXXX/0/1/1/page101.png"/>
+		<rdf:_2 rdf:resource="./6/LinkXXX/0/1/1/page102.png"/>
+		<rdf:_3 rdf:resource="./6/LinkXXX/0/1/1/page103.png"/>
+		<rdf:_4 rdf:resource="./6/LinkXXX/0/1/1/page104.png"/>
 	</rdf:Seq>
 		</isPublishedAs>
 		<isPublishedAs>
@@ -1767,7 +1769,8 @@
 		<owl:sameAs rdf:resource="#bjmns:6:Ι"/>
 		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Ι</identifier>
 		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Ι</index>
-		<fullTitle xml:lang="en">Iota</fullTitle>
+		<fullTitle xml:lang="en">The Legend of Ilia: Iota</fullTitle>
+		<abbreviatedTitle xml:lang="en">Iota</abbreviatedTitle>
 		<dc:abstract rdf:parseType="Resource">
 			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 	<p>I <em>quite liked</em> the beginning of this story, and re·used it <em>often</em>.  Unfortunately, I could never decide on a place for the story to go from there.</p>
@@ -1784,8 +1787,8 @@
 		<owl:sameAs rdf:resource="#bjmns:6:Ι:0:1"/>
 		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Ι1</identifier>
 		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
-		<fullTitle xml:lang="en">Iota One</fullTitle>
-		<abbreviatedTitle xml:lang="en">Ι1</abbreviatedTitle>
+		<fullTitle xml:lang="en">The Legend of Ilia: Iota One</fullTitle>
+		<abbreviatedTitle xml:lang="en">TLoI–Ι1</abbreviatedTitle>
 		<isPublishedAs>
 	<dcmitype:Text rdf:about="./6/Ι/0/1/text.html">
 		<dc:format>
@@ -1837,7 +1840,7 @@
 		<owl:sameAs rdf:resource="#bjmns:6:Ι:0:3"/>
 		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Ι3</identifier>
 		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</index>
-		<fullTitle xml:lang="en">Iota Three</fullTitle>
+		<fullTitle xml:lang="en">The Legend of Ilia: Iota Three</fullTitle>
 		<abbreviatedTitle xml:lang="en">Ι3</abbreviatedTitle>
 		<isPublishedAs>
 	<dcmitype:Text rdf:about="./6/Ι/0/3/text.html">
@@ -1865,7 +1868,7 @@
 		<owl:sameAs rdf:resource="#bjmns:6:Ι:0:2"/>
 		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Ι2</identifier>
 		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</index>
-		<fullTitle xml:lang="en">Iota Two</fullTitle>
+		<fullTitle xml:lang="en">The Legend of Ilia: Iota Two</fullTitle>
 		<abbreviatedTitle xml:lang="en">Ι2</abbreviatedTitle>
 		<isPublishedAs>
 	<dcmitype:Text rdf:about="./6/Ι/0/2/text.html">
@@ -2060,16 +2063,16 @@
 		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
 	</dc:FileFormat>
 		</dc:format>
-		<rdf:_1 rdf:resource="./6/inh/0/1/page01.png"/>
-		<rdf:_2 rdf:resource="./6/inh/0/1/page02.png"/>
-		<rdf:_3 rdf:resource="./6/inh/0/1/page03.png"/>
-		<rdf:_4 rdf:resource="./6/inh/0/1/page04.png"/>
-		<rdf:_5 rdf:resource="./6/inh/0/1/page05.png"/>
-		<rdf:_6 rdf:resource="./6/inh/0/1/page06.png"/>
-		<rdf:_7 rdf:resource="./6/inh/0/1/page07.png"/>
-		<rdf:_8 rdf:resource="./6/inh/0/1/page08.png"/>
-		<rdf:_9 rdf:resource="./6/inh/0/1/page09.png"/>
-		<rdf:_10 rdf:resource="./6/inh/0/1/page10.png"/>
+		<rdf:_1 rdf:resource="./6/inh/0/1/page101.png"/>
+		<rdf:_2 rdf:resource="./6/inh/0/1/page102.png"/>
+		<rdf:_3 rdf:resource="./6/inh/0/1/page103.png"/>
+		<rdf:_4 rdf:resource="./6/inh/0/1/page104.png"/>
+		<rdf:_5 rdf:resource="./6/inh/0/1/page201.png"/>
+		<rdf:_6 rdf:resource="./6/inh/0/1/page202.png"/>
+		<rdf:_7 rdf:resource="./6/inh/0/1/page203.png"/>
+		<rdf:_8 rdf:resource="./6/inh/0/1/page204.png"/>
+		<rdf:_9 rdf:resource="./6/inh/0/1/page301.png"/>
+		<rdf:_10 rdf:resource="./6/inh/0/1/page302.png"/>
 	</rdf:Seq>
 		</isPublishedAs>
 		<isPublishedAs>
@@ -2135,9 +2138,9 @@
 		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
 	</dc:FileFormat>
 		</dc:format>
-		<rdf:_1 rdf:resource="./6/Writing.../0/1/1/page01.png"/>
-		<rdf:_2 rdf:resource="./6/Writing.../0/1/1/page02.png"/>
-		<rdf:_3 rdf:resource="./6/Writing.../0/1/1/page03.png"/>
+		<rdf:_1 rdf:resource="./6/Writing.../0/1/1/page101.png"/>
+		<rdf:_2 rdf:resource="./6/Writing.../0/1/1/page102.png"/>
+		<rdf:_3 rdf:resource="./6/Writing.../0/1/1/page103.png"/>
 	</rdf:Seq>
 		</isPublishedAs>
 		<isPublishedAs>
@@ -2182,8 +2185,8 @@
 		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
 	</dc:FileFormat>
 		</dc:format>
-		<rdf:_1 rdf:resource="./6/Writing.../0/1/2/page01.png"/>
-		<rdf:_2 rdf:resource="./6/Writing.../0/1/2/page02.png"/>
+		<rdf:_1 rdf:resource="./6/Writing.../0/1/2/page101.png"/>
+		<rdf:_2 rdf:resource="./6/Writing.../0/1/2/page102.png"/>
 	</rdf:Seq>
 		</isPublishedAs>
 		<isPublishedAs>
@@ -2281,8 +2284,8 @@
 		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
 	</dc:FileFormat>
 		</dc:format>
-		<rdf:_1 rdf:resource="./6/DARK/0/_1nspire/page01.png"/>
-		<rdf:_2 rdf:resource="./6/DARK/0/_1nspire/page02.png"/>
+		<rdf:_1 rdf:resource="./6/DARK/0/_1nspire/page101.png"/>
+		<rdf:_2 rdf:resource="./6/DARK/0/_1nspire/page102.png"/>
 	</rdf:Seq>
 		</isPublishedAs>
 		<isPublishedAs>
@@ -2317,7 +2320,8 @@
 		<owl:sameAs rdf:resource="./6/Λ/0/"/>
 		<owl:sameAs rdf:resource="#bjmns:6:Λ:0"/>
 		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</index>
-		<fullTitle xml:lang="en">Lambda</fullTitle>
+		<fullTitle xml:lang="en">The Legend of Ilia: Lambda</fullTitle>
+		<abbreviatedTitle xml:lang="en">Lambda</abbreviatedTitle>
 		<includes>
 	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::6:Λ:0:1">
 		<owl:sameAs rdf:resource="./6/Λ/0/1/"/>
@@ -2388,7 +2392,8 @@
 		<owl:sameAs rdf:resource="#bjmns:6:Κ"/>
 		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Κ</identifier>
 		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Κ</index>
-		<fullTitle xml:lang="en">Kappa</fullTitle>
+		<fullTitle xml:lang="en">The Legend of Ilia: Kappa</fullTitle>
+		<abbreviatedTitle xml:lang="en">Kappa</abbreviatedTitle>
 		<dc:abstract rdf:parseType="Resource">
 			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 	<p>A (planned) direct sequel to <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/Ι/" resource="tag:bjmns.tumblr.com,2013:bns::6:Ι"><code>bjmns:6:Ι</code></a>, because I really liked that story, even though I never got very far with either.</p>
@@ -2405,8 +2410,8 @@
 		<owl:sameAs rdf:resource="#bjmns:6:Κ:0:1"/>
 		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Κ1</identifier>
 		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
-		<fullTitle xml:lang="en">Kappa One</fullTitle>
-		<abbreviatedTitle xml:lang="en">Κ1</abbreviatedTitle>
+		<fullTitle xml:lang="en">The Legend of Ilia: Kappa One</fullTitle>
+		<abbreviatedTitle xml:lang="en">TLoI-Κ1</abbreviatedTitle>
 		<isPublishedAs>
 	<dcmitype:Text rdf:about="./6/Κ/0/1/text.html">
 		<dc:format>
@@ -2474,8 +2479,8 @@
 		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
 	</dc:FileFormat>
 		</dc:format>
-		<rdf:_1 rdf:resource="./6/LastStory/0/1/page01.png"/>
-		<rdf:_2 rdf:resource="./6/LastStory/0/1/page02.png"/>
+		<rdf:_1 rdf:resource="./6/LastStory/0/1/page101.png"/>
+		<rdf:_2 rdf:resource="./6/LastStory/0/1/page102.png"/>
 	</rdf:Seq>
 		</isPublishedAs>
 		<isPublishedAs>
@@ -2642,6 +2647,595 @@
 		</includes>
 	</Project>
 		</rdf:_6>
+		<rdf:_7>
+	<Project rdf:about="tag:bjmns.tumblr.com,2013:bns::7">
+		<owl:sameAs rdf:resource="./7/"/>
+		<owl:sameAs rdf:resource="#bjmns:7"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">forces</identifier>
+		<fullTitle xml:lang="en">Tyneland</fullTitle>
+		<abbreviatedTitle xml:lang="en">c(x)</abbreviatedTitle>
+		<inspiration rdf:resource="http://id.loc.gov/resources/hubs/4a3df29ff3a489e191b1df29386dd28b"/>
+		<inspiration rdf:resource="http://id.loc.gov/resources/hubs/4c63f94b899a65e4bae19a5eadcb16ed"/>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>A reworking of <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/" resource="tag:bjmns.tumblr.com,2013:bns::6"><code>bjmns:6</code></a> into more original content.  In some cases the <a href="http://id.loc.gov/resources/hubs/4a3df29ff3a489e191b1df29386dd28b"><code>lcbh:4a3df29ff3a489e191b1df29386dd28b</code></a> influence is more apparent; others are more of an exploration of ideas I had which took things in a different direction.  Most of these stories involve “Bearers” of “Forces” in some fashion; this concept would eventually mature into <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/15/" resource="tag:bjmns.tumblr.com,2013:bns::15"><code>bjmns:15</code></a>.</p>
+	<p>I was reading <a href="http://id.loc.gov/resources/hubs/4c63f94b899a65e4bae19a5eadcb16ed"><code>lcbh:4c63f94b899a65e4bae19a5eadcb16ed</code></a> at the time although I am not sure the influence is necessarily apparent.</p>
+</div></contents>
+		</dc:abstract>
+		<includes>
+	<Volume rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1">
+		<owl:sameAs rdf:resource="./7/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<includes>
+	<Version rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:River">
+		<owl:sameAs rdf:resource="./7/1/River/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:River"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">River</identifier>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">River</index>
+		<inspiration rdf:resource="http://id.loc.gov/resources/works/19629392"/>
+		<inspiration rdf:resource="http://id.loc.gov/resources/works/14151808"/>
+		<inspiration rdf:resource="http://id.loc.gov/resources/works/13526732"/>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>Aside from developing the <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/Α/" resource="tag:bjmns.tumblr.com,2013:bns::6:Α"><code>bjmns:6:Α</code></a> concept that the [Tri]Force manifests itself in Bearers when they would otherwise perish, this story is notable for having both slice‐of‐life elements and an actual plot!  Or, well, the beginnings of one, anyway.</p>
+	<p>I’m going to claim that the protagonist losing his memory was inspired by <a href="http://id.loc.gov/resources/works/19629392"><code>lcbw:19629392</code></a> because that seems about right.</p>
+</div></contents>
+		</dc:abstract>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:River:1">
+		<owl:sameAs rdf:resource="./7/1/River/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:River:1"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/River/1/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/River/1/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:River:2">
+		<owl:sameAs rdf:resource="./7/1/River/2/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:River:2"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</index>
+		<fullTitle xml:lang="en">Tyneland: ‘Juke Box Hero’</fullTitle>
+		<abbreviatedTitle xml:lang="en">‘Juke Box Hero’</abbreviatedTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/River/2/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/River/2/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+		<hasNote>
+	<Note rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:River::notes:Writingcodes">
+		<owl:sameAs rdf:resource="./7/1/River/:notes/Writingcodes/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:River::notes:Writingcodes"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Writingcodes</identifier>
+		<fullTitle xml:lang="en">Writingcodes</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/River/:notes/Writingcodes/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/River/:notes/Writingcodes/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Note>
+		</hasNote>
+	</Version>
+		</includes>
+		<includes>
+	<Version rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:0">
+		<owl:sameAs rdf:resource="./7/1/0/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:0"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</index>
+		<fullTitle xml:lang="en">Trials</fullTitle>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>This was my very first attempt at writing an original fantasy novel in the vein of <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/" resource="tag:bjmns.tumblr.com,2013:bns::6"><code>bjmns:6</code></a> and it is a similar sort of day‐in‐the‐life drama that goes absolutely nowhere.</p>
+</div></contents>
+		</dc:abstract>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:0:1">
+		<owl:sameAs rdf:resource="./7/1/0/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:0:1"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<fullTitle xml:lang="en">Tyneland: Trial 1</fullTitle>
+		<abbreviatedTitle xml:lang="en">Trial 1</abbreviatedTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/0/1/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/0/1/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+	</Version>
+		</includes>
+		<includes>
+	<Version rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:1">
+		<owl:sameAs rdf:resource="./7/1/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:1"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">c·x</identifier>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<fullTitle xml:lang="en">C(x)</fullTitle>
+		<inspiration rdf:resource="http://id.loc.gov/resources/hubs/86c4fe6afa05691fd8b3de265be0f78f"/>
+		<inspiration rdf:resource="http://id.loc.gov/resources/hubs/e3909dca25ea3cccbbd1f95567ce8dff"/>
+		<inspiration rdf:resource="http://id.loc.gov/resources/works/14075923"/>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>The important thing to see here is actually one of the accompanying notes, <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/7/1/:notes/The_Ballpoint_Pen-Tyneland/" resource="tag:bjmns.tumblr.com,2013:bns::7:1::notes:The_Ballpoint_Pen-Tyneland"><code>bjmns:7:1::notes:The_Ballpoint_Pen-Tyneland</code></a>, which is probably my first genuine attempt at extensive worldbuilding.  Compare <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/7/Forces/" resource="tag:bjmns.tumblr.com,2013:bns::7:Forces"><code>bjmns:7:Forces</code></a> for more on the various influences on this work.</p>
+</div></contents>
+		</dc:abstract>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:1:1">
+		<owl:sameAs rdf:resource="./7/1/1/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:1:1"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<fullTitle xml:lang="en">Tyneland</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/1/1/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/1/1/text.pdf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/pdf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<rdf:Seq rdf:type="dcmitype:Text">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+		<rdf:_1 rdf:resource="./7/1/1/1/page101.png"/>
+		<rdf:_2 rdf:resource="./7/1/1/1/page102.png"/>
+		<rdf:_3 rdf:resource="./7/1/1/1/page103.png"/>
+	</rdf:Seq>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/1/1/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+		<hasNote>
+	<Note rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:1::notes:Testing_Hat-Tyneland">
+		<owl:sameAs rdf:resource="./7/1/1/:notes/Testing_Hat-Tyneland/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:1::notes:Testing_Hat-Tyneland"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Testing_Hat-Tyneland</identifier>
+		<fullTitle xml:lang="en">Testing Hat: Tyneland</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/1/:notes/Testing_Hat-Tyneland/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/1/:notes/Testing_Hat-Tyneland/text.pdf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/pdf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<rdf:Seq rdf:type="dcmitype:Text">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+		<rdf:_1 rdf:resource="./7/1/1/:notes/Testing_Hat-Tyneland/page101.png"/>
+		<rdf:_2 rdf:resource="./7/1/1/:notes/Testing_Hat-Tyneland/page201.png"/>
+		<rdf:_3 rdf:resource="./7/1/1/:notes/Testing_Hat-Tyneland/page301.png"/>
+	</rdf:Seq>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/1/:notes/Testing_Hat-Tyneland/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Note>
+		</hasNote>
+		<hasNote>
+	<Note rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:1::notes:Testing_Hat-C_intro">
+		<owl:sameAs rdf:resource="./7/1/1/:notes/Testing_Hat-C_intro/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:1::notes:Testing_Hat-C_intro"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Testing_Hat-C_intro</identifier>
+		<fullTitle xml:lang="en">Testing Hat: C intro</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/1/:notes/Testing_Hat-C_intro/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/1/:notes/Testing_Hat-C_intro/text.png">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/1/:notes/Testing_Hat-C_intro/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Note>
+		</hasNote>
+		<hasNote>
+	<Note rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:1::notes:The_Ballpoint_Pen-Tyneland">
+		<owl:sameAs rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:1::notes:The_Ballpoint_Pen-Tyneland"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">The_Ballpoint_Pen-Tyneland</identifier>
+		<fullTitle xml:lang="en">The Ballpoint Pen: Tyneland</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/text.pdf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/pdf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<rdf:Seq rdf:type="dcmitype:Text">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/png</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+		<rdf:_1 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page101.png"/>
+		<rdf:_2 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page102.png"/>
+		<rdf:_3 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page201.png"/>
+		<rdf:_4 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page202.png"/>
+		<rdf:_5 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page203.png"/>
+		<rdf:_6 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page204.png"/>
+		<rdf:_7 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page301.png"/>
+		<rdf:_8 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page302.png"/>
+		<rdf:_9 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page303.png"/>
+		<rdf:_10 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page401.png"/>
+		<rdf:_11 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page402.png"/>
+		<rdf:_12 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page403.png"/>
+		<rdf:_13 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page404.png"/>
+		<rdf:_14 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page405.png"/>
+		<rdf:_15 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page406.png"/>
+		<rdf:_16 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page407.png"/>
+		<rdf:_17 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page408.png"/>
+		<rdf:_18 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page409.png"/>
+		<rdf:_19 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page410.png"/>
+		<rdf:_20 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page411.png"/>
+		<rdf:_21 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page412.png"/>
+		<rdf:_22 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page413.png"/>
+		<rdf:_23 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page501.png"/>
+		<rdf:_24 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page601.png"/>
+		<rdf:_25 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page602.png"/>
+		<rdf:_26 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page603.png"/>
+		<rdf:_27 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page604.png"/>
+		<rdf:_28 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page701.png"/>
+		<rdf:_29 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page702.png"/>
+		<rdf:_30 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page703.png"/>
+		<rdf:_31 rdf:resource="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/page704.png"/>
+	</rdf:Seq>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/1/:notes/The_Ballpoint_Pen-Tyneland/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Note>
+		</hasNote>
+	</Version>
+		</includes>
+		<includes>
+	<Version rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:Flame">
+		<owl:sameAs rdf:resource="./7/1/Flame/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:Flame"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Flame</identifier>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Flame</index>
+		<inspiration rdf:resource="http://id.loc.gov/resources/works/2615279"/>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>This was an early attempt at a darker, more political story with suspense and intrigue.  From reading the author’s note, apparently there was some <a href="http://id.loc.gov/resources/works/2615279"><code>lcbw:2615279</code></a> influence?  I couldn’t say.</p>
+	<p>Elements of the conflict would eventually develop into <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/17/" resource="tag:bjmns.tumblr.com,2013:bns::17"><code>bjmns:17</code></a>, although the plot itself would be mostly left in the rubbish bin.</p>
+</div></contents>
+		</dc:abstract>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:Flame:1">
+		<owl:sameAs rdf:resource="./7/1/Flame/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:Flame:1"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/Flame/1/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/Flame/1/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:Flame:2">
+		<owl:sameAs rdf:resource="./7/1/Flame/2/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:Flame:2"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</index>
+		<fullTitle xml:lang="en">Tyneland</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/Flame/2/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/Flame/2/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+		<hasNote>
+	<Note rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:Flame::notes:SYMBOLS">
+		<owl:sameAs rdf:resource="./7/1/Flame/:notes/SYMBOLS/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:Flame::notes:SYMBOLS"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">SYMBOLS</identifier>
+		<fullTitle xml:lang="en">SΨmβϕ∠S</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/Flame/:notes/SYMBOLS/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/Flame/:notes/SYMBOLS/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Note>
+		</hasNote>
+	</Version>
+		</includes>
+		<includes>
+	<Version rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:Ω">
+		<owl:sameAs rdf:resource="./7/1/Ω/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:Ω"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Ω</identifier>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Ω</index>
+		<fullTitle xml:lang="en">The Legend of Ilia: Omega</fullTitle>
+		<abbreviatedTitle xml:lang="en">Omega</abbreviatedTitle>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>Another attempt at simply converting over <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/" resource="tag:bjmns.tumblr.com,2013:bns::6"><code>bjmns:6</code></a> plotlines into a new world, which failed for the usual reason that none of the stories in <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/" resource="tag:bjmns.tumblr.com,2013:bns::6"><code>bjmns:6</code></a> <em>had</em> plotlines.</p>
+</div></contents>
+		</dc:abstract>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:Ω:1">
+		<owl:sameAs rdf:resource="./7/1/Ω/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:Ω:1"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Ω1</identifier>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<fullTitle xml:lang="en">Tyneland (or, The Legend of Ilia: Omega)</fullTitle>
+		<abbreviatedTitle xml:lang="en">Tyneland</abbreviatedTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/Ω/1/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/Ω/1/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+	</Version>
+		</includes>
+		<includes>
+	<Version rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:Forces">
+		<owl:sameAs rdf:resource="./7/1/Forces/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:Forces"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Forces</identifier>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">Forces</index>
+		<inspiration rdf:resource="http://id.loc.gov/resources/hubs/86c4fe6afa05691fd8b3de265be0f78f"/>
+		<inspiration rdf:resource="http://id.loc.gov/resources/hubs/e3909dca25ea3cccbbd1f95567ce8dff"/>
+		<inspiration rdf:resource="http://id.loc.gov/resources/works/14075923"/>
+		<dc:abstract rdf:parseType="Resource">
+			<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>This is almost a direct reworking of the plotline in the back half of <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/Α/" resource="tag:bjmns.tumblr.com,2013:bns::6:Α"><code>bjmns:6:Α</code></a>, which I (later) spoofed lightly in <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/NintendoRealm/" resource="tag:bjmns.tumblr.com,2013:bns::6:NintendoRealm"><code>bjmns:6:NintendoRealm</code></a>.  The emphasis on Light/Dark Worlds is taken from <a href="http://id.loc.gov/resources/hubs/86c4fe6afa05691fd8b3de265be0f78f"><code>lcbh:86c4fe6afa05691fd8b3de265be0f78f</code></a> and the Twilight Realm concept draws influence from not only <a href="http://id.loc.gov/resources/hubs/4a3df29ff3a489e191b1df29386dd28b"><code>lcbh:4a3df29ff3a489e191b1df29386dd28b</code></a> but also <a href="http://id.loc.gov/resources/hubs/e3909dca25ea3cccbbd1f95567ce8dff"><code>lcbh:e3909dca25ea3cccbbd1f95567ce8dff</code></a> and possibly <a href="http://id.loc.gov/resources/works/14075923"><code>lcbw:14075923</code></a> as well.</p>
+	<p>See <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/7/1/" resource="tag:bjmns.tumblr.com,2013:bns::7:1"><code>bjmns:7:1</code></a> for a later attempt at this same idea.</p>
+</div></contents>
+		</dc:abstract>
+		<includes>
+	<Draft rdf:about="tag:bjmns.tumblr.com,2013:bns::7:1:Forces:1">
+		<owl:sameAs rdf:resource="./7/1/Forces/1/"/>
+		<owl:sameAs rdf:resource="#bjmns:7:1:Forces:1"/>
+		<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+		<fullTitle xml:lang="en">Tyneland</fullTitle>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/Forces/1/text.html">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">text/html</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+		<isPublishedAs>
+	<dcmitype:Text rdf:about="./7/1/Forces/1/text.rtf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:Text>
+		</isPublishedAs>
+	</Draft>
+		</includes>
+	</Version>
+		</includes>
+	</Volume>
+		</includes>
+		<hasNote>
+	<Note rdf:about="tag:bjmns.tumblr.com,2013:bns::7::notes:maps">
+		<owl:sameAs rdf:resource="./7/:notes/maps/"/>
+		<owl:sameAs rdf:resource="#bjmns:7::notes:maps"/>
+		<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">maps</identifier>
+		<fullTitle xml:lang="en">Maps</fullTitle>
+		<isPublishedAs>
+	<dcmitype:StillImage rdf:about="./7/:notes/maps/image.pdf">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/pdf</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+	</dcmitype:StillImage>
+		</isPublishedAs>
+		<isPublishedAs>
+	<rdf:Bag rdf:type="dcmitype:StillImage">
+		<dc:format>
+	<dc:FileFormat>
+		<dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image/jpeg</dc:identifier>
+	</dc:FileFormat>
+		</dc:format>
+		<rdf:_1 rdf:resource="./7/:notes/maps/image-England.jpg"/>
+		<rdf:_2 rdf:resource="./7/:notes/maps/image-Europe.jpg"/>
+		<rdf:_3 rdf:resource="./7/:notes/maps/image-Farland-Durlmac.jpg"/>
+		<rdf:_4 rdf:resource="./7/:notes/maps/image-Island_Map.jpg"/>
+		<rdf:_5 rdf:resource="./7/:notes/maps/image-Thin_Island.jpg"/>
+	</rdf:Bag>
+		</isPublishedAs>
+	</Note>
+		</hasNote>
+	</Project>
+		</rdf:_7>
 	</rdf:Seq>
 		</hasProjects>
 	</Corpus>

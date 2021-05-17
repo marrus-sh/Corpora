@@ -1,0 +1,11 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::7:1:River::notes:Writingcodes"
+KIND: Note
+ID: Writingcodes
+TITLE: Writingcodes
+PUBLISHED:
+- IRI: text.html
+  KIND: Text
+  FORMAT: { MIMETYPE: text/html }
+- IRI: text.rtf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/rtf }

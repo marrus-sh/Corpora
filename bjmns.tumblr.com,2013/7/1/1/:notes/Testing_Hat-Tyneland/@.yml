@@ -1,0 +1,19 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::7:1:1::notes:Testing_Hat-Tyneland"
+KIND: Note
+ID: Testing_Hat-Tyneland
+TITLE: "Testing Hat: Tyneland"
+PUBLISHED:
+- IRI: text.html
+  KIND: Text
+  FORMAT: { MIMETYPE: text/html }
+- IRI: text.pdf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/pdf }
+- KIND: [ Text, Sequence ]
+  FORMAT: { MIMETYPE: image/png }
+  _1: page101.png
+  _2: page201.png
+  _3: page301.png
+- IRI: text.rtf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/rtf }

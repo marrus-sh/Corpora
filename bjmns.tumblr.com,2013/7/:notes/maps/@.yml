@@ -1,0 +1,15 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::7::notes:maps"
+KIND: Note
+ID: maps
+TITLE: Maps
+PUBLISHED:
+- IRI: image.pdf
+  KIND: Image
+  FORMAT: { MIMETYPE: application/pdf }
+- KIND: [ Image, Set ]
+  FORMAT: { MIMETYPE: image/jpeg }
+  _1: image-England.jpg
+  _2: image-Europe.jpg
+  _3: image-Farland-Durlmac.jpg
+  _4: image-Island_Map.jpg
+  _5: image-Thin_Island.jpg

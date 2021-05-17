@@ -1,0 +1,14 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::7:1:1::notes:Testing_Hat-C_intro"
+KIND: Note
+ID: Testing_Hat-C_intro
+TITLE: "Testing Hat: C intro"
+PUBLISHED:
+- IRI: text.html
+  KIND: Text
+  FORMAT: { MIMETYPE: text/html }
+- IRI: text.png
+  KIND: Text
+  FORMAT: { MIMETYPE: image/png }
+- IRI: text.rtf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/rtf }

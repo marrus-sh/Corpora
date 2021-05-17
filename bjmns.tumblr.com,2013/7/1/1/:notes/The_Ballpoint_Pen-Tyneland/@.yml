@@ -1,0 +1,47 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::7:1:1::notes:The_Ballpoint_Pen-Tyneland"
+KIND: Note
+ID: The_Ballpoint_Pen-Tyneland
+TITLE: "The Ballpoint Pen: Tyneland"
+PUBLISHED:
+- IRI: text.html
+  KIND: Text
+  FORMAT: { MIMETYPE: text/html }
+- IRI: text.pdf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/pdf }
+- KIND: [ Text, Sequence ]
+  FORMAT: { MIMETYPE: image/png }
+  _1: page101.png
+  _2: page102.png
+  _3: page201.png
+  _4: page202.png
+  _5: page203.png
+  _6: page204.png
+  _7: page301.png
+  _8: page302.png
+  _9: page303.png
+  _10: page401.png
+  _11: page402.png
+  _12: page403.png
+  _13: page404.png
+  _14: page405.png
+  _15: page406.png
+  _16: page407.png
+  _17: page408.png
+  _18: page409.png
+  _19: page410.png
+  _20: page411.png
+  _21: page412.png
+  _22: page413.png
+  _23: page501.png
+  _24: page601.png
+  _25: page602.png
+  _26: page603.png
+  _27: page604.png
+  _28: page701.png
+  _29: page702.png
+  _30: page703.png
+  _31: page704.png
+- IRI: text.rtf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/rtf }

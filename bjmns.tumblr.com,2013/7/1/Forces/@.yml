@@ -1,0 +1,14 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::7:1:Forces"
+KIND: Version
+ID: Forces
+N: Forces
+ABSTRACT:
+  CONTENTS: |-
+    <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    	<p>This is almost a direct reworking of the plotline in the back half of <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/Α/" resource="tag:bjmns.tumblr.com,2013:bns::6:Α"><code>bjmns:6:Α</code></a>, which I (later) spoofed lightly in <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/NintendoRealm/" resource="tag:bjmns.tumblr.com,2013:bns::6:NintendoRealm"><code>bjmns:6:NintendoRealm</code></a>.  The emphasis on Light/Dark Worlds is taken from <a href="http://id.loc.gov/resources/hubs/86c4fe6afa05691fd8b3de265be0f78f"><code>lcbh:86c4fe6afa05691fd8b3de265be0f78f</code></a> and the Twilight Realm concept draws influence from not only <a href="http://id.loc.gov/resources/hubs/4a3df29ff3a489e191b1df29386dd28b"><code>lcbh:4a3df29ff3a489e191b1df29386dd28b</code></a> but also <a href="http://id.loc.gov/resources/hubs/e3909dca25ea3cccbbd1f95567ce8dff"><code>lcbh:e3909dca25ea3cccbbd1f95567ce8dff</code></a> and possibly <a href="http://id.loc.gov/resources/works/14075923"><code>lcbw:14075923</code></a> as well.</p>
+    	<p>See <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/7/1/" resource="tag:bjmns.tumblr.com,2013:bns::7:1"><code>bjmns:7:1</code></a> for a later attempt at this same idea.</p>
+    </div>
+INSPIRATION:
+- http://id.loc.gov/resources/hubs/86c4fe6afa05691fd8b3de265be0f78f
+- http://id.loc.gov/resources/hubs/e3909dca25ea3cccbbd1f95567ce8dff
+- http://id.loc.gov/resources/works/14075923

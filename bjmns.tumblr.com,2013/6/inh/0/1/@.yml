@@ -12,16 +12,16 @@ PUBLISHED:
   FORMAT: { MIMETYPE: application/pdf }
 - KIND: [ Text, Sequence ]
   FORMAT: { MIMETYPE: image/png }
-  _1: page01.png
-  _2: page02.png
-  _3: page03.png
-  _4: page04.png
-  _5: page05.png
-  _6: page06.png
-  _7: page07.png
-  _8: page08.png
-  _9: page09.png
-  _10: page10.png
+  _1: page101.png
+  _2: page102.png
+  _3: page103.png
+  _4: page104.png
+  _5: page201.png
+  _6: page202.png
+  _7: page203.png
+  _8: page204.png
+  _9: page301.png
+  _10: page302.png
 - IRI: text.rtf
   KIND: Text
   FORMAT: { MIMETYPE: application/rtf }

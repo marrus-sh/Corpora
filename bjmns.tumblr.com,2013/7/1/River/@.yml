@@ -1,0 +1,14 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::7:1:River"
+KIND: Version
+ID: River
+N: River
+ABSTRACT:
+  CONTENTS: |-
+    <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    	<p>Aside from developing the <a href="https://go.KIBI.family/Corpora/bjmns.tumblr.com,2013/6/Α/" resource="tag:bjmns.tumblr.com,2013:bns::6:Α"><code>bjmns:6:Α</code></a> concept that the [Tri]Force manifests itself in Bearers when they would otherwise perish, this story is notable for having both slice‐of‐life elements and an actual plot!  Or, well, the beginnings of one, anyway.</p>
+    	<p>I’m going to claim that the protagonist losing his memory was inspired by <a href="http://id.loc.gov/resources/works/19629392"><code>lcbw:19629392</code></a> because that seems about right.</p>
+    </div>
+INSPIRATION:
+- http://id.loc.gov/resources/works/19629392
+- http://id.loc.gov/resources/works/14151808
+- http://id.loc.gov/resources/works/13526732

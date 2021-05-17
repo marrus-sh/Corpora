@@ -1,0 +1,12 @@
+IRI: "tag:bjmns.tumblr.com,2013:bns::7:1:River:2"
+KIND: Draft
+N: 2
+TITLE: "Tyneland: ‘Juke Box Hero’"
+SHORTTITLE: ‘Juke Box Hero’
+PUBLISHED:
+- IRI: text.html
+  KIND: Text
+  FORMAT: { MIMETYPE: text/html }
+- IRI: text.rtf
+  KIND: Text
+  FORMAT: { MIMETYPE: application/rtf }
