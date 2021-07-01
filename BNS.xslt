@@ -698,9 +698,9 @@ window.addEventListener(`load`, ( ) => {
 						<value-of select="translate(bns:index, '-', '–')"/>
 					</when>
 					<otherwise>
-						<text>“</text>
+						<text>‹ </text>
 						<value-of select="bns:index"/>
-						<text>”</text>
+						<text> ›</text>
 					</otherwise>
 				</choose>
 			</when>
@@ -756,9 +756,9 @@ window.addEventListener(`load`, ( ) => {
 						<value-of select="translate(bns:index, '-', '–')"/>
 					</when>
 					<otherwise>
-						<text>“</text>
+						<text>‹ </text>
 						<value-of select="bns:index"/>
-						<text>”</text>
+						<text> ›</text>
 					</otherwise>
 				</choose>
 			</when>
@@ -801,9 +801,9 @@ window.addEventListener(`load`, ( ) => {
 						<value-of select="translate(bns:index, '-', '–')"/>
 					</when>
 					<otherwise>
-						<text>“</text>
+						<text>‹ </text>
 						<value-of select="bns:index"/>
-						<text>”</text>
+						<text> ›</text>
 					</otherwise>
 				</choose>
 			</when>
@@ -848,9 +848,9 @@ window.addEventListener(`load`, ( ) => {
 						<value-of select="translate(bns:index, '-', '–')"/>
 					</when>
 					<otherwise>
-						<text>“</text>
+						<text>‹ </text>
 						<value-of select="bns:index"/>
-						<text>”</text>
+						<text> ›</text>
 					</otherwise>
 				</choose>
 			</when>
@@ -866,56 +866,26 @@ window.addEventListener(`load`, ( ) => {
 						<value-of select="translate(bns:index, '-', '–')"/>
 					</when>
 					<otherwise>
-						<text>“</text>
+						<text>‹ </text>
 						<value-of select="bns:index"/>
-						<text>”</text>
+						<text> ›</text>
 					</otherwise>
 				</choose>
 			</when>
 			<when test="self::bns:Section">
 				<choose>
 					<when test="bns:index/@rdf:datatype='&integer;'">
-						<choose>
-							<when test="bns:index=1">a</when>
-							<when test="bns:index=2">b</when>
-							<when test="bns:index=3">c</when>
-							<when test="bns:index=4">d</when>
-							<when test="bns:index=5">e</when>
-							<when test="bns:index=6">f</when>
-							<when test="bns:index=7">g</when>
-							<when test="bns:index=8">h</when>
-							<when test="bns:index=9">i</when>
-							<when test="bns:index=10">j</when>
-							<when test="bns:index=11">k</when>
-							<when test="bns:index=12">l</when>
-							<when test="bns:index=13">m</when>
-							<when test="bns:index=14">n</when>
-							<when test="bns:index=15">o</when>
-							<when test="bns:index=16">p</when>
-							<when test="bns:index=17">q</when>
-							<when test="bns:index=18">r</when>
-							<when test="bns:index=19">s</when>
-							<when test="bns:index=20">t</when>
-							<when test="bns:index=21">u</when>
-							<when test="bns:index=22">v</when>
-							<when test="bns:index=23">w</when>
-							<when test="bns:index=24">x</when>
-							<when test="bns:index=25">y</when>
-							<when test="bns:index=26">z</when>
-							<otherwise>
-								<call-template name="formatnumber">
-									<with-param name="number" select="bns:index"/>
-								</call-template>
-							</otherwise>
-						</choose>
+						<call-template name="formatnumber">
+							<with-param name="number" select="bns:index"/>
+						</call-template>
 					</when>
 					<when test="bns:index/@rdf:datatype='&gYearMonth;' or bns:index/@rdf:datatype='&date;'">
 						<value-of select="translate(bns:index, '-', '–')"/>
 					</when>
 					<otherwise>
-						<text>“</text>
+						<text>‹ </text>
 						<value-of select="bns:index"/>
-						<text>”</text>
+						<text> ›</text>
 					</otherwise>
 				</choose>
 			</when>
@@ -930,7 +900,7 @@ window.addEventListener(`load`, ( ) => {
 							</when>
 							<when test="bns:index>9">
 								<choose>
-									<when test="substring(number(bns:index), 1, 1)='4'">xxx</when>
+									<when test="substring(number(bns:index), 1, 1)='4'">xxxx</when>
 									<when test="substring(number(bns:index), 1, 1)='3'">xxx</when>
 									<when test="substring(number(bns:index), 1, 1)='2'">xx</when>
 									<when test="substring(number(bns:index), 1, 1)='1'">x</when>
@@ -971,9 +941,9 @@ window.addEventListener(`load`, ( ) => {
 						<value-of select="translate(bns:index, '-', '–')"/>
 					</when>
 					<otherwise>
-						<text>“</text>
+						<text>‹ </text>
 						<value-of select="bns:index"/>
-						<text>”</text>
+						<text> ›</text>
 					</otherwise>
 				</choose>
 			</when>
@@ -993,11 +963,10 @@ window.addEventListener(`load`, ( ) => {
 						</call-template>
 					</when>
 					<otherwise>
-						<html:sup>
-							<value-of select="bns:index"/>
-						</html:sup>
+						<value-of select="bns:index"/>
 					</otherwise>
 				</choose>
+				<text>°</text>
 			</when>
 			<when test="self::bns:Version">
 				<choose>
@@ -1015,11 +984,10 @@ window.addEventListener(`load`, ( ) => {
 						</call-template>
 					</when>
 					<otherwise>
-						<html:sup>
-							<value-of select="bns:index"/>
-						</html:sup>
+						<value-of select="bns:index"/>
 					</otherwise>
 				</choose>
+				<text>′</text>
 			</when>
 			<when test="self::bns:Draft">
 				<choose>
@@ -1037,11 +1005,10 @@ window.addEventListener(`load`, ( ) => {
 						</call-template>
 					</when>
 					<otherwise>
-						<html:sup>
-							<value-of select="bns:index"/>
-						</html:sup>
+						<value-of select="bns:index"/>
 					</otherwise>
 				</choose>
+				<text>″</text>
 			</when>
 			<otherwise>
 				<choose>
@@ -1054,9 +1021,9 @@ window.addEventListener(`load`, ( ) => {
 						<value-of select="translate(bns:index, '-', '–')"/>
 					</when>
 					<otherwise>
-						<text>“</text>
+						<text>‹ </text>
 						<value-of select="bns:index"/>
-						<text>”</text>
+						<text> ›</text>
 					</otherwise>
 				</choose>
 			</otherwise>
@@ -1064,11 +1031,48 @@ window.addEventListener(`load`, ( ) => {
 	</template>
 	<template name="name">
 		<html:hgroup>
-			<for-each select="bns:fullTitle[1]">
-				<html:h1 lang="{@xml:lang}">
-					<apply-templates select="." mode="contents"/>
-				</html:h1>
-			</for-each>
+			<choose>
+				<when test="parent::*[string-length(local-name())>1][substring(local-name(), 1, 1)='_'][translate(substring(local-name(), 2, 1), '123456789', '')=''][translate(substring(local-name(), 3), '0123456789', '')=''][namespace-uri()='http://www.w3.org/1999/02/22-rdf-syntax-ns#']/../parent::bns:hasProjects|parent::bns:hasNote">
+					<html:h1>
+						<for-each select="bns:fullTitle[1]">
+							<html:span lang="{@xml:lang}">
+								<apply-templates select="." mode="contents"/>
+							</html:span>
+						</for-each>
+					</html:h1>
+				</when>
+				<when test="ancestor-or-self::*[parent::bns:includes]/bns:fullTitle">
+					<html:h1>
+						<for-each select="ancestor-or-self::*[parent::bns:includes]/bns:fullTitle[1]">
+							<choose>
+								<when test="parent::bns:Book|parent::bns:Volume|parent::bns:Arc">
+									<if test="../ancestor::*[parent::bns:includes]/bns:fullTitle[1]">
+										<text>: </text>
+									</if>
+									<html:span lang="{@xml:lang}">
+										<apply-templates select="." mode="contents"/>
+									</html:span>
+								</when>
+								<when test="parent::bns:Side|parent::bns:Chapter|parent::bns:Section|parent::bns:Verse">
+									<if test="../ancestor::*[parent::bns:includes]/bns:fullTitle[1]">
+										<text> – </text>
+									</if>
+									<html:span lang="{@xml:lang}">
+										<text>“</text>
+										<apply-templates select="." mode="contents"/>
+										<text>”</text>
+									</html:span>
+								</when>
+								<otherwise>
+									<html:span lang="{@xml:lang}">
+										<apply-templates select="." mode="contents"/>
+									</html:span>
+								</otherwise>
+							</choose>
+						</for-each>
+					</html:h1>
+				</when>
+			</choose>
 			<choose>
 				<when test="self::bns:Author">
 					<html:h2 lang="en">
@@ -1083,25 +1087,17 @@ window.addEventListener(`load`, ( ) => {
 							</when>
 							<otherwise>
 								<choose>
-									<when test="self::bns:Concept">
-										<text>@ </text>
-									</when>
 									<when test="self::bns:Version">
 										<for-each select="ancestor::bns:Concept[1]">
-											<text>@ </text>
 											<call-template name="formatted"/>
-											<text>·</text>
 										</for-each>
 									</when>
 									<when test="self::bns:Draft">
 										<for-each select="ancestor::bns:Concept[1]">
-											<text>@ </text>
 											<call-template name="formatted"/>
-											<text>·</text>
 										</for-each>
 										<for-each select="ancestor::bns:Version[1]">
 											<call-template name="formatted"/>
-											<text>·</text>
 										</for-each>
 									</when>
 								</choose>
