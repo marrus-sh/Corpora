@@ -6,7 +6,8 @@ This repository contains a number of resources which together provide a
 The basic mechanism is as follows :—
 
 01. A corpus authority organizes resources into a branching directory
-      system which reflects their representation in the B·N·S model.
+      system in a subfolder of this repository which reflects their
+      representation in the B·N·S model.
     Notes must be placed in a `:notes` directory inside the directory
       for the branch they annotate.
     Otherwise, directory naming is pretty flexible (shorter is better).
@@ -22,19 +23,14 @@ The basic mechanism is as follows :—
     The recognized contents of this file are described below.
 
 03. The `tools/build.js` script is run, generating an R·D·F∕X·M·L file
-      for each corpus which describes its formal B·N·S metadata.
+      in the `:bns` directory for each corpus which describes its
+      formal B·N·S metadata.
     Optionally, files for project indices may be generated as well.
     (This script requires [Deno](https://deno.land).)
 
-04. Some number of X·H·T·M·L files are manually created, which indicate
-      the above generated R·D·F∕X·M·L files via `<link>`s in their
-      `<head>`s.
-    See `~example/:bns/index.xhtml` and `~example/EW/index.xhtml` for
-      examples.
-
-05. `<?xml-stylesheet?>` processing instructions in the X·H·T·M·L files
-      point to X·S·L·T’s, which access the generated R·D·F∕X·M·L files
-      on page load and render out the desired content.
+04. The build script will automatically copy in index files for corpora
+      and projects if none are present.
+    However, these can be edited to adjust styling, ⁊·c.
 
 The resulting corpora directories form a static site which can be
   served trivially.
