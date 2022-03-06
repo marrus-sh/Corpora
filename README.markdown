@@ -8,6 +8,7 @@ The basic mechanism is as follows :—
 01. A corpus authority organizes resources into a branching directory
       system in a subfolder of this repository which reflects their
       representation in the B·N·S model.
+    This model is described below.
     Notes must be placed in a `:notes` directory inside the directory
       for the branch they annotate.
     Otherwise, directory naming is pretty flexible (shorter is better).
@@ -42,9 +43,10 @@ The only requirement (unfortunately not the case in every environment,
 More complex redirect rules may be considered desireable, but are by no
   means necessary.
 
-For an example of this in practice, see the `~example` directory, which
-  can be viewed online at
-  <https://marrus-sh.github.io/Corpora/~example/>.
+For an example of this in practice, see the `demo` branch of this
+  repository.
+Its sample corpus can be viewed online at
+  <https://marrus-sh.github.io/Corpora/~sample/>.
 
 ##  Metadata Model  ##
 
@@ -54,6 +56,98 @@ For an example of this in practice, see the `~example` directory, which
 > Persons interested in such an technical∣theoretical account should
 >   consult the actual ontology definition.
 
+###  Corpora  ##
+
+Corpora form the “root” of the Branching Notational System.
+They describe a collection of projects by a given pseud, and are
+  identified through a combination of domain and date.
+
+###  Projects  ###
+
+A project defines a single abstract creative endeavour.
+A project may represent a specific fictional universe, book series,
+  esthetic, or artistic goal, or it may represent none of these things.
+The designation of what places a work in a project is up to the corpus
+  authority, although it is generally assumed that the works in a
+  project will generally be in conversation with each other somehow.
+
+The works in a project are referred to as books, and are further
+  divided as described below.
+
+###  Branches  ###
+
+As might be expected from the name, branches form the bulk of the
+  Branching Notational System.
+Branches form a hierarchy as follows :—
+
+                        Book    >
+    Concept > Volume  > Arc     >
+    Version > Side    > Chapter >
+    Draft   > Section > Verse
+
+Each branch can only include branches which are lower than it in the
+  hierarchy, so (for example) a side may contain chapters but not
+  versions.
+Additionally, the branches included by any one branch must all be of
+  the same type.
+It doesn’t make sense for the same draft to directly include both
+  sections and verses!
+
+####  Divisions 🆚 Revisions  ####
+
+Book, volume, arc, side, chapter, section, and verse branches are
+  referred to as “divisions”.
+Divisions are used to divide a work up into smaller parts which, in the
+  case of volumes, arcs, sides, and chapters, may have multiple
+  revisions.
+With the exception of books, all divisions are optional.
+
+In contrast, concepts, versions, and drafts are referred to as
+  “revisions”.
+Revisions indicate alternate expressions of a work.
+It is required that the branch structure of a revision be consistent up
+  until its next revision descendant, so if a version contains a side
+  which contains a chapter, *all* of the sides it contains must contain
+  chapters.
+In other words, when the branch structure changes, you need to
+  introduce a new revision.
+
+Revisions are fundamental to the branch structure of a given resource,
+  so they cannot be skipped.
+You cannot, for example, have a chapter which includes a section; it
+  must include a draft which includes a section instead.
+This prevents breaking backwards‐compatibility should that chapter ever
+  receive a second draft!
+
+####  Leaf 🆚 Nonleaf Branches  ####
+
+Most branches will include other branches.
+When a branch does *not*, it is called a “leaf branch”.
+Leaf branches typically instead provide one or more files for viewing
+  the content associated with a branch.
+
+> **Note:**
+> When a branch does not have any files *or* further branches, it
+>   generally gets treated as a nonleaf branch whose remaining branches
+>   are yet to be determined.
+> Contrarily, if a branch has *both* files and further branches, it
+>   generally gets treated as a leaf branch even though it does indeed
+>   branch further.
+
+Only drafts, sections, and verses can have files—it doesn’t make sense
+  to provide a file which encapsulates multiple drafts!
+
+###  Notes  ###
+
+Notes are essentially treated as a special kind of leaf branch which
+  annotates a given nonleaf branch.
+In the directory structure, they are placed within the special `:notes`
+  directory.
+
+Unlike branches, notes are considered fundamentally unordered and they
+  don’t have indices.
+Instead, they are identified by identifier.
+
 ###  `@.yml` Metadata  ###
 
 Rather than defining verbose metadata files for resources, the build
@@ -61,48 +155,44 @@ Rather than defining verbose metadata files for resources, the build
   construct its metadata.
 The following table gives a rough overview of what metadata you can
   define for which types of resource.
-A **☑** means a metadata term is **recommended**; you may get strange
+A **⭕** means a metadata term is **recommended**; you may get strange
   behaviour if it is improperly defined.
-A **☒** means a metadata term is **not recommended**; if you define
+A **❌** means a metadata term is **not recommended**; if you define
   it, it will likely get ignored.
-A **☐** means that a metadata term is **optional**.
+A **❓** means that a metadata term is **optional**.
 
 > **Note:**
 > These are not formal requirements (but you should follow them).
 
-|  Property   | Corpora? | Project? | Branch? | Note? |
-| :---------: | :------: | :------: | :-----: | :---: |
-|    KIND     | ☑ | ☑ | ☑ | ☑ |
-|   DOMAIN    | ☑ | ☒ | ☒ | ☒ |
-|    DATE     | ☑ | ☒ | ☒ | ☒ |
-|      N      | ☒ | ☑ | ☑ | ☒ |
-|     ID      | ☑ | ☑ | ☐ | ☑ |
-|  AUTHORITY  | ☑ | ☒ | ☒ | ☒ |
-|    PSEUD    | ☑ | ☒ | ☒ | ☒ |
-|    TITLE    | ☑ | ☑ | ☐ | ☐ |
-| SHORTTITLE  | ☐ | ☐ | ☐ | ☐ |
-|    COVER    | ☐ | ☐ | ☐ | ☒ |
-|  THEMESONG  | ☒ | ☐ | ☐ | ☒ |
-| DESCRIPTION | ☐ | ☐ | ☐ | ☒ |
-|   MIXTAPE   | ☒ | ☐ | ☐ | ☒ |
-|   FANDOM    | ☒ | ☐ | ☐ | ☒ |
-| INSPIRATION | ☒ | ☐ | ☐ | ☒ |
-|  AVAILABLE  | ☒ | ☐ | ☐ | ☒ |
-|    FILE     | ☒ | ☒ | ☐ | ☑ |
-|    INDEX    | ☒ | ☑ | ☒ | ☒ |
-
-> **Note:**
-> `FILE` should (only) be included on “leaf” branches (ones with no
->   further branching).
+|  Property   | Corpus? | Project? | Nonleaf Branch? | Leaf Branch? | Note? |
+| :---------: | :-: | :-: | :-: | :-: | :-: |
+|    KIND     | ⭕ | ⭕ | ⭕ | ⭕ | ⭕ |
+|   DOMAIN    | ⭕ | ❌ | ❌ | ❌ | ❌ |
+|    DATE     | ⭕ | ❌ | ❌ | ❌ | ❌ |
+|      N      | ❌ | ⭕ | ⭕ | ⭕ | ❌ |
+|     ID      | ⭕ | ⭕ | ❓ | ❓ | ⭕ |
+|  AUTHORITY  | ⭕ | ❌ | ❌ | ❌ | ❌ |
+|    PSEUD    | ⭕ | ❌ | ❌ | ❌ | ❌ |
+|    TITLE    | ⭕ | ❓ | ❓ | ❓ | ❓ |
+| SHORTTITLE  | ❓ | ❓ | ❓ | ❓ | ❓ |
+|    COVER    | ❓ | ❓ | ❓ | ❌ | ❌ |
+|  THEMESONG  | ❌ | ❓ | ❓ | ❌ | ❌ |
+| DESCRIPTION | ❓ | ❓ | ❓ | ❌ | ❌ |
+|   MIXTAPE   | ❌ | ❓ | ❓ | ❌ | ❌ |
+|   FANDOM    | ❌ | ❓ | ❓ | ❌ | ❌ |
+| INSPIRATION | ❌ | ❓ | ❓ | ❌ | ❌ |
+|  AVAILABLE  | ❌ | ❓ | ❓ | ❌ | ❌ |
+|    FILE     | ❌ | ❌ | ❌ | ⭕ | ⭕ |
+|    INDEX    | ❌ | ⭕ | ❌ | ❌ | ❌ |
 
 The meaning of each of these properties is described below.
 
 ####  `KIND`  ####
 
 The class of resource, as described above.
-Valid values include `"Corpus"`, `"Project"`, `"Book"`, `"Concept"`,
-  `"Volume"`, `"Arc"`, `"Version"`, `"Side"`, `"Chapter"`, `"Draft"`,
-  `"Section"`, `"Verse"`, and `"Note"`.
+Valid values include `Corpus`, `Project`, `Book`, `Concept`,
+  `Volume`, `Arc`, `Version`, `Side`, `Chapter`, `Draft`, `Section`,
+  `Verse`, and `Note`.
 
 ####  `DOMAIN`  ####
 
@@ -136,7 +226,7 @@ In general, you **should not** introduce backwards‐incompatible changes
   date the same.
 
 > **Note:**
-> The format for dates is the usual ISO `YYYY-MM-DD`.
+> The format for dates is the usual I·S·O `YYYY-MM-DD`.
 > The month and day are optional, so `YYYY-MM` and `YYYY` are also
 >   allowed.
 
@@ -231,6 +321,10 @@ The term “pseud” derives from “pseudonym” and is meant to emphasize the
 One person may have multiple pseuds, and one pseud may belong to
   multiple people.
 However, each corpus can describe only one pseud.
+
+> **Note:**
+> There really is no limitation to what a pseud might represent—it
+>   could be an entire literary movement!
 
 The pseud object **should** have the following structure :—
 
@@ -338,14 +432,20 @@ Typically, drafts, sections, verses, or notes will have files.
 Having a file may suppress the display of other metadata, like
   descriptions.
 
-Files **should** have a `KIND` of either `"Audio"`, `"Image"`,
-  `"Text"`, or `"Video"`.
+Files **should** have a `KIND` of either `Audio`, `Image`, `Text`, or
+  `Video`.
 (Interactive files like games are not yet supported.)
 For single files, this should be coupled with an `IRI`, giving the path
   to the file, and a `FORMAT`, giving the media type.
 
+> **Note:**
+> The `KIND` of a file indicates *what* kind of information a resource
+>   represents, not *how* it is represented.
+> For example, a photo of a textual object should still be classified
+>   as `Text`, even though its media type may be `image/png`.
+
 Multiple files are also supported, and have a `KIND` of either
-  `"Sequence"` or `"Set"` *in addition to* the kind from the list above
+  `Sequence` or `Set` *in addition to* the kind from the list above
   (as an array).
 The `FORMAT` still specifies the format (which **must** be the same for
   all files), but `IRI`s are specified on objects on `_NN` properties,
