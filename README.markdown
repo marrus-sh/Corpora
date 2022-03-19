@@ -302,9 +302,6 @@ Identifiers are optional for branches, which are instead identified by
   index.
 If supplied, they **should not** change.
 
-It is **recommended**, but **not required**, that corpus and note
-  identifiers only use characters which are acceptable in U·R·I’s.
-
 ####  `AUTHORITY`  ####
 
 An I·R·I identifying the authority responsible for the corpus.
