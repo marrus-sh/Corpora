@@ -923,7 +923,7 @@ globalThis.getInfo= ( { target: element } ) =>
       const result= document
         .getElementById(decodeURIComponent(link.hash.substring(1)))
         ?.querySelector
-        ?.("h1")
+        ?.("h2")
       if ( result ) {
         const cite= document
           .createElementNS("http://www.w3.org/1999/xhtml", "cite")
@@ -937,7 +937,10 @@ globalThis.getInfo= ( { target: element } ) =>
         link.appendChild(cite)
         element.parentNode.replaceChild(small, element)
         link.dataset.expanded= ""
-  } } }
+      }
+      else
+        element.parentNode.removeChild(element)
+  } }
 globalThis.displayMediaIn= element => {
   for ( const media of element.querySelectorAll("iframe[data-src],audio[data-src],video[data-src],img[data-src]") ) {
     const node= media.cloneNode()
