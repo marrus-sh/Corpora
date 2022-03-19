@@ -15,7 +15,7 @@ Requires both X·S·L·T 1.0 and E·X·S·L·T Common support.  C·S·S feat
 
 §§ Configuration (in the file which links to this stylesheet) :—
 
-• The first <html:link rel="alternate" type="application/rdf+xml"> element with an @href attribute is used to source the R·D·F for the index.
+• The first <html:link rel="index" type="application/rdf+xml"> element with an @href attribute is used to source the R·D·F for the index.
 
 • The @lang attribute on the document element is used to prioritize titles from fetched resources.
 
@@ -61,7 +61,7 @@ THIS FILE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPL
 	xmlns:svg="http://www.w3.org/2000/svg"
 >
 	<import href="./BNS-Helpers.xslt"/>
-	<variable name="index_rdf" select="//html:link[@rel='alternate'][@type='application/rdf+xml']/@href[1]"/>
+	<variable name="index_rdf" select="//html:link[@rel='index'][@type='application/rdf+xml']/@href[1]"/>
 	<variable name="corpus_base" select="document($index_rdf)//bns:indexes"/>
 	<variable name="corpus_rdf">
 		<variable name="nohash">
