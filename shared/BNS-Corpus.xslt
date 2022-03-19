@@ -254,10 +254,18 @@ document.addEventListener
 		<variable name="result">
 			<copy>
 				<choose>
-					<when test="document($rdf)//bns:includes/*[@rdf:about=current()/@href]|document($rdf)//bns:hasProject/*[@rdf:about=current()/@href]">
+					<when test="@resource and document($rdf)//bns:*[local-name()='includes' or local-name()='hasProject']/*[@rdf:about=current()/@resource]">
 						<attribute name="href">
 							<text>#</text>
-							<for-each select="(document($rdf)//bns:includes/*[@rdf:about=current()/@href]|document($rdf)//bns:hasProject/*[@rdf:about=current()/@href])[1]">
+							<for-each select="document($rdf)//bns:*[local-name()='includes' or local-name()='hasProject']/*[@rdf:about=current()/@resource][1]">
+								<call-template name="anchor"/>
+							</for-each>
+						</attribute>
+					</when>
+					<when test="not(@resource) and document($rdf)//bns:*[local-name()='includes' or local-name()='hasProject']/*[@rdf:about=current()/@href]">
+						<attribute name="href">
+							<text>#</text>
+							<for-each select="document($rdf)//bns:*[local-name()='includes' or local-name()='hasProject']/*[@rdf:about=current()/@href][1]">
 								<call-template name="anchor"/>
 							</for-each>
 						</attribute>
