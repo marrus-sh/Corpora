@@ -143,18 +143,20 @@ blockquote{ Padding-Inline: 1EM; Font-Style: Italic }
 dl,ol,ul{ Margin-Block: 1EM; Margin-Inline: 0; Padding: 0; Text-Align: Start; Text-Align-Last: Auto }
 nav ol,nav ul{ Margin-Block: .5REM; List-Style-Type: None }
 nav li ol,nav li ul{ Margin-Block: 0 }
-dt{ Margin-Inline: 0; Padding: 0 }
-li,nav li li,dd{ Margin-Inline: 1EM 0; Padding: 0 }
+li,nav li li,dd{ Margin-Inline: 1REM 0; Padding: 0 }
 nav li{ Margin-Inline: 0 }
 dl{ Margin-Block: 1EM; Padding-Inline: 0 }
 dl:First-Child{ Margin-Block-Start: 0 }
-dt{ Font-Weight: Bold }
-dd{ Display: List-Item; List-Style-Type: Square }
-dd>ul{ Margin-Block: 0 .5REM; Margin-Inline: 0; Text-Align: End; Font-Size: Smaller }
+dt{ Margin-Inline: 0; Padding: 0; Font-Weight: Bold }
+dd{ Position: Relative; Display: List-Item; List-Style-Type: Square }
+dd>ul{ Margin-Block: .25REM .5REM; Margin-Inline: -1REM 0; Border-Block-Start: Thin Transparent Solid; Padding-Block: .25REM 0; Text-Align: End; Font-Size: Smaller }
+dd>ul::before{ Box-Sizing: Border-Box; Position: Absolute; Inset-Inline: 0; Margin-Block: -.5REM 0; Border-Block-End: Thin Var(--Fade) Dashed; Block-Size: .25REM; Content: "" }
+dd:Not(:Last-Child)>ul{ Margin-Block-End: .75REM; Border-Block-End: Thin Var(--Text) Solid; Padding-Block-End: .75REM; }
 dd>ul>li{ Display: Inline; Margin: 0 }
 dd>ul>li::before{ Content: "[" }
 dd>ul>li+li::before{ Content: " [" }
 dd>ul>li::after{ Content: "]" }
+dd>p{ Hyphens: Auto }
 			</html:style>
 			<call-template name="helper-js"/>
 			<html:script>
@@ -337,7 +339,7 @@ document.addEventListener
 	<template name="name">
 		<html:hgroup>
 			<choose>
-				<when test="parent::bns:hasProject|parent::bns:hasNote">
+				<when test="parent::bns:hasProject|parent::bns:hasNote|self::bns:hasMixtape[@rdf:parseType='Resource']">
 					<html:h1>
 						<html:span lang="{bns:fullTitle[1]/@xml:lang}">
 							<apply-templates select="bns:fullTitle[1]" mode="contents"/>
@@ -462,6 +464,14 @@ document.addEventListener
 						</html:span>
 					</for-each>
 				</when>
+				<when test="self::bns:hasMixtape[@rdf:parseType='Resource']">
+					<for-each select="../../bns:hasMixtape[@rdf:parseType='Resource']">
+						<sort select="self::*[bns:identifier]/bns:identifier|self::*[not(bns:identifier)]/bns:fullTitle" lang="en" case-order="upper-first"/>
+						<html:span>
+							<value-of select="generate-id()"/>
+						</html:span>
+					</for-each>
+				</when>
 			</choose>
 		</variable>
 		<variable name="children">
@@ -505,13 +515,22 @@ document.addEventListener
 					<text>←</text>
 				</html:a>
 			</if>
-			<if test="parent::bns:hasProject/..|parent::bns:includes/..|parent::bns:hasNote/..">
+			<if test="parent::bns:hasProject/..|parent::bns:includes/..|parent::bns:hasNote/..|self::bns:hasMixtape[@rdf:parseType='Resource']/..">
 				<html:a data-nav="parent">
 					<attribute name="href">
 						<text>#</text>
-						<for-each select="../..">
-							<call-template name="anchor"/>
-						</for-each>
+						<choose>
+							<when test="self::bns:hasMixtape[@rdf:parseType='Resource']">
+								<for-each select="..">
+									<call-template name="anchor"/>
+								</for-each>
+							</when>
+							<otherwise>
+								<for-each select="../..">
+									<call-template name="anchor"/>
+								</for-each>
+							</otherwise>
+						</choose>
 					</attribute>
 					<text>↑</text>
 				</html:a>
@@ -551,99 +570,151 @@ document.addEventListener
 					<value-of select="$anchored"/>
 				</html:code>
 			</if>
-			<html:code>
-				<text>&lt;</text>
-				<html:a href="{@rdf:about}">
-					<value-of select="@rdf:about"/>
-				</html:a>
-				<text>></text>
-			</html:code>
+			<if test="@rdf:about">
+				<html:code>
+					<text>&lt;</text>
+					<html:a href="{@rdf:about}">
+						<value-of select="@rdf:about"/>
+					</html:a>
+					<text>></text>
+				</html:code>
+			</if>
 		</html:footer>
 	</template>
 	<template name="metadata">
 		<variable name="contents">
 			<if test="bns:isFanworkOf/@rdf:resource">
-				<html:dt>Fandom</html:dt>
-				<for-each select="bns:isFanworkOf/@rdf:resource">
-					<variable name="link">
-						<html:a href="{.}">
-							<html:code>
-								<call-template name="shorten">
-									<with-param name="uri" select="."/>
-								</call-template>
-							</html:code>
-						</html:a>
-					</variable>
-					<html:dd>
-						<apply-templates select="exsl:node-set($link)"/>
-					</html:dd>
-				</for-each>
+				<html:div>
+					<html:dt>Fandom</html:dt>
+					<for-each select="bns:isFanworkOf/@rdf:resource">
+						<variable name="link">
+							<html:a href="{.}">
+								<html:code>
+									<call-template name="shorten">
+										<with-param name="uri" select="."/>
+									</call-template>
+								</html:code>
+							</html:a>
+						</variable>
+						<html:dd>
+							<apply-templates select="exsl:node-set($link)"/>
+						</html:dd>
+					</for-each>
+				</html:div>
 			</if>
 			<if test="bns:isInspiredBy/@rdf:resource">
-				<html:dt>Inspiration</html:dt>
-				<for-each select="bns:isInspiredBy/@rdf:resource">
-					<variable name="link">
-						<html:a href="{.}">
-							<html:code>
-								<call-template name="shorten">
-									<with-param name="uri" select="."/>
-								</call-template>
-							</html:code>
-						</html:a>
-					</variable>
-					<html:dd>
-						<apply-templates select="exsl:node-set($link)"/>
-					</html:dd>
-				</for-each>
+				<html:div>
+					<html:dt>Inspiration</html:dt>
+					<for-each select="bns:isInspiredBy/@rdf:resource">
+						<variable name="link">
+							<html:a href="{.}">
+								<html:code>
+									<call-template name="shorten">
+										<with-param name="uri" select="."/>
+									</call-template>
+								</html:code>
+							</html:a>
+						</variable>
+						<html:dd>
+							<apply-templates select="exsl:node-set($link)"/>
+						</html:dd>
+					</for-each>
+				</html:div>
 			</if>
 			<if test="bns:hasThemeSong">
-				<html:dt>Theme Music</html:dt>
-				<for-each select="bns:hasThemeSong">
-					<html:dd>
-						<if test=".//bns:citation">
-							<apply-templates select=".//bns:citation[1]" mode="contents"/>
-						</if>
-						<if test="bns:isMadeAvailableBy//bns:url">
-							<html:ul>
-								<for-each select="bns:isMadeAvailableBy[.//bns:url]">
-									<html:li>
-										<html:a href="{.//bns:url[1]}">
-											<choose>
-												<when test=".//bns:siteLabel">
-													<apply-templates select=".//bns:siteLabel[1]" mode="contents"/>
-												</when>
-												<otherwise>
-													<call-template name="shorten">
-														<with-param name="uri" select=".//bns:url[1]"/>
-													</call-template>
-												</otherwise>
-											</choose>
-										</html:a>
-									</html:li>
-								</for-each>
-							</html:ul>
-						</if>
-					</html:dd>
-				</for-each>
+				<html:div>
+					<html:dt>Theme Music</html:dt>
+					<for-each select="bns:hasThemeSong">
+						<html:dd>
+							<if test=".//bns:citation">
+								<apply-templates select=".//bns:citation[1]" mode="contents"/>
+							</if>
+							<if test=".//bns:isMadeAvailableBy//bns:url">
+								<html:ul>
+									<for-each select=".//bns:isMadeAvailableBy[.//bns:url]">
+										<html:li>
+											<html:a href="{.//bns:url[1]}">
+												<choose>
+													<when test=".//bns:siteLabel">
+														<apply-templates select=".//bns:siteLabel[1]" mode="contents"/>
+													</when>
+													<otherwise>
+														<call-template name="shorten">
+															<with-param name="uri" select=".//bns:url[1]"/>
+														</call-template>
+													</otherwise>
+												</choose>
+											</html:a>
+										</html:li>
+									</for-each>
+								</html:ul>
+							</if>
+						</html:dd>
+					</for-each>
+				</html:div>
+			</if>
+			<if test="bns:hasTrack">
+				<html:div style="Border: Thin Var(--Text) Solid; Padding-Block: .25REM">
+					<html:dt style="Margin-Block-End: .75REM; Border-Block-End: Thin Var(--Text) Solid; Padding-Block-End: .25REM; Padding-Inline: .5REM">Track Listing</html:dt>
+					<for-each select="bns:hasTrack">
+						<sort select="bns:index" data-type="number"/>
+						<html:dd>
+							<attribute name="style">
+								<text>Margin-Inline: 2.5REM .5REM</text>
+								<if test=".//bns:index">
+									<text>; List-Style-Type: Decimal-Leading-Zero; Counter-Set: list-item </text>
+									<value-of select=".//bns:index[1]"/>
+								</if>
+							</attribute>
+							<for-each select=".//bns:song">
+								<if test=".//bns:citation">
+									<apply-templates select=".//bns:citation[1]" mode="contents"/>
+								</if>
+								<if test=".//bns:isMadeAvailableBy//bns:url">
+									<html:ul style="Margin-Inline: -2.5REM -.5REM; Padding-Inline: .5REM">
+										<for-each select=".//bns:isMadeAvailableBy[.//bns:url]">
+											<html:li>
+												<html:a href="{.//bns:url[1]}">
+													<choose>
+														<when test=".//bns:siteLabel">
+															<apply-templates select=".//bns:siteLabel[1]" mode="contents"/>
+														</when>
+														<otherwise>
+															<call-template name="shorten">
+																<with-param name="uri" select=".//bns:url[1]"/>
+															</call-template>
+														</otherwise>
+													</choose>
+												</html:a>
+											</html:li>
+										</for-each>
+									</html:ul>
+								</if>
+							</for-each>
+						</html:dd>
+					</for-each>
+				</html:div>
 			</if>
 			<if test="bns:isMadeAvailableBy//bns:url">
-				<html:dt>Published</html:dt>
-				<for-each select="bns:isMadeAvailableBy[.//bns:url]">
-					<html:dd>
-						<html:a href="{.//bns:url[1]}">
-							<choose>
-								<when test=".//bns:siteLabel">
-									<apply-templates select=".//bns:siteLabel[1]" mode="contents"/>
-								</when>
-								<otherwise>
-									<call-template name="shorten">
-										<with-param name="uri" select=".//bns:url[1]"/>
-									</call-template>
-								</otherwise>
-							</choose>
-						</html:a>
-					</html:dd>
-				</for-each>
+				<html:div>
+					<html:dt>Published</html:dt>
+					<for-each select="bns:isMadeAvailableBy[.//bns:url]">
+						<html:dd>
+							<html:a href="{.//bns:url[1]}">
+								<choose>
+									<when test=".//bns:siteLabel">
+										<apply-templates select=".//bns:siteLabel[1]" mode="contents"/>
+									</when>
+									<otherwise>
+										<call-template name="shorten">
+											<with-param name="uri" select=".//bns:url[1]"/>
+										</call-template>
+									</otherwise>
+								</choose>
+							</html:a>
+						</html:dd>
+					</for-each>
+				</html:div>
 			</if>
 		</variable>
 		<if test="string($contents)">
@@ -666,6 +737,10 @@ document.addEventListener
 			<apply-templates select="."/>
 		</for-each>
 		<for-each select="bns:hasNote/*">
+			<sort select="self::*[bns:identifier]/bns:identifier|self::*[not(bns:identifier)]/bns:fullTitle" lang="en" case-order="upper-first"/>
+			<apply-templates select="."/>
+		</for-each>
+		<for-each select="bns:hasMixtape[@rdf:parseType='Resource']">
 			<sort select="self::*[bns:identifier]/bns:identifier|self::*[not(bns:identifier)]/bns:fullTitle" lang="en" case-order="upper-first"/>
 			<apply-templates select="."/>
 		</for-each>
@@ -704,7 +779,7 @@ document.addEventListener
 	<template match="bns:Pseud">
 		<call-template name="name"/>
 	</template>
-	<template match="*[parent::bns:includes or parent::bns:hasProject or parent::bns:hasNote]">
+	<template match="*[parent::bns:includes or parent::bns:hasProject or parent::bns:hasNote or self::bns:hasMixtape[@rdf:parseType='Resource']]">
 		<variable name="contents">
 			<apply-templates select="." mode="header"/>
 			<choose>
@@ -729,7 +804,7 @@ document.addEventListener
 							<apply-templates select="bns:hasDescription" mode="contents"/>
 							<call-template name="metadata"/>
 						</html:div>
-						<if test="bns:includes/*|bns:hasNote/*">
+						<if test="bns:includes/*|bns:hasNote/*|bns:hasMixtape[@rdf:parseType='Resource']">
 							<html:nav>
 								<if test="bns:includes/*">
 									<html:section>
@@ -757,6 +832,17 @@ document.addEventListener
 										</html:ul>
 									</html:section>
 								</if>
+								<if test="bns:hasMixtape[@rdf:parseType='Resource']">
+									<html:section>
+										<html:h1 lang="en">Mixtapes</html:h1>
+										<html:ul>
+											<for-each select="bns:hasMixtape[@rdf:parseType='Resource']">
+												<sort select="self::*[bns:identifier]/bns:identifier|self::*[not(bns:identifier)]/bns:fullTitle" lang="en" case-order="upper-first"/>
+												<apply-templates select="." mode="list"/>
+											</for-each>
+										</html:ul>
+									</html:section>
+								</if>
 							</html:nav>
 						</if>
 					</html:section>
@@ -765,7 +851,7 @@ document.addEventListener
 			<call-template name="footer"/>
 		</variable>
 		<choose>
-			<when test="parent::bns:hasNote">
+			<when test="parent::bns:hasNote|self::bns:hasMixtape[@rdf:parseType='Resource']">
 				<html:aside hidden="">
 					<attribute name="id">
 						<call-template name="anchor"/>
@@ -784,10 +870,10 @@ document.addEventListener
 		</choose>
 		<call-template name="includes"/>
 	</template>
-	<template match="*[parent::bns:includes|parent::bns:hasProject|parent::bns:hasNote]" mode="header">
+	<template match="*[parent::bns:includes|parent::bns:hasProject|parent::bns:hasNote|self::bns:hasMixtape[@rdf:parseType='Resource']]" mode="header">
 		<html:header>
 			<html:p>
-				<for-each select="ancestor::*[parent::bns:includes|parent::bns:hasProject|parent::bns:hasNote]">
+				<for-each select="ancestor::*[parent::bns:includes|parent::bns:hasProject]">
 					<html:a>
 						<attribute name="href">
 							<text>#</text>
@@ -803,7 +889,7 @@ document.addEventListener
 			<call-template name="navigate"/>
 		</html:header>
 	</template>
-	<template match="*[parent::bns:includes|parent::bns:hasProject|parent::bns:hasNote]" mode="list">
+	<template match="*[parent::bns:includes|parent::bns:hasProject|parent::bns:hasNote|self::bns:hasMixtape[@rdf:parseType='Resource']]" mode="list">
 		<html:li>
 			<choose>
 				<when test="parent::bns:hasProject">
@@ -859,11 +945,11 @@ document.addEventListener
 			<variable name="remarks">
 				<choose>
 					<when test="bns:hasFile/*">available</when>
-					<otherwise>
-						<if test="bns:hasNote/*">
-							<text>with notes</text>
-						</if>
-					</otherwise>
+					<when test="bns:hasNote/*">
+						<text>with notes</text>
+						<if test="bns:hasMixtape[@rdf:parseType='Resource']">, mixtape</if>
+					</when>
+					<when test="bns:hasMixtape[@rdf:parseType='Resource']">with mixtape</when>
 				</choose>
 			</variable>
 			<if test="$remarks!=''">

@@ -245,6 +245,20 @@ schema: http://schema.org/
 	</template>
 	<template name="anchor">
 		<choose>
+			<when test="self::bns:hasMixtape[@rdf:parseType='Resource']">
+				<for-each select="..">
+					<call-template name="anchor"/>
+				</for-each>
+				<text>/:mixtapes/</text>
+				<choose>
+					<when test="bns:identifier">
+						<value-of select="bns:identifier"/>
+					</when>
+					<otherwise>
+						<value-of select="count(preceding-sibling::bns:hasMixtape[@rdf:parseType='Resource']) + 1"/>
+					</otherwise>
+				</choose>
+			</when>
 			<when test="owl:sameAs[starts-with(@rdf:resource, './#') or starts-with(@rdf:resource, '#')]">
 				<value-of select="substring-after(owl:sameAs[starts-with(@rdf:resource, './#') or starts-with(@rdf:resource, '#')][1]/@rdf:resource, '#')"/>
 			</when>
@@ -515,7 +529,7 @@ schema: http://schema.org/
 					</otherwise>
 				</choose>
 			</when>
-			<when test="self::bns:Chapter">
+			<when test="self::bns:Chapter|ancestor-or-self::bns:hasTrack">
 				<choose>
 					<when test="bns:index/@rdf:datatype='&integer;'">
 						<if test="10>bns:index">0</if>
@@ -736,6 +750,9 @@ schema: http://schema.org/
 				</when>
 				<when test="self::bns:Note|parent::bns:hasNote">
 					<text>Note</text>
+				</when>
+				<when test="self::bns:hasMixtape[@rdf:parseType='Resource']">
+					<text>Mixtape</text>
 				</when>
 				<otherwise>
 					<value-of select="local-name()"/>

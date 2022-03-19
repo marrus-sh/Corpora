@@ -197,8 +197,8 @@ const document= ( object, path= "" ) => {
           result.push(`<rdf:${ _nnn } rdf:resource="${
             page.IRI != null ?
               /^[^/]+\x3A/.test(page.IRI) ? page.IRI
-              : `../${ path }/${ page.IRI }`
-            : `../${ path }/${ page }`
+              : `../${ path }/${ String(page.IRI).replace(/^\.\//, "") }`
+            : `../${ path }/${ String(page).replace(/^\.\//, "") }`
           }"/>`)
       } }
       if ( object.KIND.includes("Sequence") )
@@ -235,8 +235,8 @@ const document= ( object, path= "" ) => {
       return `<${ doctype } rdf:about="${
         object.IRI != null ?
           /^[^/]+\x3A/.test(object.IRI) ? object.IRI
-          : `../${ path }/${ object.IRI }`
-        : `../${ path }/${ object }`
+          : `../${ path }/${ String(object.IRI).replace(/^\.\//, "") }`
+        : `../${ path }/${ String(object).replace(/^\.\//, "") }`
       }">${ object.FORMAT != null ? `
 	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ object.FORMAT }</mediaType>` : "" }
 </${ doctype }>`
@@ -279,10 +279,12 @@ const mixtape= ( object, path= "" ) => {
     return null
   else {
     const result= [ ]
+    if ( object.ID != null )
+      result.push(`<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">${ object.ID }</identifier>`)
     if ( object.TITLE != null )
       result.push(textElement("fullTitle", object.TITLE))
     if ( object.SHORTTITLE != null )
-      result.push(textElement("fullTitle", object.SHORTTITLE))
+      result.push(textElement("shortTitle", object.SHORTTITLE))
     if ( object.COVER != null )
       result.push
         ( object.COVER.CONTENTS != null
@@ -292,6 +294,10 @@ const mixtape= ( object, path= "" ) => {
         : `<hasCover>
 ${ document(object.COVER, path) || "<!-- empty -->" }
 </hasCover>` )
+    if ( object.DESCRIPTION?.CONTENTS != null )
+      result.push(`<hasDescription rdf:parseType="Resource">
+		<contents rdf:parseType="Literal">${ object.DESCRIPTION.CONTENTS }</contents>
+	</hasDescription>`)
     if ( object.AVAILABLE != null )
       if ( Array.isArray(object.AVAILABLE) )
         for ( const published of object.AVAILABLE ) {
@@ -311,7 +317,7 @@ ${ document(object.COVER, path) || "<!-- empty -->" }
       if ( Array.isArray(object.TRACK) )
         for ( const track of object.TRACK ) {
           result.push(`<hasTrack rdf:parseType="Resource">${ track.N != null ? `
-	<index rdf:datatype="${ indexDatatype(track.N) }">${ object.N }</index>` : "" }${ track.SONG != null ? `
+	<index rdf:datatype="${ indexDatatype(track.N) }">${ track.N }</index>` : "" }${ track.SONG != null ? `
 	<song rdf:parseType="Resource">
 ${ song(track.SONG) || "<!-- empty -->" }
 	</song>` : "" }
