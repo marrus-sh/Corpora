@@ -94,7 +94,7 @@ THIS FILE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPL
 #BNS{ Display: Flex; Position: Relative; Box-Sizing: Border-Box; Margin-Block: 0 2REM; Margin-Inline: Auto; Border-End-Start-Radius: 4REM; Border-End-End-Radius: 4REM; Padding-Block: 1REM; Padding-Inline: 5REM; Min-Block-Size: Calc(100VH - 2REM); Inline-Size: 54REM; Max-Inline-Size: 100%; Flex-Direction: Column; Color: Var(--Text); Background: Var(--Background); Font-Family: Serif; Line-Height: 1.25; Z-Index: Auto }
 #BNS::after{ Display: Block; Position: Absolute; Inset-Block: Auto -2EM; Inset-Inline: 0; Block-Size: 6REM; Background: Var(--Shade); Z-Index: -1; Content: "" }
 #BNS>header{ Flex: None }
-#BNS>header>h1{ Display: Block; Margin-Block: .5REM; Border: None; Padding: 0; Font-Size: XX-Large; Font-Family: Sans-Serif; Text-Align: Center }
+#BNS>header>h1{ Display: Block; Margin-Block: .5REM; Color: Var(--Text); Font-Size: XX-Large; Font-Family: Sans-Serif; Text-Align: Center }
 #BNS>header>h1>a{ Color: Var(--Shade) }
 #BNS>header>h1>a:Hover{ Color: Var(--Attn) }
 #BNS>header>nav{ Font-Size: Medium; Margin-Block: .5REM 1REM; Color: Var(--Text); Font-Family: Sans-Serif; Text-Align: Justify; Text-Align-Last: Center }
@@ -115,8 +115,8 @@ THIS FILE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPL
 #BNS>div>*>header>p{ Grid-Column: 2 / Span 5; Margin-Block: 0; Min-Inline-Size: Max-Content; Color: Var(--Bold); Font-Variant-Caps: Small-Caps; Text-Align: Center; Text-Decoration: Underline }
 #BNS>div>*>header>p>a{ Color: Inherit }
 #BNS>div>*>header>p>a:Focus,#BNS>div>*>header>p>a:Hover{ Color: Var(--Shade); Text-Decoration: Double Underline }
-#BNS>div>*>header>hgroup>h1{ Grid-Column: 1 / Span 7; Margin-Block: 0; Border: None; Padding: 0; Inline-Size: Min-Content; Min-Inline-Size: 100%; Color: Var(--Shade) }
-#BNS>div>*>header>hgroup>h2{ Grid-Column: 4 / Span 1; Margin-Block: 0; Color: Var(--Attn); Font-Size: Inherit; Font-Weight: Inherit; Font-Variant-Caps: Small-Caps }
+#BNS>div>*>header>hgroup>h2{ Grid-Column: 1 / Span 7; Margin-Block: 0; Inline-Size: Min-Content; Min-Inline-Size: 100%; Color: Var(--Shade); Font-Size: X-Large; Font-Family: Sans-Serif; Line-Height: 1 }
+#BNS>div>*>header>hgroup>h3{ Grid-Column: 4 / Span 1; Margin-Block: 0; Color: Var(--Attn); Font-Size: Inherit; Font-Weight: Inherit; Font-Variant-Caps: Small-Caps }
 #BNS>div>*>header>hgroup,#BNS>div>*>header>nav{ Display: Contents }
 #BNS>div>*>header>nav>a{ Text-Decoration: None }
 #BNS>div>*>header>nav>a[data-nav=prev]{ Grid-Column: 2 / Span 1 }
@@ -136,7 +136,7 @@ THIS FILE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPL
 #BNS>div>*>footer>*+*:Last-Child{ Display: Grid; Margin-Inline-Start: 1EM; Grid-Template-Columns: Max-Content 1FR Max-Content }
 #BNS>div>*>footer>*+*:Last-Child>a{ Max-Inline-Size: 100%; Overflow: Hidden; Text-Overflow: Ellipsis }
 #BNS div.FILES{ Margin-Block: -1REM; Margin-Inline: -2REM }
-h1{ Margin-Block: 0 .5REM; Margin-Inline: Auto; Border-Width: Thin; Border-Block-Style: Dotted Solid; Border-Block-Color: Var(--Fade) Var(--Shade); Border-Inline-Style: Dashed; Border-Inline-Color: Var(--Text); Padding-Block: .3125EM; Padding-Inline: 1EM; Max-Inline-Size: Max-Content; Color: Var(--Text); Font-Size: X-Large; Font-Family: Sans-Serif; Line-Height: 1; Text-Align: Center }
+h4{ Margin-Block: 0 .5REM; Margin-Inline: Auto; Border-Width: Thin; Border-Block-Style: Dotted Solid; Border-Block-Color: Var(--Fade) Var(--Shade); Border-Inline-Style: Dashed; Border-Inline-Color: Var(--Text); Padding-Block: .3125EM; Padding-Inline: 1EM; Max-Inline-Size: Max-Content; Color: Var(--Text); Font-Size: X-Large; Font-Family: Sans-Serif; Line-Height: 1; Text-Align: Center }
 blockquote,p{ Margin-Block: 0; Margin-Inline: Auto; Text-Align: Justify; Text-Align-Last: Center }
 blockquote:Not(:First-Child),p:Not(:First-Child){ Margin-Block: .625EM 0 }
 blockquote{ Padding-Inline: 1EM; Font-Style: Italic }
@@ -340,14 +340,14 @@ document.addEventListener
 		<html:hgroup>
 			<choose>
 				<when test="parent::bns:hasProject|parent::bns:hasNote|self::bns:hasMixtape[@rdf:parseType='Resource']">
-					<html:h1>
+					<html:h2>
 						<html:span lang="{bns:fullTitle[1]/@xml:lang}">
 							<apply-templates select="bns:fullTitle[1]" mode="contents"/>
 						</html:span>
-					</html:h1>
+					</html:h2>
 				</when>
 				<when test="ancestor-or-self::*[parent::bns:includes]/bns:fullTitle">
-					<html:h1>
+					<html:h2>
 						<for-each select="ancestor-or-self::*[parent::bns:includes]/bns:fullTitle[1]">
 							<choose>
 								<when test="parent::bns:Book|parent::bns:Volume|parent::bns:Arc">
@@ -385,24 +385,24 @@ document.addEventListener
 								</otherwise>
 							</choose>
 						</for-each>
-					</html:h1>
+					</html:h2>
 				</when>
 				<when test="bns:fullTitle">
-					<html:h1>
+					<html:h2>
 						<html:span lang="{bns:fullTitle[1]/@xml:lang}">
 							<apply-templates select="bns:fullTitle[1]" mode="contents"/>
 						</html:span>
-					</html:h1>
+					</html:h2>
 				</when>
 			</choose>
 			<choose>
 				<when test="self::bns:Pseud">
-					<html:h2 lang="en">
+					<html:h3 lang="en">
 						Branching Notational System
-					</html:h2>
+					</html:h3>
 				</when>
 				<otherwise>
-					<html:h2>
+					<html:h3>
 						<choose>
 							<when test="bns:identifier">
 								<value-of select="bns:identifier"/>
@@ -426,7 +426,7 @@ document.addEventListener
 								<call-template name="formatted"/>
 							</otherwise>
 						</choose>
-					</html:h2>
+					</html:h3>
 				</otherwise>
 			</choose>
 		</html:hgroup>
@@ -808,7 +808,7 @@ document.addEventListener
 							<html:nav>
 								<if test="bns:includes/*">
 									<html:section>
-										<html:h1 lang="en">Includes</html:h1>
+										<html:h4 lang="en">Includes</html:h4>
 										<html:ol>
 											<for-each select="bns:includes/*[bns:index/@rdf:datatype='&integer;']">
 												<sort select="bns:index" data-type="number"/>
@@ -823,7 +823,7 @@ document.addEventListener
 								</if>
 								<if test="bns:hasNote/*">
 									<html:section>
-										<html:h1 lang="en">Notes</html:h1>
+										<html:h4 lang="en">Notes</html:h4>
 										<html:ul>
 											<for-each select="bns:hasNote/*">
 												<sort select="self::*[bns:identifier]/bns:identifier|self::*[not(bns:identifier)]/bns:fullTitle" lang="en" case-order="upper-first"/>
@@ -834,7 +834,7 @@ document.addEventListener
 								</if>
 								<if test="bns:hasMixtape[@rdf:parseType='Resource']">
 									<html:section>
-										<html:h1 lang="en">Mixtapes</html:h1>
+										<html:h4 lang="en">Mixtapes</html:h4>
 										<html:ul>
 											<for-each select="bns:hasMixtape[@rdf:parseType='Resource']">
 												<sort select="self::*[bns:identifier]/bns:identifier|self::*[not(bns:identifier)]/bns:fullTitle" lang="en" case-order="upper-first"/>
