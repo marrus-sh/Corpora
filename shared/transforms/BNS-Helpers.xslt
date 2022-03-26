@@ -790,7 +790,7 @@ schema: http://schema.org/
 	</template>
 	<template name="helper-css">
 		<html:style>
-html{ Margin: 0; Padding: 0; Font-Family: Serif; Line-Height: 1.25; --Background: Canvas; --Canvas: Canvas; --Fade: GrayText; --Magic: LinkText; --Text: CanvasText; --Attn: ActiveText; --Bold: VisitedText; --Shade: CanvasText }
+html{ Margin: 0; Padding: 0; Font-Family: Var(--Serif); Line-Height: 1.25; --Background: Canvas; --Canvas: Canvas; --Fade: GrayText; --Magic: LinkText; --Text: CanvasText; --Attn: ActiveText; --Bold: VisitedText; --Shade: CanvasText; --Sans: Sans-Serif; --Serif: Serif; --Mono: Monospace }
 body{ Margin: 0; Padding: 0 }
 div.FILES{ Display: Grid; Box-Sizing: Border-Box; Padding-Block: 2REM 0; Padding-Inline: 2REM; Block-Size: 100%; Grid-Template-Rows: 1FR Max-Content; Grid-Auto-Flow: Row; Overflow: Auto; Background: Var(--Shade); Color: Var(--Canvas) }
 div.FILES>div{ Display: Contents }
@@ -809,7 +809,7 @@ rt{ Ruby-Align: Center; Font-Size: .625EM; Color: Var(--Magic) }
 *:Any-Link:Hover{ Color: Var(--Fade) }
 button,sup,sub{ Font-Size: .625EM; Line-Height: 1 }
 button{ Margin-Inline: 0; Border-Color: CurrentColor; Border-Width: Thin; Border-Block-Style: None Dotted; Border-Inline-Style: None; Padding: 0; Vertical-Align: Super; Color: Var(--Magic); Background: Transparent; Cursor: Pointer }
-code{ Overflow-Wrap: Break-Word }
+code{ Overflow-Wrap: Break-Word; Font-Family: Var(--Mono) }
 span.LOOKUP{ White-Space: NoWrap }
 span.LOOKUP>a{ White-Space: Normal }
 span.LOOKUP>a:Not([data-expanded]){ Word-Break: Break-All }
