@@ -1,0 +1,19 @@
+KIND: Corpus
+DOMAIN: Sample-BNS.go.KIBI.family
+DATE: "2022"
+ID: sample
+AUTHORITY: "https://go.KIBI.family/About/#me"
+PSEUD:
+  IRI: "https://marrus-sh.github.io/Corpus/~sample/#pseud"
+  PSEUD_OF: "https://go.KIBI.family/About/#me"
+  TITLE:
+    TEXT: An Pseud
+    LANG: en
+TITLE:
+  TEXT: Sample Corpus
+  LANG: en
+DESCRIPTION:
+  CONTENTS: |-
+    <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    	<p>An sample corpus for you to examine.</p>
+    </div>

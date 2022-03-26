@@ -1,0 +1,20 @@
+KIND: Project
+N: 1
+ID: EW
+TITLE:
+  TEXT: Exasperated Wolf
+  LANG: en
+DESCRIPTION:
+  CONTENTS: |-
+    <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    	<p>So, something that my elementary school did is that we’d have vocabulary words from our assigned readings, and we were supposed to go use them in a sentence to show that we understood what they meant. I, being me, naturally took this prompt to the next level and wrote a series of short stories about a wolf named Exasperated Wolf and his fairytale‐like adventures.</p>
+    </div>
+INSPIRATION:
+- http://id.loc.gov/resources/hubs/cf8b50ca-5d7d-0356-99a1-7e73854fdd95
+- http://id.loc.gov/resources/works/4343646
+
+#  PROJECT INDEX  #
+INDEX:
+- BRANCH: tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1/Chp:1/Dft:1
+- BRANCH: tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1/Chp:2/Dft:1
+- BRANCH: tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1/Chp:3/Dft:1

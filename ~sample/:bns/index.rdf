@@ -1,0 +1,168 @@
+<rdf:RDF
+	xmlns="https://ns.1024.gdn/BNS/#"
+	xmlns:bns="https://ns.1024.gdn/BNS/#"
+	xmlns:dcmitype="http://purl.org/dc/dcmitype"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:ore="http://www.openarchives.org/ore/terms/"
+>
+<owl:Ontology rdf:about="#">
+	<owl:imports rdf:resource="https://ns.1024.gdn/BNS/#"/>
+</owl:Ontology>
+<Corpus rdf:about="tag:Sample-BNS.go.KIBI.family,2022:B@N">
+	<owl:sameAs rdf:resource="../:bns"/>
+	<owl:sameAs rdf:resource="./#sample:"/>
+	<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">sample</identifier>
+	<fullTitle xml:lang="en">Sample Corpus</fullTitle>
+	<hasDescription rdf:parseType="Resource">
+		<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>An sample corpus for you to examine.</p>
+</div></contents>
+	</hasDescription>
+	<hasAuthority rdf:resource="https://go.KIBI.family/About/#me"/>
+	<isCorpusOf>
+<Pseud rdf:about="https://marrus-sh.github.io/Corpus/~sample/#pseud">
+	<fullTitle xml:lang="en">An Pseud</fullTitle>
+	<isPseudOf rdf:resource="https://go.KIBI.family/About/#me"/>
+</Pseud>
+	</isCorpusOf>
+	<hasProject>
+<Project rdf:about="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1">
+	<owl:sameAs rdf:resource="../EW/"/>
+	<owl:sameAs rdf:resource="./#sample:001"/>
+	<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">EW</identifier>
+	<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+	<fullTitle xml:lang="en">Exasperated Wolf</fullTitle>
+	<hasDescription rdf:parseType="Resource">
+		<contents rdf:parseType="Literal"><div xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<p>So, something that my elementary school did is that we’d have vocabulary words from our assigned readings, and we were supposed to go use them in a sentence to show that we understood what they meant. I, being me, naturally took this prompt to the next level and wrote a series of short stories about a wolf named Exasperated Wolf and his fairytale‐like adventures.</p>
+</div></contents>
+	</hasDescription>
+	<isInspiredBy rdf:resource="http://id.loc.gov/resources/hubs/cf8b50ca-5d7d-0356-99a1-7e73854fdd95"/>
+	<isInspiredBy rdf:resource="http://id.loc.gov/resources/works/4343646"/>
+	<includes>
+<Book rdf:about="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1">
+	<owl:sameAs rdf:resource="../EW/Α/"/>
+	<owl:sameAs rdf:resource="./#sample:001:Α"/>
+	<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+	<includes>
+<Concept rdf:about="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1">
+	<owl:sameAs rdf:resource="../EW/Α/1°/"/>
+	<owl:sameAs rdf:resource="./#sample:001:Α:1°"/>
+	<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+	<includes>
+<Version rdf:about="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1">
+	<owl:sameAs rdf:resource="../EW/Α/1°/1′/"/>
+	<owl:sameAs rdf:resource="./#sample:001:Α:1°:1′"/>
+	<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+	<includes>
+<Chapter rdf:about="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1/Chp:1">
+	<owl:sameAs rdf:resource="../EW/Α/1°/1′/01/"/>
+	<owl:sameAs rdf:resource="./#sample:001:Α:1°:1′:01"/>
+	<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+	<fullTitle xml:lang="en">Exasperated Wolf and the Big Flood</fullTitle>
+	<includes>
+<Draft rdf:about="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1/Chp:1/Dft:1">
+	<owl:sameAs rdf:resource="../EW/Α/1°/1′/01/1″/"/>
+	<owl:sameAs rdf:resource="./#sample:001:Α:1°:1′:01:1″"/>
+	<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+	<hasFile>
+<bns:File rdf:about="../EW/Α/1°/1′/01/1″/text.xml">
+	<rdf:type rdf:resource="dcmitype:Text"/>
+	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/xml</mediaType>
+</bns:File>
+	</hasFile>
+	<hasFile>
+<bns:File rdf:about="../EW/Α/1°/1′/01/1″/text.rtf">
+	<rdf:type rdf:resource="dcmitype:Text"/>
+	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</mediaType>
+</bns:File>
+	</hasFile>
+</Draft>
+  </includes>
+</Chapter>
+  </includes>
+  <includes>
+<Chapter rdf:about="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1/Chp:2">
+	<owl:sameAs rdf:resource="../EW/Α/1°/1′/02/"/>
+	<owl:sameAs rdf:resource="./#sample:001:Α:1°:1′:02"/>
+	<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</index>
+	<fullTitle xml:lang="en">Exasperated Wolf and Little Red Riding Hood</fullTitle>
+	<includes>
+<Draft rdf:about="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1/Chp:2/Dft:1">
+	<owl:sameAs rdf:resource="../EW/Α/1°/1′/02/1″/"/>
+	<owl:sameAs rdf:resource="./#sample:001:Α:1°:1′:02:1″"/>
+	<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+	<hasFile>
+<bns:File rdf:about="../EW/Α/1°/1′/02/1″/text.xml">
+	<rdf:type rdf:resource="dcmitype:Text"/>
+	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/xml</mediaType>
+</bns:File>
+	</hasFile>
+	<hasFile>
+<bns:File rdf:about="../EW/Α/1°/1′/02/1″/text.rtf">
+	<rdf:type rdf:resource="dcmitype:Text"/>
+	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</mediaType>
+</bns:File>
+	</hasFile>
+</Draft>
+  </includes>
+</Chapter>
+  </includes>
+  <includes>
+<Chapter rdf:about="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1/Chp:3">
+	<owl:sameAs rdf:resource="../EW/Α/1°/1′/03/"/>
+	<owl:sameAs rdf:resource="./#sample:001:Α:1°:1′:03"/>
+	<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</index>
+	<fullTitle xml:lang="en">Exasperated Wolf and the Boy who cried “Wolf”</fullTitle>
+	<includes>
+<Draft rdf:about="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1/Chp:3/Dft:1">
+	<owl:sameAs rdf:resource="../EW/Α/1°/1′/03/1″/"/>
+	<owl:sameAs rdf:resource="./#sample:001:Α:1°:1′:03:1″"/>
+	<index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</index>
+	<hasFile>
+<bns:File rdf:about="../EW/Α/1°/1′/03/1″/text.xml">
+	<rdf:type rdf:resource="dcmitype:Text"/>
+	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/xml</mediaType>
+</bns:File>
+	</hasFile>
+	<hasFile>
+<bns:File rdf:about="../EW/Α/1°/1′/03/1″/text.rtf">
+	<rdf:type rdf:resource="dcmitype:Text"/>
+	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</mediaType>
+</bns:File>
+	</hasFile>
+</Draft>
+  </includes>
+  <hasNote>
+<Note rdf:about="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1/Chp:3/Note:ew_ad">
+	<owl:sameAs rdf:resource="../EW/Α/1°/1′/03/:notes/ew_ad/"/>
+	<owl:sameAs rdf:resource="./#sample:001:Α:1°:1′:03::notes:ew_ad"/>
+	<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">ew_ad</identifier>
+	<fullTitle xml:lang="en">Don’t Miss: Exasperated Wolf and the Boy who cried “WOLF”</fullTitle>
+	<hasFile>
+<bns:File rdf:about="../EW/Α/1°/1′/03/:notes/ew_ad/text.xml">
+	<rdf:type rdf:resource="dcmitype:Text"/>
+	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/xml</mediaType>
+</bns:File>
+	</hasFile>
+	<hasFile>
+<bns:File rdf:about="../EW/Α/1°/1′/03/:notes/ew_ad/text.rtf">
+	<rdf:type rdf:resource="dcmitype:Text"/>
+	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rtf</mediaType>
+</bns:File>
+	</hasFile>
+</Note>
+	</hasNote>
+</Chapter>
+  </includes>
+</Version>
+  </includes>
+</Concept>
+  </includes>
+</Book>
+  </includes>
+</Project>
+	</hasProject>
+</Corpus>
+</rdf:RDF>

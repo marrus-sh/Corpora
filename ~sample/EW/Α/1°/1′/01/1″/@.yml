@@ -1,0 +1,9 @@
+KIND: Draft
+N: 1
+FILE:
+- IRI: text.xml
+  KIND: Text
+  FORMAT: application/xml
+- IRI: text.rtf
+  KIND: Text
+  FORMAT: application/rtf

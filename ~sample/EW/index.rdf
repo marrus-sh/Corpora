@@ -1,0 +1,17 @@
+<Index
+	xmlns="https://ns.1024.gdn/BNS/#"
+	xmlns:bns="https://ns.1024.gdn/BNS/#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+	<indexes rdf:resource="../:bns/#sample:001"/>
+	<fullTitle xml:lang="en">Exasperated Wolf</fullTitle>
+	<selects rdf:parseType="Resource">
+		<branch rdf:resource="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1/Chp:1/Dft:1"/>
+	</selects>
+	<selects rdf:parseType="Resource">
+		<branch rdf:resource="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1/Chp:2/Dft:1"/>
+	</selects>
+	<selects rdf:parseType="Resource">
+		<branch rdf:resource="tag:Sample-BNS.go.KIBI.family,2022:B@N/Prj:1/Bbl:1/Ccp:1/Vsn:1/Chp:3/Dft:1"/>
+	</selects>
+</Index>

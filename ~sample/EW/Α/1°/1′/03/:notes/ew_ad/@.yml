@@ -1,0 +1,12 @@
+KIND: Note
+ID: ew_ad
+TITLE:
+  TEXT: "Don’t Miss: Exasperated Wolf and the Boy who cried “WOLF”"
+  LANG: en
+FILE:
+- IRI: text.xml
+  KIND: Text
+  FORMAT: application/xml
+- IRI: text.rtf
+  KIND: Text
+  FORMAT: application/rtf
