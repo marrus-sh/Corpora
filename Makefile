@@ -1,10 +1,10 @@
 RSYNC_OPTIONS =
 DESTINATION = corpora:Corpora
 
-help:
-	echo "Valid rules are: help, dry-run, sync."
+corpora:
+	tools/build.js
 
-dry-run:
+dry-sync:
 	rsync -Olmrtvz --del --dry-run --filter=". .rsync-filter" $(RSYNC_OPTIONS) . $(DESTINATION)
 
 sync:
