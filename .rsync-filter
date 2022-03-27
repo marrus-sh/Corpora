@@ -1,0 +1,9 @@
+-s %*/
+-s .DS_Store
+-s .nojekyll
+-s @.yml
+- /.rsync-filter
+-s /tools/
+-s .git
+-s /Makefile
+-s /README*
