@@ -1212,12 +1212,25 @@ window.addEventListener
 								<html:code>
 									<value-of select="$mediatype"/>
 								</html:code>
-								<if test="self::rdf:Bag|self::rdf:Seq">
-									<text> </text>
-									<html:small>
-										<text>(multiple)</text>
-									</html:small>
-								</if>
+								<choose>
+									<when test="bns:fileLabel">
+										<text> </text>
+										<html:small>
+											<text>(</text>
+											<apply-templates select="bns:fileLabel" mode="contents"/>
+											<if test="self::rdf:Bag|self::rdf:Seq">
+												<text>, multiple</text>
+											</if>
+											<text>)</text>
+										</html:small>
+									</when>
+									<otherwise>
+										<if test="self::rdf:Bag|self::rdf:Seq">
+											<text> </text>
+											<html:small>(multiple)</html:small>
+										</if>
+									</otherwise>
+								</choose>
 							</when>
 							<when test="self::dcmitype:*">
 								<value-of select="name()"/>

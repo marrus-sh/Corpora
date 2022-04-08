@@ -238,7 +238,8 @@ const document= ( object, path= "" ) => {
           : `../${ path }/${ String(object.IRI).replace(/^\.\//, "") }`
         : `../${ path }/${ String(object).replace(/^\.\//, "") }`
       }">${ object.FORMAT != null ? `
-	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ object.FORMAT }</mediaType>` : "" }
+	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ object.FORMAT }</mediaType>` : "" }${ object.FILELABEL != null ? `
+	<fileLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ object.FILELABEL }</fileLabel>` : "" }
 </${ doctype }>`
 } }
 

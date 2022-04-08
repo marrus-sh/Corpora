@@ -467,6 +467,8 @@ FILE:
 
 As shown above, you can specify multiple files by using an array of
   objects.
+When a branch is associated with multiple files of the same `FORMAT`,
+  the `FILELABEL` property can be used to help disambiguate them.
 
 ####  `INDEX`  ####
 
