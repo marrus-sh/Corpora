@@ -1368,9 +1368,10 @@ dl{ Margin-Block: 1EM; Padding-Inline: 0 }
 dl:First-Child{ Margin-Block-Start: 0 }
 dt{ Margin-Inline: 0; Padding: 0; Font-Weight: Bold }
 dd{ Position: Relative; Display: List-Item; List-Style-Type: Square }
-dd>ul{ Margin-Block: .25REM .5REM; Margin-Inline: -1REM 0; Border-Block-Start: Thin Transparent Solid; Padding-Block: .25REM 0; Text-Align: End; Font-Size: Smaller }
-dd>ul::before{ Box-Sizing: Border-Box; Position: Absolute; Inset-Inline: 0; Margin-Block: -.5REM 0; Border-Block-End: Thin Var(--Fade) Dashed; Block-Size: .25REM; Content: "" }
-dd:Not(:Last-Child)>ul{ Margin-Block-End: .75REM; Border-Block-End: Thin Var(--Text) Solid; Padding-Block-End: .75REM; }
+dd>ul{ Margin-Block: 0 .5REM; Margin-Inline: -1REM 0; Text-Align: End; Font-Size: Smaller }
+dd>ul:Not(:Empty){ Margin-Block-Start: .25REM; Border-Block-Start: Thin Transparent Solid; Padding-Block: .25REM 0 }
+dd>ul:Not(:Empty)::before{ Box-Sizing: Border-Box; Position: Absolute; Inset-Inline: 0; Margin-Block: -.5REM 0; Border-Block-End: Thin Var(--Fade) Dashed; Block-Size: .25REM; Content: "" }
+dd:Not(:Last-Child)>ul{ Margin-Block-End: .75REM; Border-Block-End: Thin Var(--Text) Solid; Padding-Block-End: .75REM }
 dd>ul>li{ Display: Inline; Margin: 0 }
 dd>ul>li::before{ Content: "[" }
 dd>ul>li+li::before{ Content: " [" }
@@ -1897,26 +1898,24 @@ document.addEventListener
 								<if test=".//bns:citation">
 									<apply-templates select=".//bns:citation[1]" mode="contents"/>
 								</if>
-								<if test=".//bns:isMadeAvailableBy//bns:url">
-									<html:ul style="Margin-Inline: -2.5REM -.5REM; Padding-Inline: .5REM">
-										<for-each select=".//bns:isMadeAvailableBy[.//bns:url]">
-											<html:li>
-												<html:a href="{.//bns:url[1]}">
-													<choose>
-														<when test=".//bns:siteLabel">
-															<apply-templates select=".//bns:siteLabel[1]" mode="contents"/>
-														</when>
-														<otherwise>
-															<call-template name="shorten">
-																<with-param name="uri" select=".//bns:url[1]"/>
-															</call-template>
-														</otherwise>
-													</choose>
-												</html:a>
-											</html:li>
-										</for-each>
-									</html:ul>
-								</if>
+								<html:ul style="Margin-Inline: -2.5REM -.5REM; Padding-Inline: .5REM">
+									<for-each select=".//bns:isMadeAvailableBy[.//bns:url]">
+										<html:li>
+											<html:a href="{.//bns:url[1]}">
+												<choose>
+													<when test=".//bns:siteLabel">
+														<apply-templates select=".//bns:siteLabel[1]" mode="contents"/>
+													</when>
+													<otherwise>
+														<call-template name="shorten">
+															<with-param name="uri" select=".//bns:url[1]"/>
+														</call-template>
+													</otherwise>
+												</choose>
+											</html:a>
+										</html:li>
+									</for-each>
+								</html:ul>
 							</for-each>
 						</html:dd>
 					</for-each>
