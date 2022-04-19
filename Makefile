@@ -5,7 +5,7 @@ corpora:
 	tools/build.js
 
 dry-sync:
-	rsync -Olmrtvz --del --dry-run --filter=". .rsync-filter" $(RSYNC_OPTIONS) . $(DESTINATION)
+	rsync -Olcmrtvz --del --dry-run --filter=". .rsync-filter" $(RSYNC_OPTIONS) . $(DESTINATION)
 
 sync:
-	rsync -Olmrtvz --del --filter=". .rsync-filter" $(RSYNC_OPTIONS) . $(DESTINATION)
+	rsync -Olcmrtvz --del --filter=". .rsync-filter" $(RSYNC_OPTIONS) . $(DESTINATION)
