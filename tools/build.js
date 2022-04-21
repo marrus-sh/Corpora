@@ -52,7 +52,7 @@ const generateRedirect= ( base, path, anchor ) => {
       Deno.removeSync(`${ base }${ path }/index.html`)
   }
   catch ( error ){
-    if ( !error instanceof NotFound )
+    if ( !(error instanceof NotFound) )
       throw new Error ("", { cause: error })
   }
   try { // quit if `index.html` is not generated
@@ -60,7 +60,7 @@ const generateRedirect= ( base, path, anchor ) => {
       return
   }
   catch ( error ) {
-    if ( !error instanceof NotFound )
+    if ( !(error instanceof NotFound) )
       throw new Error ("", { cause: error })
   }
   if ( !hasGitAttribute )  // add generated marker for `index.html`
@@ -533,7 +533,7 @@ function branches ( base, path, parentTag ) {
             throw new Error ("", { cause: error })
   } } } }
   catch ( error ) {
-    if ( !error instanceof NotFound )
+    if ( !(error instanceof NotFound) )
       throw new Error ("", { cause: error })
   }
   return result.join(`
@@ -583,7 +583,7 @@ function projects ( base, parentTag ) {
           //  generateRedirect(base, project, anchor)
       } }
       catch ( error ) {
-        if ( !error instanceof NotFound )
+        if ( !(error instanceof NotFound) )
           throw new Error ("", { cause: error })
   } } }
   return result.join(`
@@ -634,7 +634,7 @@ function corpus ( path ) {
 `
   }
   catch ( error ) {
-    if ( !error instanceof NotFound )
+    if ( !(error instanceof NotFound) )
       throw new Error ("", { cause: error })
 } }
 
