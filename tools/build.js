@@ -309,6 +309,10 @@ ${ document(object.COVER, path) || "<!-- empty -->" }
       result.push(`<hasDescription rdf:parseType="Resource">
 		<contents rdf:parseType="Literal">${ object.DESCRIPTION.CONTENTS }</contents>
 	</hasDescription>`)
+    if ( object.REMARK?.CONTENTS != null )
+      result.push(`<hasRemark rdf:parseType="Resource">
+		<contents rdf:parseType="Literal">${ object.REMARK.CONTENTS }</contents>
+	</hasRemark>`)
     if ( object.CONTENTS != null )
       result.push(`<contents rdf:parseType="Literal">${ object.CONTENTS }</contents>`)
     else if ( object.TEXTCONTENTS != null )

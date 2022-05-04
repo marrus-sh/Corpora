@@ -112,14 +112,14 @@ body{ Margin: 0; Padding: 0 }
 #BNS-Bookmarks{ Margin-Inline: Auto; Padding: 2REM; Max-Inline-Size: 44REM }
 #BNS-Bookmarks>article{ Margin-Block: 2REM; Border: Medium Var(--Shade) Solid; Border-Radius: 1REM; Padding: 1REM; Color: Var(--Text); Background: Var(--Canvas) }
 #BNS-Bookmarks>article>header{ Margin: 1REM; Border: Thin Var(--Shade) Solid; Padding: 1REM; Color: Var(--Text); Background: Var(--Background); Font-Size: 1.5REM; Text-Align: Center }
-#BNS-Bookmarks>article>header>div{ Padding-Inline: 1REM; Font-Size: 1REM; Text-Align: Justify }
+#BNS-Bookmarks>article>header>div{ Margin-Block: 1REM; Padding-Inline: 1REM; Font-Size: 1REM; Text-Align: Justify }
 #BNS-Bookmarks>article h2{ Margin-Block: 0 1REM; Font-Size: 2REM; Font-Style: Italic; Font-Weight: Inherit}
 #BNS-Bookmarks>article>div{ Position: Relative; Margin-Block: 1.5REM; Margin-Inline: 1REM; Padding-Block: 1REM; Padding-Inline: 1REM; Color: Var(--Text); Background: Var(--Background); Z-Index: 0 }
-#BNS-Bookmarks>article>div p{ Margin: 0 }
-#BNS-Bookmarks>article>div p+p{ Margin-Block-Start: .75REM }
 #BNS-Bookmarks>article>div::before{ Position: Absolute; Inset-Block: -.5REM; Inset-Inline: -1REM; Opacity: .5; Background: Inherit; Z-Index: -1; Content: "" }
+#BNS-Bookmarks>article>div>div:Not(:First-Child){ Margin-Block-Start: 1.5REM; Border-Block-Start: Thin Var(--Fade) Dashed; Padding-Block-Start: 1.5REM }
+#BNS-Bookmarks>article article{ Padding-Inline: 1REM }
 #BNS-Bookmarks>article footer{ Margin-Block: 1REM 0; Border-Block-Start: Thin Var(--Shade) Solid; Padding-Block: 1REM 0; Padding-Inline: 1REM }
-#BNS-Bookmarks>article footer h3{ Display: Inline; Margin: 0; Font-Size: Inherit }
+#BNS-Bookmarks>article footer h3{ All: Unset; Font-Weight: Bold }
 #BNS-Bookmarks>article footer h3::after{ Content: ": " }
 #BNS-Bookmarks>article footer ul,#BNS-Bookmarks>article footer li{ All: Unset }
 #BNS-Bookmarks>article footer li+li::before{ Content: ", " }
@@ -130,6 +130,9 @@ body{ Margin: 0; Padding: 0 }
 #BNS-Bookmarks--Tags li+li::before{ Content: " " }
 #BNS-Bookmarks--Tags li>a{ Display: Inline-Block; Margin: 0; Border: Thin Var(--Magic) Solid; Border-Radius: .25REM; Padding-Inline: .5REM; Block-Size: 1.25REM; Color: Var(--Text); Text-Decoration: None }
 #BNS-Bookmarks--Tags li>a.TARGETED{ Background: Var(--Magic); Color: Var(--Background) }
+h3{ Margin: Auto; Margin-Block: 0 1REM; Margin-Inline: Auto; Border-Block-End: Thin Solid; Padding-Block-End: .25REM; Min-Inline-Size: 40%; Inline-Size: Max-Content; Max-Inline-Size: 100%; Font-Size: 1.5REM; Text-Align: Center }
+p{ Margin: 0; Text-Align: Justify }
+p+p{ Margin-Block-Start: .75REM }
 *:Any-Link{ Color: Var(--Text) }
 *:Any-Link:Hover{ Color: Var(--Fade) }
 button,sup,sub{ Font-Size: .625EM; Line-Height: 1 }
@@ -140,27 +143,53 @@ time:Not([datetime]){ White-Space: NoWrap }
 			</html:style>
 			<html:script type="module">
 const filterArticlesByTag= () => {
-  const tag= location.hash.substring(1)
+  const hash= location.hash.substring(1)
   for (
     const a of document.querySelectorAll("#BNS-Bookmarks--Tags li>a")
   ) {
     a.classList[
-      a.hash.substring(1) == tag ? "add" : "remove"
+      a.hash.substring(1) == hash ? "add" : "remove"
     ]("TARGETED")
   }
-  if ( possibleTags.includes(tag) )
+  if ( possibleTags.includes(hash) )
     for (
       const elt of document.querySelectorAll("#BNS-Bookmarks>article")
     ) {
       elt.hidden= !(
         elt.dataset.tags?.split?.(" ") ?? []
-      ).includes(tag)
+      ).includes(hash)
+      const remarks=
+        elt.querySelector("#BNS-Bookmarks>article>div>div.REMARKS")
+      if ( remarks != null )
+        remarks.firstElementChild.hidden=
+          !(remarks.lastElementChild.hidden= true)
+    }
+  else if (
+    hash
+    &amp;&amp; document.getElementById(hash)
+       ?.matches
+       ?.("#BNS-Bookmarks>article")
+  )
+    for (
+      const elt of document.querySelectorAll("#BNS-Bookmarks>article")
+    ) {
+      elt.hidden= !(elt.id == hash)
+      const remarks=
+        elt.querySelector("#BNS-Bookmarks>article>div>div.REMARKS")
+      if ( remarks != null )
+        remarks.firstElementChild.hidden=
+          !(remarks.lastElementChild.hidden= false)
     }
   else
     for (
       const elt of document.querySelectorAll("#BNS-Bookmarks>article")
     ) {
       elt.hidden= false
+      const remarks=
+        elt.querySelector("#BNS-Bookmarks>article>div>div.REMARKS")
+      if ( remarks != null )
+        remarks.firstElementChild.hidden=
+          !(remarks.lastElementChild.hidden= true)
 }   }
 const possibleTags= Array.from
   ( document.querySelectorAll("#BNS-Bookmarks--Tags li>a") )
@@ -245,7 +274,24 @@ mainScript: {
 						</html:header>
 					</for-each>
 					<html:div>
-						<apply-templates select="bns:hasDescription" mode="contents"/>
+						<html:div class="DESCRIPTION">
+							<apply-templates select="bns:hasDescription" mode="contents"/>
+						</html:div>
+						<if test="bns:hasRemark">
+							<html:div class="REMARKS">
+								<html:a lang="en">
+									<attribute name="href">
+										<text>#</text>
+										<call-template name="anchor"/>
+									</attribute>
+									<text>Click to view full remarks.</text>
+								</html:a>
+								<html:article hidden="">
+									<html:h3>Remarks</html:h3>
+									<apply-templates select="bns:hasRemark" mode="contents"/>
+								</html:article>
+							</html:div>
+						</if>
 					</html:div>
 					<if test="bns:hasTag">
 						<html:footer>
