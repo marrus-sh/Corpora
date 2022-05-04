@@ -5,13 +5,13 @@
 	<!ENTITY date "http://www.w3.org/2001/XMLSchema#date">
 ]>
 <!--
-⁌ Branching Notational System X·S·L Transformation (BNS.xslt)
+⁌ Branching Notational System Corpus X·S·L Transformation (BNS-Corpus.xslt)
 
 § Usage :—
 
 Requires both X·S·L·T 1.0 and E·X·S·L·T Common support.  C·S·S features require at least Firefox 76 / Safari 14.1 / Chrome 89.  Stick the following at the beginning of your X·M·L file :—
 
-	<?xml-stylesheet type="text/xsl" href="/path/to/BNS.xslt"?>
+	<?xml-stylesheet type="text/xsl" href="/path/to/BNS-Corpus.xslt"?>
 
 §§ Configuration (in the file which links to this stylesheet) :—
 
@@ -21,7 +21,7 @@ Requires both X·S·L·T 1.0 and E·X·S·L·T Common support.  C·S·S feat
 
 • The @prefix attribute on the <html:html> element (with the R·D·F∕A syntax) is used for shortening of displayed links.
 
-• Exactly one <html:article id="BNS"> must be supplied; the corpus will be placed in here!
+• Exactly one <html:article id="BNS-Corpus"> must be supplied; the corpus will be placed in here!
 
 • Feel free to add your own <html:style> elements or other content.
 
@@ -1310,51 +1310,51 @@ window.addEventListener
 @keyframes Out-To-End{
 	from{ Inset-Inline: 0; Opacity: 1 }
 	to{ Inset-Inline: 100%; Opacity: 0 } }
-#BNS{ Display: Flex; Position: Relative; Box-Sizing: Border-Box; Margin-Block: 0 2REM; Margin-Inline: Auto; Border-End-Start-Radius: 4REM; Border-End-End-Radius: 4REM; Padding-Block: 1REM; Padding-Inline: 5REM; Min-Block-Size: Calc(100VH - 2REM); Inline-Size: 54REM; Max-Inline-Size: 100%; Flex-Direction: Column; Color: Var(--Text); Background: Var(--Background); Font-Family: Var(--Serif); Line-Height: 1.25; Z-Index: Auto }
-#BNS::after{ Display: Block; Position: Absolute; Inset-Block: Auto -2EM; Inset-Inline: 0; Block-Size: 6REM; Background: Var(--Shade); Z-Index: -1; Content: "" }
-#BNS>header{ Flex: None }
-#BNS>header>h1{ Display: Block; Margin-Block: .5REM; Color: Var(--Text); Font-Size: XX-Large; Font-Family: Var(--Sans); Text-Align: Center }
-#BNS>header>h1>a{ Color: Var(--Shade) }
-#BNS>header>h1>a:Hover{ Color: Var(--Attn) }
-#BNS>header>nav{ Font-Size: Medium; Margin-Block: .5REM 1REM; Color: Var(--Text); Font-Family: Var(--Sans); Text-Align: Justify; Text-Align-Last: Center }
-#BNS>header>nav>ol,#BNS>header>nav>ol>li{ Display: Inline; Margin: 0; Padding: 0 }
-#BNS>header>nav>ol>li::after{ Content: "\200B" }
-#BNS>header>nav>ol>li+li::before{ Margin-Inline-Start: .5EM; Border-Inline-Start: Thin Solid; Padding-Inline-Start: .5EM; Content: "" }
-#BNS>header>nav a{ Color: Var(--Text); Text-Decoration: None }
-#BNS>header>nav a:Focus,#BNS>header>nav a:Hover{ Text-Decoration: Underline }
-#BNS>div{ Position: Relative; Flex: Auto; Margin-Block: 0 -1REM; Margin-Inline: -5REM; Min-Block-Size: 24REM; Overflow: Hidden }
-#BNS>div>*{ Display: Grid; Position: Absolute; Box-Sizing: Border-Box; Inset-Block: 0; Inset-Inline: 0 Auto; Border: .25REM Var(--Shade) Solid; Border-Radius: 4REM; Padding: 2REM; Inline-Size: 100%; Gap: 1REM 2REM; Grid-Template-Rows: Min-Content 1FR Min-Content; Grid-Template-Columns: 1FR 23EM; Overflow: Auto; Background: Var(--Canvas) }
-#BNS>div>*[data-slide=in]{ Animation: In-From-End 1S Both }
-#BNS>div>*[data-direction=reverse][data-slide=in]{ Animation: In-From-Start 1S Both }
-#BNS>div>*[data-slide=out]{ Animation: Out-To-Start 1S Both }
-#BNS>div>*[data-direction=reverse][data-slide=out]{ Animation: Out-To-End 1S Both }
-#BNS>div>*[hidden]{ Display: None }
-#BNS>div>*>header,#BNS>div>*>header+section,#BNS>div>*>div,#BNS>div>*>footer{ Grid-Column: 1 / Span 2 }
-#BNS>div>*>header{ Display: Grid; Grid-Auto-Flow: Dense Column; Grid-Row: 1 / Span 1; Margin-Block: -1REM 0; Margin-Inline: -2REM; Border-Block-End: Thin Var(--Shade) Solid; Padding-Block: 0 1REM; Padding-Inline: 2REM; Grid-Template-Rows: Auto Auto Auto; Grid-Template-Columns: Auto 1EM 1EM Max-Content 1EM 1EM Auto; Gap: .3125EM .5REM; Text-Align: Center }
-#BNS>div>*>header>p{ Grid-Column: 2 / Span 5; Margin-Block: 0; Min-Inline-Size: Max-Content; Color: Var(--Bold); Font-Variant-Caps: Small-Caps; Text-Align: Center; Text-Decoration: Underline }
-#BNS>div>*>header>p>a{ Color: Inherit }
-#BNS>div>*>header>p>a:Focus,#BNS>div>*>header>p>a:Hover{ Color: Var(--Shade); Text-Decoration: Double Underline }
-#BNS>div>*>header>hgroup>h2{ Grid-Column: 1 / Span 7; Margin-Block: 0; Inline-Size: Min-Content; Min-Inline-Size: 100%; Color: Var(--Shade); Font-Size: X-Large; Font-Family: Var(--Sans); Line-Height: 1 }
-#BNS>div>*>header>hgroup>h3{ Grid-Column: 4 / Span 1; Margin-Block: 0; Color: Var(--Attn); Font-Size: Inherit; Font-Weight: Inherit; Font-Variant-Caps: Small-Caps }
-#BNS>div>*>header>hgroup,#BNS>div>*>header>nav{ Display: Contents }
-#BNS>div>*>header>nav>a{ Text-Decoration: None }
-#BNS>div>*>header>nav>a[data-nav=prev]{ Grid-Column: 2 / Span 1 }
-#BNS>div>*>header>nav>a[data-nav=parent]{ Grid-Column: 3 / Span 1 }
-#BNS>div>*>header>nav>a[data-nav=child]{ Grid-Column: 5 / Span 1 }
-#BNS>div>*>header>nav>a[data-nav=next]{ Grid-Column: 6 / Span 1 }
-#BNS>div>*>section{ Display: Flex; Flex-Direction: Column; Box-Sizing: Border-Box; Grid-Row: 2 / Span 1; Margin-Inline: Auto; Border-Block: Thin Var(--Shade) Solid; Padding-Inline: 0 1PX; Inline-Size: 100%; Max-Inline-Size: 23EM; Overflow-Block: Auto; Overflow-Inline: Hidden }
-#BNS>div>*>section>*{ Flex: 1; Border-Color: Var(--Shade); Margin-Block: -1PX 0; Border-Block-Style: Solid Double; Border-Block-Width: Thin Medium; Border-Inline-Style: Solid Double; Border-Inline-Width: Thin Medium; Padding-Block: 1EM; Padding-Inline: 1EM; Background: Var(--Background); Box-Shadow: 1PX 1PX Var(--Shade) }
-#BNS>div>*>section>*:Not(:Empty)~*{ Margin-Block-Start: Calc(1EM + 1PX) }
-#BNS>div>*>section>*:Empty:Not(:Only-Child){ Display: None }
-#BNS>div>*>figure{ Display: Grid; Grid-Row: 2 / Span 1; Grid-Column: 1 / Span 1; Margin: 0; Padding: 0; Block-Size: 100%; Inline-Size: 100%; Overflow: Hidden }
-#BNS>div>*>figure>*{ Border: None; Grid-Row: 1 / Span 1; Grid-Column: 1 / Span 1; Block-Size: 100%; Inline-Size: 100%; Object-Fit: Contain }
-#BNS>div>*>figure>iframe{ Object-Fit: Fill }
-#BNS>div>*>div{ Grid-Row: 2 / Span 1 }
-#BNS>div>*>footer{ Display: Flex; Grid-Row: 3 / Span 1; Margin-Block: 0 -2REM; Margin-Inline: -2REM; Border-Block-Start: Thin Var(--Shade) Solid; Padding-Block: 1EM; Padding-Inline: 3EM; Max-Inline-Size: Calc(100% + 4REM - 6EM); Justify-Content: Space-Between; Font-Size: Smaller; White-Space: NoWrap }
-#BNS>div>*>footer>*:First-Child:Not(:Only-Child){ Flex: None }
-#BNS>div>*>footer>*+*:Last-Child{ Display: Grid; Margin-Inline-Start: 1EM; Grid-Template-Columns: Max-Content 1FR Max-Content }
-#BNS>div>*>footer>*+*:Last-Child>a{ Max-Inline-Size: 100%; Overflow: Hidden; Text-Overflow: Ellipsis }
-#BNS div.FILES{ Margin-Block: -1REM; Margin-Inline: -2REM }
+#BNS-Corpus{ Display: Flex; Position: Relative; Box-Sizing: Border-Box; Margin-Block: 0 2REM; Margin-Inline: Auto; Border-End-Start-Radius: 4REM; Border-End-End-Radius: 4REM; Padding-Block: 1REM; Padding-Inline: 5REM; Min-Block-Size: Calc(100VH - 2REM); Inline-Size: 54REM; Max-Inline-Size: 100%; Flex-Direction: Column; Color: Var(--Text); Background: Var(--Background); Font-Family: Var(--Serif); Line-Height: 1.25; Z-Index: Auto }
+#BNS-Corpus::after{ Display: Block; Position: Absolute; Inset-Block: Auto -2EM; Inset-Inline: 0; Block-Size: 6REM; Background: Var(--Shade); Z-Index: -1; Content: "" }
+#BNS-Corpus>header{ Flex: None }
+#BNS-Corpus>header>h1{ Display: Block; Margin-Block: .5REM; Color: Var(--Text); Font-Size: XX-Large; Font-Family: Var(--Sans); Text-Align: Center }
+#BNS-Corpus>header>h1>a{ Color: Var(--Shade) }
+#BNS-Corpus>header>h1>a:Hover{ Color: Var(--Attn) }
+#BNS-Corpus>header>nav{ Font-Size: Medium; Margin-Block: .5REM 1REM; Color: Var(--Text); Font-Family: Var(--Sans); Text-Align: Justify; Text-Align-Last: Center }
+#BNS-Corpus>header>nav>ol,#BNS-Corpus>header>nav>ol>li{ Display: Inline; Margin: 0; Padding: 0 }
+#BNS-Corpus>header>nav>ol>li::after{ Content: "\200B" }
+#BNS-Corpus>header>nav>ol>li+li::before{ Margin-Inline-Start: .5EM; Border-Inline-Start: Thin Solid; Padding-Inline-Start: .5EM; Content: "" }
+#BNS-Corpus>header>nav a{ Color: Var(--Text); Text-Decoration: None }
+#BNS-Corpus>header>nav a:Focus,#BNS-Corpus>header>nav a:Hover{ Text-Decoration: Underline }
+#BNS-Corpus>div{ Position: Relative; Flex: Auto; Margin-Block: 0 -1REM; Margin-Inline: -5REM; Min-Block-Size: 24REM; Overflow: Hidden }
+#BNS-Corpus>div>*{ Display: Grid; Position: Absolute; Box-Sizing: Border-Box; Inset-Block: 0; Inset-Inline: 0 Auto; Border: .25REM Var(--Shade) Solid; Border-Radius: 4REM; Padding: 2REM; Inline-Size: 100%; Gap: 1REM 2REM; Grid-Template-Rows: Min-Content 1FR Min-Content; Grid-Template-Columns: 1FR 23EM; Overflow: Auto; Background: Var(--Canvas) }
+#BNS-Corpus>div>*[data-slide=in]{ Animation: In-From-End 1S Both }
+#BNS-Corpus>div>*[data-direction=reverse][data-slide=in]{ Animation: In-From-Start 1S Both }
+#BNS-Corpus>div>*[data-slide=out]{ Animation: Out-To-Start 1S Both }
+#BNS-Corpus>div>*[data-direction=reverse][data-slide=out]{ Animation: Out-To-End 1S Both }
+#BNS-Corpus>div>*[hidden]{ Display: None }
+#BNS-Corpus>div>*>header,#BNS-Corpus>div>*>header+section,#BNS-Corpus>div>*>div,#BNS-Corpus>div>*>footer{ Grid-Column: 1 / Span 2 }
+#BNS-Corpus>div>*>header{ Display: Grid; Grid-Auto-Flow: Dense Column; Grid-Row: 1 / Span 1; Margin-Block: -1REM 0; Margin-Inline: -2REM; Border-Block-End: Thin Var(--Shade) Solid; Padding-Block: 0 1REM; Padding-Inline: 2REM; Grid-Template-Rows: Auto Auto Auto; Grid-Template-Columns: Auto 1EM 1EM Max-Content 1EM 1EM Auto; Gap: .3125EM .5REM; Text-Align: Center }
+#BNS-Corpus>div>*>header>p{ Grid-Column: 2 / Span 5; Margin-Block: 0; Min-Inline-Size: Max-Content; Color: Var(--Bold); Font-Variant-Caps: Small-Caps; Text-Align: Center; Text-Decoration: Underline }
+#BNS-Corpus>div>*>header>p>a{ Color: Inherit }
+#BNS-Corpus>div>*>header>p>a:Focus,#BNS-Corpus>div>*>header>p>a:Hover{ Color: Var(--Shade); Text-Decoration: Double Underline }
+#BNS-Corpus>div>*>header>hgroup>h2{ Grid-Column: 1 / Span 7; Margin-Block: 0; Inline-Size: Min-Content; Min-Inline-Size: 100%; Color: Var(--Shade); Font-Size: X-Large; Font-Family: Var(--Sans); Line-Height: 1 }
+#BNS-Corpus>div>*>header>hgroup>h3{ Grid-Column: 4 / Span 1; Margin-Block: 0; Color: Var(--Attn); Font-Size: Inherit; Font-Weight: Inherit; Font-Variant-Caps: Small-Caps }
+#BNS-Corpus>div>*>header>hgroup,#BNS-Corpus>div>*>header>nav{ Display: Contents }
+#BNS-Corpus>div>*>header>nav>a{ Text-Decoration: None }
+#BNS-Corpus>div>*>header>nav>a[data-nav=prev]{ Grid-Column: 2 / Span 1 }
+#BNS-Corpus>div>*>header>nav>a[data-nav=parent]{ Grid-Column: 3 / Span 1 }
+#BNS-Corpus>div>*>header>nav>a[data-nav=child]{ Grid-Column: 5 / Span 1 }
+#BNS-Corpus>div>*>header>nav>a[data-nav=next]{ Grid-Column: 6 / Span 1 }
+#BNS-Corpus>div>*>section{ Display: Flex; Flex-Direction: Column; Box-Sizing: Border-Box; Grid-Row: 2 / Span 1; Margin-Inline: Auto; Border-Block: Thin Var(--Shade) Solid; Padding-Inline: 0 1PX; Inline-Size: 100%; Max-Inline-Size: 23EM; Overflow-Block: Auto; Overflow-Inline: Hidden }
+#BNS-Corpus>div>*>section>*{ Flex: 1; Border-Color: Var(--Shade); Margin-Block: -1PX 0; Border-Block-Style: Solid Double; Border-Block-Width: Thin Medium; Border-Inline-Style: Solid Double; Border-Inline-Width: Thin Medium; Padding-Block: 1EM; Padding-Inline: 1EM; Background: Var(--Background); Box-Shadow: 1PX 1PX Var(--Shade) }
+#BNS-Corpus>div>*>section>*:Not(:Empty)~*{ Margin-Block-Start: Calc(1EM + 1PX) }
+#BNS-Corpus>div>*>section>*:Empty:Not(:Only-Child){ Display: None }
+#BNS-Corpus>div>*>figure{ Display: Grid; Grid-Row: 2 / Span 1; Grid-Column: 1 / Span 1; Margin: 0; Padding: 0; Block-Size: 100%; Inline-Size: 100%; Overflow: Hidden }
+#BNS-Corpus>div>*>figure>*{ Border: None; Grid-Row: 1 / Span 1; Grid-Column: 1 / Span 1; Block-Size: 100%; Inline-Size: 100%; Object-Fit: Contain }
+#BNS-Corpus>div>*>figure>iframe{ Object-Fit: Fill }
+#BNS-Corpus>div>*>div{ Grid-Row: 2 / Span 1 }
+#BNS-Corpus>div>*>footer{ Display: Flex; Grid-Row: 3 / Span 1; Margin-Block: 0 -2REM; Margin-Inline: -2REM; Border-Block-Start: Thin Var(--Shade) Solid; Padding-Block: 1EM; Padding-Inline: 3EM; Max-Inline-Size: Calc(100% + 4REM - 6EM); Justify-Content: Space-Between; Font-Size: Smaller; White-Space: NoWrap }
+#BNS-Corpus>div>*>footer>*:First-Child:Not(:Only-Child){ Flex: None }
+#BNS-Corpus>div>*>footer>*+*:Last-Child{ Display: Grid; Margin-Inline-Start: 1EM; Grid-Template-Columns: Max-Content 1FR Max-Content }
+#BNS-Corpus>div>*>footer>*+*:Last-Child>a{ Max-Inline-Size: 100%; Overflow: Hidden; Text-Overflow: Ellipsis }
+#BNS-Corpus div.FILES{ Margin-Block: -1REM; Margin-Inline: -2REM }
 h4{ Margin-Block: 0 .5REM; Margin-Inline: Auto; Border-Width: Thin; Border-Block-Style: Dotted Solid; Border-Block-Color: Var(--Fade) Var(--Shade); Border-Inline-Style: Dashed; Border-Inline-Color: Var(--Text); Padding-Block: .3125EM; Padding-Inline: 1EM; Max-Inline-Size: Max-Content; Color: Var(--Text); Font-Size: X-Large; Font-Family: Var(--Sans); Line-Height: 1; Text-Align: Center }
 blockquote,p{ Margin-Block: 0; Margin-Inline: Auto; Text-Align: Justify; Text-Align-Last: Center }
 blockquote:Not(:First-Child),p:Not(:First-Child){ Margin-Block: .625EM 0 }
@@ -1390,14 +1390,14 @@ const finishAnimation= ( { target: element } ) =>
 window.addEventListener
   ( "load"
   , ( ) => {
-    const div= document.querySelector("#BNS>div")
+    const div= document.querySelector("#BNS-Corpus>div")
     div.removeChild(div.firstElementChild)
     let element= location.hash.length > 1 ? document.getElementById
       ( decodeURIComponent(location.hash.substring(1)) )
     : null
-    if ( !element || !element.matches("#BNS>div>*") )
-      element= document.querySelector("#BNS>div>*")
-    for ( const panel of document.querySelectorAll("#BNS>div>*") ) {
+    if ( !element || !element.matches("#BNS-Corpus>div>*") )
+      element= document.querySelector("#BNS-Corpus>div>*")
+    for ( const panel of document.querySelectorAll("#BNS-Corpus>div>*") ) {
       if ( !(panel.hidden= panel != element) )
         displayMediaIn(panel)
   } } )
@@ -1410,9 +1410,9 @@ window.addEventListener
       let met= false
       const anchor= decodeURIComponent(location.hash.substring(1))
       const element= document.getElementById(anchor)
-      if ( !element || !element.matches("#BNS>div>*") )
+      if ( !element || !element.matches("#BNS-Corpus>div>*") )
         return
-      for ( const panel of document.querySelectorAll("#BNS>div>*") ) {
+      for ( const panel of document.querySelectorAll("#BNS-Corpus>div>*") ) {
         if ( panel == element ) {
           met= true
           if ( panel.hidden || panel.dataset.slide == "out" ) {
@@ -1440,12 +1440,12 @@ document.addEventListener
   , event =>
     {
       let link
-      const current= document.querySelector("#BNS>div>*:Not([hidden])")
+      const current= document.querySelector("#BNS-Corpus>div>*:Not([hidden])")
       const { key }= event
       if ( key == "ArrowRight" || key == "ArrowLeft" )
         event.preventDefault()
       if (
-        document.querySelector("#BNS>div>*[data-slide]")
+        document.querySelector("#BNS-Corpus>div>*[data-slide]")
         || !current
       )
         return
@@ -1515,7 +1515,7 @@ document.addEventListener
 			</otherwise>
 		</choose>
 	</template>
-	<template match="html:article[@id='BNS']">
+	<template match="html:article[@id='BNS-Corpus']">
 		<copy>
 			<for-each select="@*">
 				<copy/>
