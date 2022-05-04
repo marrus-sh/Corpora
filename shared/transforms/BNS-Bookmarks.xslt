@@ -107,12 +107,42 @@ THIS FILE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPL
 				<copy/>
 			</for-each>
 			<html:style>
+html{ Margin: 0; Padding: 0; Color: Var(--Text); Background: Var(--Background); Font-Family: Var(--Serif); Line-Height: 1.25; --Background: Canvas; --Canvas: Canvas; --Fade: GrayText; --Magic: LinkText; --Text: CanvasText; --Attn: ActiveText; --Bold: VisitedText; --Shade: CanvasText; --Sans: Sans-Serif; --Serif: Serif; --Mono: Monospace }
+body{ Margin: 0; Padding: 0 }
+#BNS-Bookmarks{ Margin-Inline: Auto; Padding: 2REM; Max-Inline-Size: 44REM }
+#BNS-Bookmarks>article{ Margin-Block: 2REM; Border: Medium Var(--Shade) Solid; Border-Radius: 1REM; Padding: 1REM; Color: Var(--Text); Background: Var(--Canvas) }
+#BNS-Bookmarks>article>header{ Margin: 1REM; Border: Thin Var(--Shade) Solid; Padding: 1REM; Color: Var(--Text); Background: Var(--Background); Font-Size: 1.5REM; Text-Align: Center }
+#BNS-Bookmarks>article>header>div{ Padding-Inline: 1REM; Font-Size: 1REM; Text-Align: Justify }
+#BNS-Bookmarks>article h2{ Margin-Block: 0 1REM; Font-Size: 2REM; Font-Style: Italic; Font-Weight: Inherit}
+#BNS-Bookmarks>article>div{ Position: Relative; Margin-Block: 1.5REM; Margin-Inline: 1REM; Padding-Block: 1REM; Padding-Inline: 1REM; Color: Var(--Text); Background: Var(--Background); Z-Index: 0 }
+#BNS-Bookmarks>article>div p{ Margin: 0 }
+#BNS-Bookmarks>article>div p+p{ Margin-Block-Start: .75REM }
+#BNS-Bookmarks>article>div::before{ Position: Absolute; Inset-Block: -.5REM; Inset-Inline: -1REM; Opacity: .5; Background: Inherit; Z-Index: -1; Content: "" }
+#BNS-Bookmarks>article footer{ Margin-Block: 1REM 0; Border-Block-Start: Thin Var(--Shade) Solid; Padding-Block: 1REM 0; Padding-Inline: 1REM }
+#BNS-Bookmarks>article footer h3{ Display: Inline; Margin: 0; Font-Size: Inherit }
+#BNS-Bookmarks>article footer h3::after{ Content: ": " }
+#BNS-Bookmarks>article footer ul,#BNS-Bookmarks>article footer li{ All: Unset }
+#BNS-Bookmarks>article footer li+li::before{ Content: ", " }
+#BNS-Bookmarks--Tags{ Text-Align: Center }
+#BNS-Bookmarks--Tags h2{ Margin: 0; Font-Family: Var(--Sans); Text-Decoration: Underline; Text-Decoration-Skip-Ink: None }
+#BNS-Bookmarks--Tags ul{ Display: Block; Padding: 0 }
+#BNS-Bookmarks--Tags li{ All: Unset }
+#BNS-Bookmarks--Tags li+li::before{ Content: " " }
+#BNS-Bookmarks--Tags li>a{ Display: Inline-Block; Margin: 0; Border: Thin Var(--Magic) Solid; Border-Radius: .25REM; Padding-Inline: .5REM; Block-Size: 1.25REM; Color: Var(--Text); Text-Decoration: None }
+#BNS-Bookmarks--Tags li>a.TARGETED{ Background: Var(--Magic); Color: Var(--Background) }
+*:Any-Link{ Color: Var(--Text) }
+*:Any-Link:Hover{ Color: Var(--Fade) }
+button,sup,sub{ Font-Size: .625EM; Line-Height: 1 }
+code{ Overflow-Wrap: Break-Word; Font-Family: Var(--Mono) }
+strong{ Color: Var(--Attn) }
+a:Hover strong{ Color: Var(--Shade) }
+time:Not([datetime]){ White-Space: NoWrap }
 			</html:style>
 			<html:script type="module">
 const filterArticlesByTag= () => {
-  const tag = location.hash.substring(1)
+  const tag= location.hash.substring(1)
   for (
-    const a of document.querySelectorAll("#BNS-Bookmarks--Tags a")
+    const a of document.querySelectorAll("#BNS-Bookmarks--Tags li>a")
   ) {
     a.classList[
       a.hash.substring(1) == tag ? "add" : "remove"
@@ -133,7 +163,7 @@ const filterArticlesByTag= () => {
       elt.hidden= false
 }   }
 const possibleTags= Array.from
-  ( document.querySelectorAll("#BNS-Bookmarks--Tags a") )
+  ( document.querySelectorAll("#BNS-Bookmarks--Tags li>a") )
   .map(a => a.hash.substring(1))
 mainScript: {
   window.addEventListener("hashchange", filterArticlesByTag)
@@ -164,6 +194,11 @@ mainScript: {
 							</html:li>
 						</for-each>
 					</html:ul>
+					<html:span lang="en">
+						<text>or, </text>
+						<html:a href="#">click here to view all works</html:a>
+						<text>.</text>
+					</html:span>
 				</html:nav>
 			</if>
 			<for-each select="document($rdf)//bns:Bookmark">
