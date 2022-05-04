@@ -160,8 +160,7 @@ ${ document(this.COVER, id) || "<!-- empty -->" }
       catch { }
     else
       throw new Error ("", { cause: error })
-  }
-}
+} }
 
 /**
  *  Creates the appropriate XML for the passed document `object`.
@@ -244,95 +243,24 @@ const document= ( object, path= "" ) => {
 } }
 
 /**
- *  Creates the appropriate XML for the passed song `object`.
- */
-const song= ( object ) => {
-  if ( object == null || typeof object != "object" )
-    return null
-  else {
-    const result= [ ]
-    if ( object.CITATION != null )
-      result.push(`<citation rdf:parseType="Literal">${ object.CITATION }</citation>`)
-    if ( object.AVAILABLE != null )
-      if ( Array.isArray(object.AVAILABLE) )
-        for ( const published of object.AVAILABLE ) {
-          if ( published.URL == null )
-            continue
-          result.push(`<isMadeAvailableBy rdf:parseType="Resource">
-	<url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ published.URL }</url>${ published.SITELABEL != null ? `
-	<siteLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ published.SITELABEL }</siteLabel>` : "" }
-		</isMadeAvailableBy>`)
-        }
-      else if ( object.AVAILABLE.URL != null )
-        result.push(`<isMadeAvailableBy rdf:parseType="Resource">
-	<url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ object.AVAILABLE.URL }</url>${ object.AVAILABLE.SITELABEL != null ? `
-	<siteLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ object.AVAILABLE.SITELABEL }</siteLabel>` : "" }
-		</isMadeAvailableBy>`)
-    return result.join(`
-		`)
-} }
-
-/**
  *  Creates the appropriate XML for the passed mixtape `object`.
  */
 const mixtape= ( object, path= "" ) => {
   if ( object == null || typeof object != "object" )
     return null
   else {
-    const result= [ ]
-    if ( object.ID != null )
-      result.push(`<identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName">${ object.ID }</identifier>`)
-    if ( object.TITLE != null )
-      result.push(textElement("fullTitle", object.TITLE))
-    if ( object.SHORTTITLE != null )
-      result.push(textElement("shortTitle", object.SHORTTITLE))
-    if ( object.COVER != null )
-      result.push
-        ( object.COVER.CONTENTS != null
-          ? `<hasCover rdf:parseType="Resource">
-	<contents rdf:parseType="Literal">${ object.COVER.CONTENTS }</contents>
-</hasCover>`
-        : `<hasCover>
-${ document(object.COVER, path) || "<!-- empty -->" }
-</hasCover>` )
-    if ( object.DESCRIPTION?.CONTENTS != null )
-      result.push(`<hasDescription rdf:parseType="Resource">
-		<contents rdf:parseType="Literal">${ object.DESCRIPTION.CONTENTS }</contents>
-	</hasDescription>`)
-    if ( object.AVAILABLE != null )
-      if ( Array.isArray(object.AVAILABLE) )
-        for ( const published of object.AVAILABLE ) {
-          if ( published.URL == null )
-            continue
-          result.push(`<isMadeAvailableBy rdf:parseType="Resource">
-	<url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ published.URL }</url>${ published.SITELABEL != null ? `
-	<siteLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ published.SITELABEL }</siteLabel>` : "" }
-		</isMadeAvailableBy>`)
-        }
-      else if ( object.AVAILABLE.URL != null )
-        result.push(`<isMadeAvailableBy rdf:parseType="Resource">
-	<url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ object.AVAILABLE.URL }</url>${ object.AVAILABLE.SITELABEL != null ? `
-	<siteLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ object.AVAILABLE.SITELABEL }</siteLabel>` : "" }
-		</isMadeAvailableBy>`)
+    const result= [ properties(object, path) || "" ]
     if ( object.TRACK != null )
-      if ( Array.isArray(object.TRACK) )
-        for ( const track of object.TRACK ) {
-          result.push(`<hasTrack rdf:parseType="Resource">${ track.N != null ? `
-	<index rdf:datatype="${ indexDatatype(track.N) }">${ track.N }</index>` : "" }${ track.SONG != null ? `
-	<song rdf:parseType="Resource">
-${ song(track.SONG) || "<!-- empty -->" }
-	</song>` : "" }
-		</hasTrack>`)
-        }
-      else
-        result.push(`<hasTrack rdf:parseType="Resource">${ object.TRACK.N != null ? `
-	<index rdf:datatype="${ indexDatatype(track.N) }">${ object.N }</index>` : "" }${ object.TRACK.SONG != null ? `
-	<song rdf:parseType="Resource">
-${ song(object.TRACK.SONG) || "<!-- empty -->" }
-	</song>` : "" }
-		</hasTrack>`)
+      for ( const track of [].concat(object.TRACK) ) {
+        result.push(`<hasTrack rdf:parseType="Resource">${ track.N != null ? `
+		<index rdf:datatype="${ indexDatatype(track.N) }">${ track.N }</index>` : "" }${ track.SONG != null ? `
+		<song rdf:parseType="Resource">
+	${ properties(track.SONG, path) || "<!-- empty -->" }
+		</song>` : "" }
+	</hasTrack>`)
+      }
     return result.join(`
-		`)
+	`)
 } }
 
 /**
@@ -354,82 +282,73 @@ const properties= ( object, path= "" ) => {
       result.push(textElement("fullTitle", object.TITLE))
     if ( object.SHORTTITLE != null )
       result.push(textElement("shortTitle", object.SHORTTITLE))
+    if ( object.AUTHOR != null )
+      for (const author of [].concat(object.AUTHOR)) {
+        result.push(`<hasAuthor>
+<Pseud${ author.IRI != null ? ` rdf:about="${ author.IRI }"` : "" }>
+	${ properties(author, path) || "" }
+</Pseud>
+	</hasAuthor>`)
+      }
+    if ( object.CITATION != null )
+      result.push(`<citation rdf:parseType="Literal">${ object.CITATION }</citation>`)
+    if ( object.TAG != null )
+      for (const tag of [].concat(object.TAG)) {
+        result.push(`<hasTag rdf:resource="${ object.$TAGS[tag] }"/>`)
+      }
     if ( object.COVER != null )
       result.push
         ( object.COVER.CONTENTS != null
           ? `<hasCover rdf:parseType="Resource">
-	<contents rdf:parseType="Literal">${ object.COVER.CONTENTS }</contents>
-</hasCover>`
+		<contents rdf:parseType="Literal">${ object.COVER.CONTENTS }</contents>
+	</hasCover>`
         : `<hasCover>
 ${ document(object.COVER, path) || "<!-- empty -->" }
-</hasCover>` )
+	</hasCover>` )
     if ( object.DESCRIPTION?.CONTENTS != null )
       result.push(`<hasDescription rdf:parseType="Resource">
 		<contents rdf:parseType="Literal">${ object.DESCRIPTION.CONTENTS }</contents>
 	</hasDescription>`)
+    if ( object.CONTENTS != null )
+      result.push(`<contents rdf:parseType="Literal">${ object.CONTENTS }</contents>`)
+    else if ( object.TEXTCONTENTS != null )
+      result.push(textElement("contents", object.TEXTCONTENTS))
     if ( object.FILE != null )
-      if ( Array.isArray(object.FILE) )
-        for ( const published of object.FILE ) {
-          result.push(`<hasFile>
+      for ( const published of [].concat(object.FILE) ) {
+        result.push(`<hasFile>
 ${ document(published, path) || "<!-- empty -->" }
 	</hasFile>`)
-        }
-      else
-        result.push(`<hasFile>
-${ document(object.FILE, path) || "<!-- empty -->" }
-	</hasFile>`)
+      }
     if ( object.FANDOM != null )
-      if ( Array.isArray(object.FANDOM) )
-        for ( const inspiration of object.FANDOM ) {
-          result.push(`<isFanworkOf rdf:resource="${ inspiration }"/>`)
-        }
-      else
-        result.push(`<isFanworkOf rdf:resource="${ object.FANDOM }"/>`)
+      for ( const inspiration of [].concat(object.FANDOM) ) {
+        result.push(`<isFanworkOf rdf:resource="${ inspiration }"/>`)
+      }
     if ( object.INSPIRATION != null )
-      if ( Array.isArray(object.INSPIRATION) )
-        for ( const inspiration of object.INSPIRATION ) {
-          result.push(`<isInspiredBy rdf:resource="${ inspiration }"/>`)
-        }
-      else
-        result.push(`<isInspiredBy rdf:resource="${ object.INSPIRATION }"/>`)
+      for ( const inspiration of [].concat(object.INSPIRATION) ) {
+        result.push(`<isInspiredBy rdf:resource="${ inspiration }"/>`)
+      }
     if ( object.THEMESONG != null )
-      if ( Array.isArray(object.THEMESONG) )
-        for ( const theme of object.THEMESONG ) {
-          result.push(`<hasThemeSong rdf:parseType="Resource">
-		${ song(theme) ?? "" }
-	</hasThemeSong>`)
-        }
-      else
+      for ( const theme of [].concat(object.THEMESONG) ) {
         result.push(`<hasThemeSong rdf:parseType="Resource">
-		${ song(object.THEMESONG) ?? "" }
+		${ properties(theme, path) ?? "" }
 	</hasThemeSong>`)
+      }
     if ( object.MIXTAPE != null )
-      if ( Array.isArray(object.MIXTAPE) )
-        for ( const tape of object.MIXTAPE ) {
-          result.push(`<hasMixtape rdf:parseType="Resource">
+      for ( const tape of [].concat(object.MIXTAPE) ) {
+        result.push(`<hasMixtape rdf:parseType="Resource">
 		${ mixtape(tape, path) ?? "" }
 	</hasMixtape>`)
-        }
-      else
-        result.push(`<hasMixtape rdf:parseType="Resource">
-		${ mixtape(object.MIXTAPE, path) ?? "" }
-	</hasMixtape>`)
+      }
     if ( object.AVAILABLE != null )
-      if ( Array.isArray(object.AVAILABLE) )
-        for ( const published of object.AVAILABLE ) {
-          if ( published.URL == null )
-            continue
-          else
+      for ( const published of [].concat(object.AVAILABLE) ) {
+        if ( published.URL == null )
+          continue
+        else
             result.push(`<isMadeAvailableBy rdf:parseType="Resource">
 		<url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ published.URL }</url>${ published.SITELABEL != null ? `
 		<siteLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ published.SITELABEL }</siteLabel>` : "" }
 	</isMadeAvailableBy>`)
-        }
-      else if ( object.AVAILABLE.URL != null )
-        result.push(`<isMadeAvailableBy rdf:parseType="Resource">
-		<url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ object.AVAILABLE.URL }</url>${ object.AVAILABLE.SITELABEL != null ? `
-		<siteLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ object.AVAILABLE.SITELABEL }</siteLabel>` : "" }
-	</isMadeAvailableBy>`)
+      }
     return result.join(`
 	`)
 } }
@@ -440,7 +359,7 @@ ${ document(object.FILE, path) || "<!-- empty -->" }
  *  Needs to be called with the corpus info as its `this`.
  */
 function branches ( base, path, parentTag ) {
-  const result= []
+  const result= [ ]
   try {
     if ( !Deno.statSync(`${ base }${ path }`).isDirectory )
       return null
@@ -546,7 +465,7 @@ function branches ( base, path, parentTag ) {
  *  Needs to be called with the corpus info as its `this`.
  */
 function projects ( base, parentTag ) {
-  const result= []
+  const result= [ ]
   for (
     const { isDirectory, name: project } of Array
       .from(Deno.readDirSync(base))
@@ -591,6 +510,89 @@ function projects ( base, parentTag ) {
 }
 
 /**
+ *  Creates the appropriate XML for the bookmarks specified in
+ *    `:bookmarks/`.
+ *
+ *  Needs to be called with the corpus info as its `this`.
+ */
+function writeBookmarks ( base, parentTag ) {
+  const result= [ ]
+  const tags= [ ]
+  try {
+    const info= YAML
+      ( Deno.readTextFileSync(`${ base }:bookmarks/@.yml`)
+      , { schema: JSON_SCHEMA } )
+    for ( const [index, tag] of (info.TAGS ?? []).entries() ) {
+      const identifier= tag.ID ?? index + 1
+      const iri= `${parentTag}/:bookmarks/:tags/${ identifier }`
+      const anchor= `${ this.ID || this.DOMAIN.substring(0, this.DOMAIN.indexOf(".")) }::bookmarks/:tags/${ identifier }`
+      result.push(`<Tag rdf:about="${ iri }">
+	<owl:sameAs rdf:resource="../:bookmarks/#/:tags/${ identifier }"/>
+	<owl:sameAs rdf:resource="./#${ anchor }"/>
+	${ properties(tag, ":bookmarks") || "" }
+</Tag>`)
+      tags[identifier]= iri
+    }
+    for ( const [index, bookmark] of (info.BOOKMARKS ?? []).entries() ) {
+      const identifier= bookmark.ID ?? index + 1
+      const iri= `${parentTag}/:bookmarks/${ identifier }`
+      const anchor= `${ this.ID || this.DOMAIN.substring(0, this.DOMAIN.indexOf(".")) }::bookmarks/${ identifier }`
+      result.push(`<Bookmark rdf:about="${ iri }">
+	<owl:sameAs rdf:resource="../:bookmarks/#${ identifier }"/>
+	<owl:sameAs rdf:resource="./#${ anchor }"/>
+	<isBookmarkOf>
+<rdf:Description${
+      "TARGET" in bookmark
+        ? ` rdf:about="${ bookmark.TARGET.IRI ?? bookmark.TARGET }"`
+      : ""
+    }>
+	${ properties(bookmark.TARGET ?? {}, ":bookmarks") || "" }
+</rdf:Description>
+	</isBookmarkOf>
+	${
+properties
+  ( Object.assign({ $TAGS: tags }, bookmark)
+  , ":bookmarks" ) || "" }
+</Bookmark>`)
+  } }
+  catch ( error ) {
+    if ( !(error instanceof NotFound) )
+      throw new Error ("", { cause: error })
+    else
+      return
+  }
+  if (result.length) {
+    console.log(`Writing bookmarks: ${ base }:bookmarks/index.rdf`)
+    Deno.writeTextFileSync
+      ( `${ base }:bookmarks/index.rdf`
+      , `<rdf:RDF
+	xmlns="https://go.KIBI.family/Ontologies/BNS/#"
+	xmlns:bns="https://go.KIBI.family/Ontologies/BNS/#"
+	xmlns:dcmitype="http://purl.org/dc/dcmitype"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+${ result.join(`
+`) }
+</rdf:RDF>
+` )
+    try {
+      if ( Deno.statSync(`${ base }:bookmarks/index.xhtml`) )
+        ;  //  do nothing
+    }
+    catch ( error ) {
+      if ( error instanceof NotFound )
+        try {  //  ok if this doesn’t succeed
+          Deno.copyFileSync
+            ( "./templates/BNS-Bookmarks.xhtml"
+            , `${ base }:bookmarks/index.xhtml` )
+        }
+        catch { }
+      else
+        throw new Error ("", { cause: error })
+} } }
+
+/**
  *  Creates the appropriate XML for the corpus in `path`.
  */
 function corpus ( path ) {
@@ -606,8 +608,8 @@ function corpus ( path ) {
       || typeof info.DATE != "string"
     )
       return null
-    else
-      return `<rdf:RDF
+    else {
+      const result= `<rdf:RDF
 	xmlns="https://go.KIBI.family/Ontologies/BNS/#"
 	xmlns:bns="https://go.KIBI.family/Ontologies/BNS/#"
 	xmlns:dcmitype="http://purl.org/dc/dcmitype"
@@ -632,7 +634,9 @@ function corpus ( path ) {
 </Corpus>
 </rdf:RDF>
 `
-  }
+      writeBookmarks.call(info, path, iri)
+      return result
+  } }
   catch ( error ) {
     if ( !(error instanceof NotFound) )
       throw new Error ("", { cause: error })
