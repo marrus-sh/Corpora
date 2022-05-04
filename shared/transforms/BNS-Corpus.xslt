@@ -826,7 +826,7 @@ schema: http://schema.org/
 	</template>
 	<template name="helper-css" priority="-1">
 		<html:style>
-html{ Margin: 0; Padding: 0; Font-Family: Var(--Serif); Line-Height: 1.25; --Background: Canvas; --Canvas: Canvas; --Fade: GrayText; --Magic: LinkText; --Text: CanvasText; --Attn: ActiveText; --Bold: VisitedText; --Shade: CanvasText; --Sans: Sans-Serif; --Serif: Serif; --Mono: Monospace }
+html{ Margin: 0; Padding: 0; Color: Var(--Text); Background: Var(--Background); Font-Family: Var(--Serif); Line-Height: 1.25; --Background: Canvas; --Canvas: Canvas; --Fade: GrayText; --Magic: LinkText; --Text: CanvasText; --Attn: ActiveText; --Bold: VisitedText; --Shade: CanvasText; --Sans: Sans-Serif; --Serif: Serif; --Mono: Monospace }
 body{ Margin: 0; Padding: 0 }
 div.FILES{ Display: Grid; Box-Sizing: Border-Box; Padding-Block: 2REM 0; Padding-Inline: 2REM; Block-Size: 100%; Grid-Template-Rows: 1FR Max-Content; Grid-Auto-Flow: Row; Overflow: Auto; Background: Var(--Shade); Color: Var(--Canvas) }
 div.FILES>div{ Display: Contents }
