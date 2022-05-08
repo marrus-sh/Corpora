@@ -108,31 +108,46 @@ THIS FILE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPL
 			</for-each>
 			<html:style>
 html{ Margin: 0; Padding: 0; Color: Var(--Text); Background: Var(--Background); Font-Family: Var(--Serif); Line-Height: 1.25; --Background: Canvas; --Canvas: Canvas; --Fade: GrayText; --Magic: LinkText; --Text: CanvasText; --Attn: ActiveText; --Bold: VisitedText; --Shade: CanvasText; --Sans: Sans-Serif; --Serif: Serif; --Mono: Monospace }
-body{ Margin: 0; Padding: 0 }
-#BNS-Bookmarks{ Margin-Inline: Auto; Padding: 2REM; Max-Inline-Size: 44REM }
-#BNS-Bookmarks>article{ Margin-Block: 2REM; Border: Medium Var(--Shade) Solid; Border-Radius: 1REM; Padding: 1REM; Color: Var(--Text); Background: Var(--Canvas) }
+body{ Box-Sizing: Border-Box; Margin-Block: Calc(26REM - 50VW) 0; Margin-Inline: 0; Padding-Block: Calc(50VW - 26REM); Padding-Inline: 0; Min-Block-Size: Calc(50VW - 26REM + 100VH); Box-Shadow: Inset 0 0 Calc(50VW - 26REM) Var(--Shade);  }
+@media ( max-width: 52REM ) {
+	body{ Margin-Block: 0; Min-Block-Size: 0 } }
+#BNS-Bookmarks{ Display: Grid; Margin-Inline: Auto; Padding-Block: 2REM; Padding-Inline: 4REM; Max-Inline-Size: 44REM; Overflow: Hidden; Grid-Template-Columns: 100%; Counter-Reset: Article }
+@media ( max-width: 53REM ) {
+	#BNS-Bookmarks{ Margin-Inline-Start: 0; Padding-Inline-End: 1REM } }
+#BNS-Bookmarks>article{ Position: Relative; Margin-Block: 1.5REM; Border: 3PX Var(--Shade) Solid; Border-Radius: 1REM; Padding: 1REM; Color: Var(--Text); Background: Var(--Canvas); Z-Index: 0; Counter-Increment: Article }
+#BNS-Bookmarks>article::before{ Display: Block; Position: Absolute; Inset-Block-Start: 1REM; Inset-Inline-End: 100%; Min-Inline-Size: 4REM; Color: Fade; Opacity: .6; Font-Size: 1.25EM; Font-Weight: Bold; Line-Height: 1; Text-Align: Center; Content: "№" Counter(Article, Decimal-Leading-Zero) }
+#BNS-Bookmarks>article:Target::before{ Content: "⁎" }
+#BNS-Bookmarks>article::after{ Display: Block; Position: Absolute; Inset-Block-Start: 100%; Inset-Inline: -1REM; Margin-Block-Start: 3PX; Border-Block-End: Thin Var(--Fade) Dashed; Padding-Block: .25REM;  Padding-Inline: 1REM; Color: Var(--Fade); Opacity: .6; White-Space: NoWrap; Line-Height: 1; Text-Align: End; Content: "#" Attr(id) }
+#BNS-Bookmarks>article:Not(:Has(~article:Not([hidden])))::after{ Border-Block-End: None }
 #BNS-Bookmarks>article>header{ Margin: 1REM; Border: Thin Var(--Shade) Solid; Padding: 1REM; Color: Var(--Text); Background: Var(--Background); Font-Size: 1.5REM; Text-Align: Center }
 #BNS-Bookmarks>article>header>div{ Margin-Block: 1REM; Padding-Inline: 1REM; Font-Size: 1REM; Text-Align: Justify }
-#BNS-Bookmarks>article h2{ Margin-Block: 0 1REM; Font-Size: 2REM; Font-Style: Italic; Font-Weight: Inherit}
+#BNS-Bookmarks>article>header>h2{ Margin-Block: 0 1REM; Font-Size: 2REM; Font-Style: Italic; Font-Weight: Inherit}
 #BNS-Bookmarks>article>div{ Position: Relative; Margin-Block: 1.5REM; Margin-Inline: 1REM; Padding-Block: 1REM; Padding-Inline: 1REM; Color: Var(--Text); Background: Var(--Background); Z-Index: 0 }
 #BNS-Bookmarks>article>div::before{ Position: Absolute; Inset-Block: -.5REM; Inset-Inline: -1REM; Opacity: .5; Background: Inherit; Z-Index: -1; Content: "" }
 #BNS-Bookmarks>article>div>div:Not(:First-Child){ Margin-Block-Start: 1.5REM; Border-Block-Start: Thin Var(--Fade) Dashed; Padding-Block-Start: 1.5REM }
-#BNS-Bookmarks>article article{ Padding-Inline: 1REM }
-#BNS-Bookmarks>article footer{ Margin-Block: 1REM 0; Border-Block-Start: Thin Var(--Shade) Solid; Padding-Block: 1REM 0; Padding-Inline: 1REM }
-#BNS-Bookmarks>article footer h3{ All: Unset; Font-Weight: Bold }
-#BNS-Bookmarks>article footer h3::after{ Content: ": " }
-#BNS-Bookmarks>article footer ul,#BNS-Bookmarks>article footer li{ All: Unset }
-#BNS-Bookmarks>article footer li+li::before{ Content: ", " }
-#BNS-Bookmarks--Tags{ Text-Align: Center }
-#BNS-Bookmarks--Tags h2{ Margin: 0; Font-Family: Var(--Sans); Text-Decoration: Underline; Text-Decoration-Skip-Ink: None }
-#BNS-Bookmarks--Tags ul{ Display: Block; Padding: 0 }
+#BNS-Bookmarks>article>footer{ Border-Color: Var(--Shade); Padding-Inline: 1REM; Color: Var(--Text); Font-Family: Var(--Sans) }
+#BNS-Bookmarks>article>footer h3{ All: Unset; Font-Weight: Bold }
+#BNS-Bookmarks>article>footer h3::after{ Content: ": " }
+#BNS-Bookmarks>article>footer ul,#BNS-Bookmarks>article>footer li{ All: Unset }
+#BNS-Bookmarks>article>footer li+li::before{ Content: ", " }
+#BNS-Bookmarks--Tags{ Margin-Inline: -1REM; Border: Thin Var(--Fade) Dashed; Padding-Block: .5REM; Padding-Inline: 2REM; Text-Align: Center; Font-Family: Var(--Sans) }
+#BNS-Bookmarks--Tags h2{ Margin-Block: 0; Font-Family: Var(--Sans); Text-Decoration: Underline; Text-Decoration-Skip-Ink: None }
+#BNS-Bookmarks--Tags ul{ Display: Block; Position: Relative; Margin-Block: 1REM; Margin-Inline: 0; Border: None; Padding: 0; Line-Height: 1.5 }
+#BNS-Bookmarks--Tags ul::before{ Position: Absolute; Inset-Block: 1REM; Inset-Inline: 1REM; Background: Var(--Background); Box-Shadow: 0 0 3REM 3REM Var(--Background); Z-Index: -1; Content: "" }
 #BNS-Bookmarks--Tags li{ All: Unset }
 #BNS-Bookmarks--Tags li+li::before{ Content: " " }
-#BNS-Bookmarks--Tags li>a{ Display: Inline-Block; Margin: 0; Border: Thin Var(--Magic) Solid; Border-Radius: .25REM; Padding-Inline: .5REM; Block-Size: 1.25REM; Color: Var(--Text); Text-Decoration: None }
+#BNS-Bookmarks--Tags li>a{ Display: Inline-Block; Margin: 0; Border: Thin Var(--Magic) Solid; Border-Radius: .25REM; Padding-Inline: .5REM; Color: Var(--Text); Line-Height: 1.25; Text-Decoration: None }
 #BNS-Bookmarks--Tags li>a.TARGETED{ Background: Var(--Magic); Color: Var(--Background) }
-h3{ Margin: Auto; Margin-Block: 0 1REM; Margin-Inline: Auto; Border-Block-End: Thin Solid; Padding-Block-End: .25REM; Min-Inline-Size: 40%; Inline-Size: Max-Content; Max-Inline-Size: 100%; Font-Size: 1.5REM; Text-Align: Center }
+article{ Padding-Inline: 1REM }
+footer{ Margin-Block: 1REM 0; Border-Block-Start: Thin Var(--Fade) Solid; Padding-Block: 1REM 0; Color: Var(--Fade) }
+h3{ Margin: Auto; Margin-Block: 1.25REM 1REM; Margin-Inline: Auto; Border-Block-End: Thin Solid; Padding-Block-End: .25REM; Padding-Inline: .5REM; Min-Inline-Size: 40%; Inline-Size: Max-Content; Max-Inline-Size: 100%; Font-Size: 1.5REM; Text-Align: Center }
+ol,ul{ Margin-Block: .25EM; Margin-Inline: -1PX 0; Border-Inline-Start: 1PX Var(--Fade) Dashed; Padding-Block: .5EM; Padding-Inline: 4CH 0 }
+ol{ List-Style-Type: Decimal-Leading-Zero }
+ul{ List-Style-Type: Circle }
+li{ Margin: 0 }
 p{ Margin: 0; Text-Align: Justify }
-p+p{ Margin-Block-Start: .75REM }
+li+li,p+p{ Margin-Block-Start: .75EM }
+hr{ Margin-Block: .5EM; Border-Block-Start: Thin Var(--Fade) Solid; Border-Block-End: None; Border-Inline: None }
 *:Any-Link{ Color: Var(--Text) }
 *:Any-Link:Hover{ Color: Var(--Fade) }
 button,sup,sub{ Font-Size: .625EM; Line-Height: 1 }
@@ -141,8 +156,8 @@ strong{ Color: Var(--Attn) }
 a:Hover strong{ Color: Var(--Shade) }
 time:Not([datetime]){ White-Space: NoWrap }
 			</html:style>
-			<html:script type="module">
-const filterArticlesByTag= () => {
+			<html:script>
+const filterArticlesByTag= function ( ) {
   const hash= location.hash.substring(1)
   for (
     const a of document.querySelectorAll("#BNS-Bookmarks--Tags li>a")
@@ -151,7 +166,7 @@ const filterArticlesByTag= () => {
       a.hash.substring(1) == hash ? "add" : "remove"
     ]("TARGETED")
   }
-  if ( possibleTags.includes(hash) )
+  if ( this.includes(hash) )
     for (
       const elt of document.querySelectorAll("#BNS-Bookmarks>article")
     ) {
@@ -191,13 +206,17 @@ const filterArticlesByTag= () => {
         remarks.firstElementChild.hidden=
           !(remarks.lastElementChild.hidden= true)
 }   }
-const possibleTags= Array.from
-  ( document.querySelectorAll("#BNS-Bookmarks--Tags li>a") )
-  .map(a => a.hash.substring(1))
-mainScript: {
-  window.addEventListener("hashchange", filterArticlesByTag)
-  filterArticlesByTag()
-}
+window.addEventListener
+  ( "load"
+  , () => {
+      const possibleTags= Array.from
+        ( document.querySelectorAll("#BNS-Bookmarks--Tags li>a") )
+        .map(a => a.hash.substring(1))
+      window.addEventListener
+        ( "hashchange"
+        , filterArticlesByTag.bind(possibleTags) )
+      filterArticlesByTag.call(possibleTags)
+    } )
 			</html:script>
 			<apply-templates/>
 		</copy>
@@ -212,6 +231,8 @@ mainScript: {
 					<html:h2 lang="en">Available Tags</html:h2>
 					<html:ul>
 						<for-each select="document($rdf)//bns:Tag">
+							<sort select="bns:contents"/>
+							<sort select="bns:identifier"/>
 							<html:li>
 								<html:a>
 									<attribute name="href">
@@ -231,6 +252,9 @@ mainScript: {
 				</html:nav>
 			</if>
 			<for-each select="document($rdf)//bns:Bookmark">
+				<sort select="substring-before(substring-after(owl:sameAs[starts-with(@rdf:resource, './#') or starts-with(@rdf:resource, '#')][1]/@rdf:resource, '#'), '-')"/>
+				<sort select="substring-after(substring-after(owl:sameAs[starts-with(@rdf:resource, './#') or starts-with(@rdf:resource, '#')][1]/@rdf:resource, '#'), '-')" data-type="number"/>
+				<sort select="bns:identifier"/>
 				<html:article>
 					<attribute name="id">
 						<call-template name="anchor"/>

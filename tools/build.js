@@ -309,10 +309,6 @@ ${ document(object.COVER, path) || "<!-- empty -->" }
       result.push(`<hasDescription rdf:parseType="Resource">
 		<contents rdf:parseType="Literal">${ object.DESCRIPTION.CONTENTS }</contents>
 	</hasDescription>`)
-    if ( object.REMARK?.CONTENTS != null )
-      result.push(`<hasRemark rdf:parseType="Resource">
-		<contents rdf:parseType="Literal">${ object.REMARK.CONTENTS }</contents>
-	</hasRemark>`)
     if ( object.CONTENTS != null )
       result.push(`<contents rdf:parseType="Literal">${ object.CONTENTS }</contents>`)
     else if ( object.TEXTCONTENTS != null )
@@ -529,10 +525,9 @@ function writeBookmarks ( base, parentTag ) {
     for ( const [index, tag] of (info.TAGS ?? []).entries() ) {
       const identifier= tag.ID ?? index + 1
       const iri= `${parentTag}/:bookmarks/:tags/${ identifier }`
-      const anchor= `${ this.ID || this.DOMAIN.substring(0, this.DOMAIN.indexOf(".")) }::bookmarks/:tags/${ identifier }`
       result.push(`<Tag rdf:about="${ iri }">
 	<owl:sameAs rdf:resource="../:bookmarks/#/:tags/${ identifier }"/>
-	<owl:sameAs rdf:resource="./#${ anchor }"/>
+	<owl:sameAs rdf:resource="./#/:tags/${ identifier }"/>
 	${ properties(tag, ":bookmarks") || "" }
 </Tag>`)
       tags[identifier]= iri
@@ -540,10 +535,25 @@ function writeBookmarks ( base, parentTag ) {
     for ( const [index, bookmark] of (info.BOOKMARKS ?? []).entries() ) {
       const identifier= bookmark.ID ?? index + 1
       const iri= `${parentTag}/:bookmarks/${ identifier }`
-      const anchor= `${ this.ID || this.DOMAIN.substring(0, this.DOMAIN.indexOf(".")) }::bookmarks/${ identifier }`
+      const remark= (
+        () => {
+          if ( bookmark.REMARK?.CONTENTS )
+            return bookmark.REMARK.CONTENTS
+          else
+            try {
+              return Deno.readTextFileSync
+                ( `${ base }:bookmarks/#${ identifier }.xml` )
+            }
+            catch ( error ) {
+              if ( !(error instanceof NotFound) )
+                throw new Error ("", { cause: error })
+              else
+                return null
+        }   }
+      )()
       result.push(`<Bookmark rdf:about="${ iri }">
 	<owl:sameAs rdf:resource="../:bookmarks/#${ identifier }"/>
-	<owl:sameAs rdf:resource="./#${ anchor }"/>
+	<owl:sameAs rdf:resource="./#${ identifier }"/>
 	<isBookmarkOf>
 <rdf:Description${
       "TARGET" in bookmark
@@ -552,7 +562,10 @@ function writeBookmarks ( base, parentTag ) {
     }>
 	${ properties(bookmark.TARGET ?? {}, ":bookmarks") || "" }
 </rdf:Description>
-	</isBookmarkOf>
+	</isBookmarkOf>${ remark != null ? `
+	<hasRemark rdf:parseType="Resource">
+		<contents rdf:parseType="Literal">${ remark }</contents>
+	</hasRemark>` : "" }
 	${
 properties
   ( Object.assign({ $TAGS: tags }, bookmark)
