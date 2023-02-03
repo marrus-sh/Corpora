@@ -8,4 +8,7 @@
 -s .git
 -s .gitignore
 -s /Makefile
+-s /GNUmakefile
+-s /~*/Makefile
+-s /~*/GNUmakefile
 -s /README*
