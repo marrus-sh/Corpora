@@ -166,7 +166,7 @@ const filterArticlesByTag= function ( ) {
       a.hash.substring(1) == hash ? "add" : "remove"
     ]("TARGETED")
   }
-  if ( this.includes(hash) )
+  if ( this.includes(hash) ) {
     for (
       const elt of document.querySelectorAll("#BNS-Bookmarks>article")
     ) {
@@ -179,6 +179,8 @@ const filterArticlesByTag= function ( ) {
         remarks.firstElementChild.hidden=
           !(remarks.lastElementChild.hidden= true)
     }
+    window.scrollTo(0, 0)
+  }
   else if (
     hash
     &amp;&amp; document.getElementById(hash)
