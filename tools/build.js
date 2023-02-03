@@ -138,8 +138,8 @@ ${ document(this.COVER, id) || "<!-- empty -->" }
   Deno.writeTextFileSync
     ( `${ base }${ id }/index.rdf`
     , `<Index
-	xmlns="https://go.KIBI.family/Ontologies/BNS/#"
-	xmlns:bns="https://go.KIBI.family/Ontologies/BNS/#"
+	xmlns="https://ns.1024.gdn/BNS/#"
+	xmlns:bns="https://ns.1024.gdn/BNS/#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 >
 	${ result.join(`
@@ -583,8 +583,8 @@ properties
     Deno.writeTextFileSync
       ( `${ base }:bookmarks/index.rdf`
       , `<rdf:RDF
-	xmlns="https://go.KIBI.family/Ontologies/BNS/#"
-	xmlns:bns="https://go.KIBI.family/Ontologies/BNS/#"
+	xmlns="https://ns.1024.gdn/BNS/#"
+	xmlns:bns="https://ns.1024.gdn/BNS/#"
 	xmlns:dcmitype="http://purl.org/dc/dcmitype"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -627,14 +627,14 @@ function corpus ( path ) {
       return null
     else {
       const result= `<rdf:RDF
-	xmlns="https://go.KIBI.family/Ontologies/BNS/#"
-	xmlns:bns="https://go.KIBI.family/Ontologies/BNS/#"
+	xmlns="https://ns.1024.gdn/BNS/#"
+	xmlns:bns="https://ns.1024.gdn/BNS/#"
 	xmlns:dcmitype="http://purl.org/dc/dcmitype"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 >
 <owl:Ontology rdf:about="#">
-	<owl:imports rdf:resource="https://go.KIBI.family/Ontologies/BNS/#"/>
+	<owl:imports rdf:resource="https://ns.1024.gdn/BNS/#"/>
 </owl:Ontology>
 <Corpus rdf:about="${ iri }">
 	<owl:sameAs rdf:resource="../:bns"/>

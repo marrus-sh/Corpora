@@ -61,7 +61,7 @@ THIS FILE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPL
 	id="transform"
 	version="1.0"
 	xmlns="http://www.w3.org/1999/XSL/Transform"
-	xmlns:bns="https://go.KIBI.family/Ontologies/BNS/#"
+	xmlns:bns="https://ns.1024.gdn/BNS/#"
 	xmlns:dc="http://purl.org/dc/terms/"
 	xmlns:dcmitype="http://purl.org/dc/dcmitype/"
 	xmlns:exsl="http://exslt.org/common"
@@ -863,7 +863,7 @@ time:Not([datetime]){ White-Space: NoWrap }
 const unprefix= prefix =>
   (
     { bf: "http://id.loc.gov/ontologies/bibframe/"
-    , bns: "https://go.KIBI.family/Ontologies/BNS/#"
+    , bns: "https://ns.1024.gdn/BNS/#"
     , dc: "http://purl.org/dc/terms/"
     , madsrdf: "http://www.loc.gov/mads/rdf/v1#"
     , owl: "http://www.w3.org/2002/07/owl#"

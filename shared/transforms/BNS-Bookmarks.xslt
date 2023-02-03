@@ -41,7 +41,7 @@ THIS FILE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPL
 	id="transform"
 	version="1.0"
 	xmlns="http://www.w3.org/1999/XSL/Transform"
-	xmlns:bns="https://go.KIBI.family/Ontologies/BNS/#"
+	xmlns:bns="https://ns.1024.gdn/BNS/#"
 	xmlns:dc="http://purl.org/dc/terms/"
 	xmlns:dcmitype="http://purl.org/dc/dcmitype/"
 	xmlns:exsl="http://exslt.org/common"
