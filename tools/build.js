@@ -3,6 +3,7 @@ import
   { parse as YAML
   , JSON_SCHEMA }
 from "https://deno.land/std@0.126.0/encoding/yaml.ts"
+import format from "./format.js"
 
 /**
  *  Not found.
@@ -17,7 +18,7 @@ const DEFAULT_LANGUAGE= "en"
 /**
  *  Valid characters for use as directory names.
  */
-const SEGMENT= /^[A-Za-z0-9\-\._~\u{A0}-\u{D7FF}\u{F900}-\u{FDCF}\u{FDF0}-\u{FFEF}\u{10000}-\u{1FFFD}\u{20000}-\u{2FFFD}\u{30000}-\u{3FFFD}\u{40000}-\u{4FFFD}\u{50000}-\u{5FFFD}\u{60000}-\u{6FFFD}\u{70000}-\u{7FFFD}\u{80000}-\u{8FFFD}\u{90000}-\u{9FFFD}\u{A0000}-\u{AFFFD}\u{B0000}-\u{BFFFD}\u{C0000}-\u{CFFFD}\u{D0000}-\u{DFFFD}\u{E0000}-\u{EFFFD}!$&-,;=]+$/u
+const SEGMENT= /^[A-Za-z0-9\-\._~\u{A0}-\u{D7FF}\u{F900}-\u{FDCF}\u{FDF0}-\u{FFEF}\u{10000}-\u{1FFFD}\u{20000}-\u{2FFFD}\u{30000}-\u{3FFFD}\u{40000}-\u{4FFFD}\u{50000}-\u{5FFFD}\u{60000}-\u{6FFFD}\u{70000}-\u{7FFFD}\u{80000}-\u{8FFFD}\u{90000}-\u{9FFFD}\u{A0000}-\u{AFFFD}\u{B0000}-\u{BFFFD}\u{C0000}-\u{CFFFD}\u{D0000}-\u{DFFFD}\u{E0000}-\u{EFFFD}!$&-,;=:@]+$/u
 
 /**
  *  Escapes the provided `text` for use in X·M·L.
@@ -283,7 +284,7 @@ const properties= ( object, path= "" ) => {
     if ( object.SHORTTITLE != null )
       result.push(textElement("shortTitle", object.SHORTTITLE))
     if ( object.AUTHOR != null )
-      for (const author of [].concat(object.AUTHOR)) {
+      for ( const author of [ ].concat(object.AUTHOR) ) {
         result.push(`<hasAuthor>
 <Pseud${ author.IRI != null ? ` rdf:about="${ author.IRI }"` : "" }>
 	${ properties(author, path) || "" }
@@ -293,7 +294,7 @@ const properties= ( object, path= "" ) => {
     if ( object.CITATION != null )
       result.push(`<citation rdf:parseType="Literal">${ object.CITATION }</citation>`)
     if ( object.TAG != null )
-      for (const tag of [].concat(object.TAG)) {
+      for ( const tag of [ ].concat(object.TAG) ) {
         result.push(`<hasTag rdf:resource="${ object.$TAGS[tag] }"/>`)
       }
     if ( object.COVER != null )
@@ -314,33 +315,33 @@ ${ document(object.COVER, path) || "<!-- empty -->" }
     else if ( object.TEXTCONTENTS != null )
       result.push(textElement("contents", object.TEXTCONTENTS))
     if ( object.FILE != null )
-      for ( const published of [].concat(object.FILE) ) {
+      for ( const published of [ ].concat(object.FILE) ) {
         result.push(`<hasFile>
 ${ document(published, path) || "<!-- empty -->" }
 	</hasFile>`)
       }
     if ( object.FANDOM != null )
-      for ( const inspiration of [].concat(object.FANDOM) ) {
+      for ( const inspiration of [ ].concat(object.FANDOM) ) {
         result.push(`<isFanworkOf rdf:resource="${ inspiration }"/>`)
       }
     if ( object.INSPIRATION != null )
-      for ( const inspiration of [].concat(object.INSPIRATION) ) {
+      for ( const inspiration of [ ].concat(object.INSPIRATION) ) {
         result.push(`<isInspiredBy rdf:resource="${ inspiration }"/>`)
       }
     if ( object.THEMESONG != null )
-      for ( const theme of [].concat(object.THEMESONG) ) {
+      for ( const theme of [ ].concat(object.THEMESONG) ) {
         result.push(`<hasThemeSong rdf:parseType="Resource">
 		${ properties(theme, path) ?? "" }
 	</hasThemeSong>`)
       }
     if ( object.MIXTAPE != null )
-      for ( const tape of [].concat(object.MIXTAPE) ) {
+      for ( const tape of [ ].concat(object.MIXTAPE) ) {
         result.push(`<hasMixtape rdf:parseType="Resource">
 		${ mixtape(tape, path) ?? "" }
 	</hasMixtape>`)
       }
     if ( object.AVAILABLE != null )
-      for ( const published of [].concat(object.AVAILABLE) ) {
+      for ( const published of [ ].concat(object.AVAILABLE) ) {
         if ( published.URL == null )
           continue
         else
@@ -358,7 +359,7 @@ ${ document(published, path) || "<!-- empty -->" }
  *
  *  Needs to be called with the corpus info as its `this`.
  */
-function branches ( base, path, parentTag ) {
+function branches ( base, path, parentTag, parentAnchor ) {
   const result= [ ]
   try {
     if ( !Deno.statSync(`${ base }${ path }`).isDirectory )
@@ -375,7 +376,7 @@ function branches ( base, path, parentTag ) {
       .from(Deno.readDirSync(`${ base }${ path }`))
       .sort(( a, b ) => a.name > b.name ? 1 : -1)
   ) {
-    if ( !isDirectory || !SEGMENT.test(branch) )
+    if ( !isDirectory || branch[0] === ":" || !SEGMENT.test(branch) )
       continue
     else {
       const subpath= `${ path }/${ branch }`
@@ -383,7 +384,7 @@ function branches ( base, path, parentTag ) {
         const info= YAML
           ( Deno.readTextFileSync(`${ base }${ subpath }/@.yml`)
           , { schema: JSON_SCHEMA } )
-        const index= info.N ?? path.substring(path.lastIndexOf("/") + 1)
+        const index= (info.KIND == "Note" ? info.ID : info.N) ?? branch
         const iri= `${ parentTag }/${
           { Project: "Prj"
           , Book: "Bbl"
@@ -395,24 +396,25 @@ function branches ( base, path, parentTag ) {
           , Chapter: "Chp"
           , Draft: "Dft"
           , Section: "Sec"
-          , Verse: "Vrs" }[info.KIND] ?? "Bra"
+          , Verse: "Vrs"
+          , Note: "Note" }[info.KIND] ?? "Bra"
         }:${ encodeURIComponent(index) }`
-        const anchor= `${ this.ID || this.DOMAIN.substring(0, this.DOMAIN.indexOf(".")) }:${ subpath }`
-        result.push(`<includes>
+        const anchor= `${ parentAnchor }:${ info.KIND == "Note" ? ":notes:" : "" }${ format(index, info.KIND) }`
+        result.push(`<${ info.KIND == "Note" ? "hasNote" : "includes" }>
 <${ info.KIND || "Branch" } rdf:about="${ iri }">
 	<owl:sameAs rdf:resource="../${ subpath }/"/>
 	<owl:sameAs rdf:resource="./#${ anchor }"/>
-	${ properties(info, subpath) ?? "" }${ info.FILE == null ? `
-	${ branches.call(this, base, subpath, iri) }` : "" }
+	${ properties(info, subpath) ?? "" }${ info.FILE == null && info.KIND != "Note" ? `
+	${ branches.call(this, base, subpath, iri, anchor) }` : "" }
 </${ info.KIND || "Branch" }>
-  </includes>`)
+  </${ info.KIND == "Note" ? "hasNote" : "includes" }>`)
         //generateRedirect(base, subpath, anchor)
       }
       catch ( error ) {
         if ( error instanceof NotFound )
           result.push(`<includes>
 <Branch rdf:about="../${ subpath }/">
-	${ branches.call(this, base, subpath, `${ parentTag }/Bra:${ encodeURIComponent(path.substring(path.lastIndexOf("/") + 1)) }`) || "<!-- empty -->" }
+	${ branches.call(this, base, subpath, `${ parentTag }/Bra:${ encodeURIComponent(branch) }`, `${ parentAnchor }:${ branch }`) || "<!-- empty -->" }
 </Branch>
   </includes>`)
         else
@@ -433,12 +435,12 @@ function branches ( base, path, parentTag ) {
             ( Deno.readTextFileSync(`${ base }${ subpath }/@.yml`)
             , { schema: JSON_SCHEMA } )
           const iri= `${ parentTag }/Note:${ encodeURIComponent(info.ID || note) }`
-          const anchor= `${ this.ID || this.DOMAIN.substring(0, this.DOMAIN.indexOf(".")) }:${ subpath }`
+          const anchor= `${ parentAnchor }::notes:${ info.ID || note }`
           result.push(`<hasNote>
 <Note rdf:about="${ iri }">
 	<owl:sameAs rdf:resource="../${ subpath }/"/>
 	<owl:sameAs rdf:resource="./#${ anchor }"/>
-	${ properties(info, subpath) || "<!-- empty -->" }
+	${ properties(info, subpath) || "" }
 </Note>
 	</hasNote>`)
           //generateRedirect(base, subpath, anchor)
@@ -464,7 +466,7 @@ function branches ( base, path, parentTag ) {
  *
  *  Needs to be called with the corpus info as its `this`.
  */
-function projects ( base, parentTag ) {
+function projects ( base, parentTag, parentAnchor ) {
   const result= [ ]
   for (
     const { isDirectory, name: project } of Array
@@ -480,7 +482,7 @@ function projects ( base, parentTag ) {
           , { schema: JSON_SCHEMA } )
         const index= info.N >>> 0
         const iri= `${ parentTag }/Prj:${ index }`
-        const anchor= `${ this.ID || this.DOMAIN.substring(0, this.DOMAIN.indexOf(".")) }:${ project }`
+        const anchor= `${ parentAnchor }${ format(index, "Project") }`
         if (
           info.KIND != "Project"
           || +info.N != index
@@ -493,7 +495,7 @@ function projects ( base, parentTag ) {
 	<owl:sameAs rdf:resource="../${ project }/"/>
 	<owl:sameAs rdf:resource="./#${ anchor }"/>
 	${ properties(info, project) || "" }
-	${ branches.call(this, base, project, iri) }
+	${ branches.call(this, base, project, iri, anchor) }
 </Project>
 	</hasProject>`)
           if (info.INDEX)
@@ -524,7 +526,7 @@ function writeBookmarks ( base, parentTag ) {
       , { schema: JSON_SCHEMA } )
     for ( const [index, tag] of (info.TAGS ?? []).entries() ) {
       const identifier= tag.ID ?? index + 1
-      const iri= `${parentTag}/:bookmarks/:tags/${ identifier }`
+      const iri= `${ parentTag }/:bookmarks/:tags/${ identifier }`
       result.push(`<Tag rdf:about="${ iri }">
 	<owl:sameAs rdf:resource="../:bookmarks/#/:tags/${ identifier }"/>
 	<owl:sameAs rdf:resource="./#/:tags/${ identifier }"/>
@@ -534,7 +536,7 @@ function writeBookmarks ( base, parentTag ) {
     }
     for ( const [index, bookmark] of (info.BOOKMARKS ?? []).entries() ) {
       const identifier= bookmark.ID ?? index + 1
-      const iri= `${parentTag}/:bookmarks/${ identifier }`
+      const iri= `${ parentTag }/:bookmarks/${ identifier }`
       const remark= (
         () => {
           if ( bookmark.REMARK?.CONTENTS )
@@ -560,7 +562,7 @@ function writeBookmarks ( base, parentTag ) {
         ? ` rdf:about="${ bookmark.TARGET.IRI ?? bookmark.TARGET }"`
       : ""
     }>
-	${ properties(bookmark.TARGET ?? {}, ":bookmarks") || "" }
+	${ properties(bookmark.TARGET ?? { }, ":bookmarks") || "" }
 </rdf:Description>
 	</isBookmarkOf>${ remark != null ? `
 	<hasRemark rdf:parseType="Resource">
@@ -647,7 +649,7 @@ function corpus ( path ) {
 	${ info.PSEUD.PSEUD_OF != null ? `<isPseudOf rdf:resource="${ info.PSEUD.PSEUD_OF }"/>` : "" }
 </Pseud>
 	</isCorpusOf>
-	` : "" }${ projects.call(info, path, iri) || "<!-- empty -->" }
+	` : "" }${ projects.call(info, path, iri, anchor) || "<!-- empty -->" }
 </Corpus>
 </rdf:RDF>
 `
