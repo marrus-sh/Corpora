@@ -1354,7 +1354,7 @@ window.addEventListener
 #BNS-Corpus>div>*>footer>*:First-Child:Not(:Only-Child){ Flex: None }
 #BNS-Corpus>div>*>footer>*+*:Last-Child{ Display: Grid; Margin-Inline-Start: 1EM; Grid-Template-Columns: Max-Content 1FR Max-Content }
 #BNS-Corpus>div>*>footer>*+*:Last-Child>a{ Max-Inline-Size: 100%; Overflow: Hidden; Text-Overflow: Ellipsis }
-#BNS-Corpus div.FILES{ Margin-Block: -1REM; Margin-Inline: -2REM }
+#BNS-Corpus div.FILES{ Margin-Block: -1REM; Margin-Inline: -2REM; Block-Size: Auto }
 h4{ Margin-Block: 0 .5REM; Margin-Inline: Auto; Border-Width: Thin; Border-Block-Style: Dotted Solid; Border-Block-Color: Var(--Fade) Var(--Shade); Border-Inline-Style: Dashed; Border-Inline-Color: Var(--Text); Padding-Block: .3125EM; Padding-Inline: 1EM; Max-Inline-Size: Max-Content; Color: Var(--Text); Font-Size: X-Large; Font-Family: Var(--Sans); Line-Height: 1; Text-Align: Center }
 blockquote,p{ Margin-Block: 0; Margin-Inline: Auto; Text-Align: Justify; Text-Align-Last: Center }
 blockquote:Not(:First-Child),p:Not(:First-Child){ Margin-Block: .625EM 0 }
