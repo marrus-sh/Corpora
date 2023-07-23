@@ -1613,9 +1613,17 @@ document.addEventListener
 									</html:span>
 								</when>
 								<when test="parent::bns:Concept|parent::bns:Version|parent::bns:Draft">
-									<if test="../ancestor::*[parent::bns:includes]/bns:fullTitle[1]">
-										<text> </text>
-									</if>
+									<choose>
+										<!-- If there aren’t any previous titles, add the title or identifier of the project so the parentheses make sense. -->
+										<when test="../ancestor::*[parent::bns:includes]/bns:fullTitle[1]"/>
+										<when test="../ancestor::*[parent::bns:hasProject]/bns:fullTitle[1]">
+											<value-of select="../ancestor::*[parent::bns:hasProject]/bns:fullTitle[1]"/>
+										</when>
+										<otherwise>
+											<value-of select="../ancestor::*[parent::bns:hasProject]/bns:identifier[1]"/>
+										</otherwise>
+									</choose>
+									<text> </text>
 									<html:span lang="{@xml:lang}">
 										<text>(</text>
 										<apply-templates select="." mode="contents"/>
