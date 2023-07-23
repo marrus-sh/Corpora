@@ -62,12 +62,12 @@ THIS FILE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPL
 	version="1.0"
 	xmlns="http://www.w3.org/1999/XSL/Transform"
 	xmlns:bns="https://ns.1024.gdn/BNS/#"
-	xmlns:dc="http://purl.org/dc/terms/"
 	xmlns:dcmitype="http://purl.org/dc/dcmitype/"
 	xmlns:exsl="http://exslt.org/common"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 	xmlns:svg="http://www.w3.org/2000/svg"
 >
 	<!-- BEGIN SHARED TEMPLATES -->
@@ -1286,6 +1286,22 @@ window.addEventListener
 						</for-each>
 					</html:p>
 				</if>
+				<if test="skos:closeMatch[@rdf:resource]">
+					<html:p>
+						<html:strong lang="en">In other systems:</html:strong>
+						<text> </text>
+						<for-each select="skos:closeMatch/@rdf:resource">
+							<text> </text>
+							<html:a href="{.}">
+								<html:code>
+									<call-template name="shorten">
+										<with-param name="uri" select="."/>
+									</call-template>
+								</html:code>
+							</html:a>
+						</for-each>
+					</html:p>
+				</if>
 			</html:footer>
 		</html:div>
 	</template>
@@ -1942,9 +1958,25 @@ document.addEventListener
 					</for-each>
 				</html:div>
 			</if>
+			<if test="skos:closeMatch[@rdf:resource]">
+				<html:div>
+					<html:dt>In Other Systems</html:dt>
+					<for-each select="skos:closeMatch/@rdf:resource">
+						<html:dd>
+							<html:a href="{.}">
+								<html:code>
+									<call-template name="shorten">
+										<with-param name="uri" select="."/>
+									</call-template>
+								</html:code>
+							</html:a>
+						</html:dd>
+					</for-each>
+				</html:div>
+			</if>
 		</variable>
 		<if test="string($contents)">
-			<html:dl>
+			<html:dl lang="en">
 				<copy-of select="$contents"/>
 			</html:dl>
 		</if>

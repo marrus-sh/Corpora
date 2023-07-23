@@ -320,9 +320,13 @@ ${ document(object.COVER, path) || "<!-- empty -->" }
 ${ document(published, path) || "<!-- empty -->" }
 	</hasFile>`)
       }
+    if ( object.AKA != null )
+      for ( const aka of [ ].concat(object.AKA) ) {
+        result.push(`<skos:closeMatch rdf:resource="${ aka }"/>`)
+      }
     if ( object.FANDOM != null )
-      for ( const inspiration of [ ].concat(object.FANDOM) ) {
-        result.push(`<isFanworkOf rdf:resource="${ inspiration }"/>`)
+      for ( const fandom of [ ].concat(object.FANDOM) ) {
+        result.push(`<isFanworkOf rdf:resource="${ fandom }"/>`)
       }
     if ( object.INSPIRATION != null )
       for ( const inspiration of [ ].concat(object.INSPIRATION) ) {
@@ -590,6 +594,7 @@ properties
 	xmlns:dcmitype="http://purl.org/dc/dcmitype"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 >
 ${ result.join(`
 `) }
@@ -634,6 +639,7 @@ function corpus ( path ) {
 	xmlns:dcmitype="http://purl.org/dc/dcmitype"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 >
 <owl:Ontology rdf:about="#">
 	<owl:imports rdf:resource="https://ns.1024.gdn/BNS/#"/>
