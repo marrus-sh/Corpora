@@ -1036,7 +1036,7 @@ window.addEventListener
 						<when test="bns:mediaType">
 							<value-of select="bns:mediaType"/>
 						</when>
-						<when test="self::*[substring(local-name(), 1, 1)='_'][translate(substring(local-name(), 2, 1), '123456789', '')=''][translate(substring(local-name(), 3), '0123456789', '')=''][namespace-uri()='http://www.w3.org/1999/02/22-rdf-syntax-ns#']/parent::*[self::rdf:Bag|self::rdf:Seq]/bns:mediaType">
+						<when test="self::*[substring(local-name(), 1, 1)='_'][translate(substring(local-name(), 2, 1), '123456789', '')=''][translate(substring(local-name(), 3), '0123456789', '')=''][namespace-uri()='http://www.w3.org/1999/02/22-rdf-syntax-ns#']/parent::bns:FileSequence/bns:mediaType">
 							<value-of select="../bns:mediaType"/>
 						</when>
 					</choose>
@@ -1111,13 +1111,13 @@ window.addEventListener
 	<template match="*[parent::rdf:RDF]" priority="-1"/>
 	<template match="*" mode="files" priority="-1">
 		<variable name="documents">
-			<for-each select="bns:hasFile/*[self::rdf:Bag or self::rdf:Seq or @rdf:about]|bns:hasFile[@rdf:resource]">
+			<for-each select="bns:hasFile/*[self::bns:FileSequence or @rdf:about]|bns:hasFile[@rdf:resource]">
 				<variable name="mediatype">
 					<value-of select="bns:mediaType"/>
 				</variable>
 				<variable name="contents">
 					<choose>
-						<when test="self::rdf:Bag|self::rdf:Seq">
+						<when test="self::bns:FileSequence">
 							<html:div class="CONTAINER">
 								<for-each select="*[substring(local-name(), 1, 1)='_'][translate(substring(local-name(), 2, 1), '123456789', '')=''][translate(substring(local-name(), 3), '0123456789', '')=''][namespace-uri()='http://www.w3.org/1999/02/22-rdf-syntax-ns#']">
 									<sort select="substring(local-name(), 2)" data-type="number"/>
@@ -1171,7 +1171,7 @@ window.addEventListener
 					<html:a href="{@rdf:about|@rdf:resource}" target="_blank">
 						<attribute name="href">
 							<choose>
-								<when test="self::rdf:Bag|self::rdf:Seq">
+								<when test="self::bns:FileSequence">
 									<text>?</text>
 									<for-each select="../..">
 										<call-template name="anchor"/>
@@ -1184,7 +1184,7 @@ window.addEventListener
 								</otherwise>
 							</choose>
 						</attribute>
-						<if test="self::rdf:Bag|self::rdf:Seq">
+						<if test="self::bns:FileSequence">
 							<attribute name="id">
 								<for-each select="../..">
 									<call-template name="anchor"/>
@@ -1204,7 +1204,7 @@ window.addEventListener
 						</if>
 						<choose>
 							<when test="string($mediatype)">
-								<if test="not(self::rdf:Bag|self::rdf:Seq)">
+								<if test="not(self::bns:FileSequence)">
 									<attribute name="type">
 										<value-of select="$mediatype"/>
 									</attribute>
@@ -1213,30 +1213,45 @@ window.addEventListener
 									<value-of select="$mediatype"/>
 								</html:code>
 								<choose>
-									<when test="bns:fileLabel">
+									<when test="bns:textLabel">
 										<text> </text>
 										<html:small>
 											<text>(</text>
-											<apply-templates select="bns:fileLabel" mode="contents"/>
-											<if test="self::rdf:Bag|self::rdf:Seq">
+											<apply-templates select="bns:textLabel" mode="contents"/>
+											<if test="self::bns:FileSequence">
 												<text>, multiple</text>
 											</if>
 											<text>)</text>
 										</html:small>
 									</when>
 									<otherwise>
-										<if test="self::rdf:Bag|self::rdf:Seq">
+										<if test="self::bns:FileSequence">
 											<text> </text>
 											<html:small>(multiple)</html:small>
 										</if>
 									</otherwise>
 								</choose>
 							</when>
-							<when test="self::dcmitype:*">
-								<value-of select="name()"/>
-							</when>
 							<otherwise>
-								<text>???</text>
+								<variable name="dcmitype">
+									<for-each select="rdf:type/@rdf:resource">
+										<variable name="datatypeelt">
+											<element name="{.}"/>
+										</variable>
+										<if test="namespace-uri(exsl:node-set($datatypeelt)//*[1])='http://purl.org/dc/dcmitype/'">
+											<value-of select="local-name(exsl:node-set($datatypeelt)//*[1])"/>
+											<text>,</text>
+										</if>
+									</for-each>
+								</variable>
+								<choose>
+									<when test="contains($dcmitype, ',')">
+										<value-of select="substring-before($dcmitype, ',')"/>
+									</when>
+									<otherwise>
+										<text>???</text>
+									</otherwise>
+								</choose>
 							</otherwise>
 						</choose>
 					</html:a>
@@ -1273,6 +1288,22 @@ window.addEventListener
 						<for-each select="exsl:node-set($sorted)//*[@data-sort][position()!=1]/*[2]">
 							<text> </text>
 							<copy-of select="."/>
+						</for-each>
+					</html:p>
+				</if>
+				<if test="ore:similarTo[@rdf:resource]">
+					<html:p>
+						<html:strong lang="en">Elsewhere:</html:strong>
+						<text> </text>
+						<for-each select="ore:similarTo/@rdf:resource">
+							<text> </text>
+							<html:a href="{.}">
+								<html:code>
+									<call-template name="shorten">
+										<with-param name="uri" select="."/>
+									</call-template>
+								</html:code>
+							</html:a>
 						</for-each>
 					</html:p>
 				</if>

@@ -52,8 +52,8 @@ Its sample corpus can be viewed online at
 
 > **Note:**
 > The following does *not* provide a comprehensive, accurate, complete,
->   or normative account of the B·N·S Ontology or its vocabulary terms.
-> Persons interested in such an technical∣theoretical account should
+>   or normative account of the [B·N·S Vocabulary][BNS] or its terms.
+> Persons interested in such an technical ∣ theoretical account should
 >   consult the actual ontology definition.
 
 ###  Corpora  ##

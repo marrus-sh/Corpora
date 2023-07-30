@@ -67,7 +67,7 @@ THIS FILE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPL
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:ore="http://www.openarchives.org/ore/terms/"
 	xmlns:svg="http://www.w3.org/2000/svg"
 >
 	<!-- BEGIN SHARED TEMPLATES -->
@@ -1046,7 +1046,7 @@ window.addEventListener
 						<when test="bns:mediaType">
 							<value-of select="bns:mediaType"/>
 						</when>
-						<when test="self::*[substring(local-name(), 1, 1)='_'][translate(substring(local-name(), 2, 1), '123456789', '')=''][translate(substring(local-name(), 3), '0123456789', '')=''][namespace-uri()='http://www.w3.org/1999/02/22-rdf-syntax-ns#']/parent::*[self::rdf:Bag|self::rdf:Seq]/bns:mediaType">
+						<when test="self::*[substring(local-name(), 1, 1)='_'][translate(substring(local-name(), 2, 1), '123456789', '')=''][translate(substring(local-name(), 3), '0123456789', '')=''][namespace-uri()='http://www.w3.org/1999/02/22-rdf-syntax-ns#']/parent::bns:FileSequence/bns:mediaType">
 							<value-of select="../bns:mediaType"/>
 						</when>
 					</choose>
@@ -1121,13 +1121,13 @@ window.addEventListener
 	<template match="*[parent::rdf:RDF]" priority="-1"/>
 	<template match="*" mode="files" priority="-1">
 		<variable name="documents">
-			<for-each select="bns:hasFile/*[self::rdf:Bag or self::rdf:Seq or @rdf:about]|bns:hasFile[@rdf:resource]">
+			<for-each select="bns:hasFile/*[self::bns:FileSequence or @rdf:about]|bns:hasFile[@rdf:resource]">
 				<variable name="mediatype">
 					<value-of select="bns:mediaType"/>
 				</variable>
 				<variable name="contents">
 					<choose>
-						<when test="self::rdf:Bag|self::rdf:Seq">
+						<when test="self::bns:FileSequence">
 							<html:div class="CONTAINER">
 								<for-each select="*[substring(local-name(), 1, 1)='_'][translate(substring(local-name(), 2, 1), '123456789', '')=''][translate(substring(local-name(), 3), '0123456789', '')=''][namespace-uri()='http://www.w3.org/1999/02/22-rdf-syntax-ns#']">
 									<sort select="substring(local-name(), 2)" data-type="number"/>
@@ -1181,7 +1181,7 @@ window.addEventListener
 					<html:a href="{@rdf:about|@rdf:resource}" target="_blank">
 						<attribute name="href">
 							<choose>
-								<when test="self::rdf:Bag|self::rdf:Seq">
+								<when test="self::bns:FileSequence">
 									<text>?</text>
 									<for-each select="../..">
 										<call-template name="anchor"/>
@@ -1194,7 +1194,7 @@ window.addEventListener
 								</otherwise>
 							</choose>
 						</attribute>
-						<if test="self::rdf:Bag|self::rdf:Seq">
+						<if test="self::bns:FileSequence">
 							<attribute name="id">
 								<for-each select="../..">
 									<call-template name="anchor"/>
@@ -1214,7 +1214,7 @@ window.addEventListener
 						</if>
 						<choose>
 							<when test="string($mediatype)">
-								<if test="not(self::rdf:Bag|self::rdf:Seq)">
+								<if test="not(self::bns:FileSequence)">
 									<attribute name="type">
 										<value-of select="$mediatype"/>
 									</attribute>
@@ -1223,30 +1223,45 @@ window.addEventListener
 									<value-of select="$mediatype"/>
 								</html:code>
 								<choose>
-									<when test="bns:fileLabel">
+									<when test="bns:textLabel">
 										<text> </text>
 										<html:small>
 											<text>(</text>
-											<apply-templates select="bns:fileLabel" mode="contents"/>
-											<if test="self::rdf:Bag|self::rdf:Seq">
+											<apply-templates select="bns:textLabel" mode="contents"/>
+											<if test="self::bns:FileSequence">
 												<text>, multiple</text>
 											</if>
 											<text>)</text>
 										</html:small>
 									</when>
 									<otherwise>
-										<if test="self::rdf:Bag|self::rdf:Seq">
+										<if test="self::bns:FileSequence">
 											<text> </text>
 											<html:small>(multiple)</html:small>
 										</if>
 									</otherwise>
 								</choose>
 							</when>
-							<when test="self::dcmitype:*">
-								<value-of select="name()"/>
-							</when>
 							<otherwise>
-								<text>???</text>
+								<variable name="dcmitype">
+									<for-each select="rdf:type/@rdf:resource">
+										<variable name="datatypeelt">
+											<element name="{.}"/>
+										</variable>
+										<if test="namespace-uri(exsl:node-set($datatypeelt)//*[1])='http://purl.org/dc/dcmitype/'">
+											<value-of select="local-name(exsl:node-set($datatypeelt)//*[1])"/>
+											<text>,</text>
+										</if>
+									</for-each>
+								</variable>
+								<choose>
+									<when test="contains($dcmitype, ',')">
+										<value-of select="substring-before($dcmitype, ',')"/>
+									</when>
+									<otherwise>
+										<text>???</text>
+									</otherwise>
+								</choose>
 							</otherwise>
 						</choose>
 					</html:a>
@@ -1286,11 +1301,11 @@ window.addEventListener
 						</for-each>
 					</html:p>
 				</if>
-				<if test="skos:closeMatch[@rdf:resource]">
+				<if test="ore:similarTo[@rdf:resource]">
 					<html:p>
-						<html:strong lang="en">In other systems:</html:strong>
+						<html:strong lang="en">Elsewhere:</html:strong>
 						<text> </text>
-						<for-each select="skos:closeMatch/@rdf:resource">
+						<for-each select="ore:similarTo/@rdf:resource">
 							<text> </text>
 							<html:a href="{.}">
 								<html:code>
@@ -1370,7 +1385,7 @@ window.addEventListener
 #BNS-Corpus>div>*>footer>*:First-Child:Not(:Only-Child){ Flex: None }
 #BNS-Corpus>div>*>footer>*+*:Last-Child{ Display: Grid; Margin-Inline-Start: 1EM; Grid-Template-Columns: Max-Content 1FR Max-Content }
 #BNS-Corpus>div>*>footer>*+*:Last-Child>a{ Max-Inline-Size: 100%; Overflow: Hidden; Text-Overflow: Ellipsis }
-#BNS-Corpus div.FILES{ Margin-Block: -1REM; Margin-Inline: -2REM; Block-Size: Auto }
+#BNS-Corpus div.FILES{ Margin-Block: -1REM; Margin-Inline: -2REM; Block-Size: Calc(100% + 2REM) }
 h4{ Margin-Block: 0 .5REM; Margin-Inline: Auto; Border-Width: Thin; Border-Block-Style: Dotted Solid; Border-Block-Color: Var(--Fade) Var(--Shade); Border-Inline-Style: Dashed; Border-Inline-Color: Var(--Text); Padding-Block: .3125EM; Padding-Inline: 1EM; Max-Inline-Size: Max-Content; Color: Var(--Text); Font-Size: X-Large; Font-Family: Var(--Sans); Line-Height: 1; Text-Align: Center }
 blockquote,p{ Margin-Block: 0; Margin-Inline: Auto; Text-Align: Justify; Text-Align-Last: Center }
 blockquote:Not(:First-Child),p:Not(:First-Child){ Margin-Block: .625EM 0 }
@@ -1887,8 +1902,8 @@ document.addEventListener
 										<html:li>
 											<html:a href="{.//bns:url[1]}">
 												<choose>
-													<when test=".//bns:siteLabel">
-														<apply-templates select=".//bns:siteLabel[1]" mode="contents"/>
+													<when test=".//bns:textLabel">
+														<apply-templates select=".//bns:textLabel[1]" mode="contents"/>
 													</when>
 													<otherwise>
 														<call-template name="shorten">
@@ -1927,8 +1942,8 @@ document.addEventListener
 										<html:li>
 											<html:a href="{.//bns:url[1]}">
 												<choose>
-													<when test=".//bns:siteLabel">
-														<apply-templates select=".//bns:siteLabel[1]" mode="contents"/>
+													<when test=".//bns:textLabel">
+														<apply-templates select=".//bns:textLabel[1]" mode="contents"/>
 													</when>
 													<otherwise>
 														<call-template name="shorten">
@@ -1952,8 +1967,8 @@ document.addEventListener
 						<html:dd>
 							<html:a href="{.//bns:url[1]}">
 								<choose>
-									<when test=".//bns:siteLabel">
-										<apply-templates select=".//bns:siteLabel[1]" mode="contents"/>
+									<when test=".//bns:textLabel">
+										<apply-templates select=".//bns:textLabel[1]" mode="contents"/>
 									</when>
 									<otherwise>
 										<call-template name="shorten">
@@ -1966,10 +1981,10 @@ document.addEventListener
 					</for-each>
 				</html:div>
 			</if>
-			<if test="skos:closeMatch[@rdf:resource]">
+			<if test="ore:similarTo[@rdf:resource]">
 				<html:div>
-					<html:dt>In Other Systems</html:dt>
-					<for-each select="skos:closeMatch/@rdf:resource">
+					<html:dt>Elsewhere</html:dt>
+					<for-each select="ore:similarTo/@rdf:resource">
 						<html:dd>
 							<html:a href="{.}">
 								<html:code>
@@ -2049,7 +2064,7 @@ document.addEventListener
 		<variable name="contents">
 			<apply-templates select="." mode="header"/>
 			<choose>
-				<when test="(parent::bns:includes or parent::bns:hasNote) and bns:hasFile[@rdf:resource or rdf:Bag or rdf:Seq or */@rdf:about]">
+				<when test="(parent::bns:includes or parent::bns:hasNote) and bns:hasFile[@rdf:resource or bns:FileSequence or */@rdf:about]">
 					<apply-templates select="." mode="files"/>
 				</when>
 				<otherwise>

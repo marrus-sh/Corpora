@@ -97,13 +97,25 @@ const indexDatatype= n => `http://www.w3.org/2001/XMLSchema#${
 
 /**
  *  Returns an element of name `tag` with the language and text of the
- *    provided `object`.
+ *    provided `object`, or the corresponding literal form.
  *
  *  The language defaults to `DEFAULT_LANGUAGE` if not supplied.
  */
-const textElement= ( tag, object ) =>
-  object.TEXT == null ? `<${ tag } xml:lang="en">${ esc(object ?? "") }</${ tag }>`
-  : `<${ tag } xml:lang="${ object.LANG ?? "en" }">${ esc(object.TEXT) }</${ tag }>`
+const textElement= ( tag, object ) => {
+  const result= [ ]
+  if ( typeof object == "object" ) {
+    if ( "TEXT" in object )
+      result.push
+        ( `<${ tag } xml:lang="${ object.LANG ?? "en" }">${ esc(object.TEXT) }</${ tag }>` )
+    if ( "XML" in object )
+      result.push
+        ( `<${ tag } rdf:parseType="Literal">${ object.XML }</${ tag }>` )
+  }
+  else
+    result.push
+      ( `<${ tag } rdf:parseType="Literal">${ object }</${ tag }>` )
+  return result
+}
 
 /**
  *  Writes an “index” file for this project.
@@ -120,7 +132,7 @@ function writeIndex ( base, id, anchor ) {
     result.push
       ( this.COVER.CONTENTS != null
         ? `<hasCover rdf:parseType="Resource">
-	<contents rdf:parseType="Literal">${ this.COVER.CONTENTS }</contents>
+	${ textElement("contents", this.COVER.CONTENTS) }
 </hasCover>`
       : `<hasCover>
 ${ document(this.COVER, id) || "<!-- empty -->" }
@@ -169,9 +181,11 @@ ${ document(this.COVER, id) || "<!-- empty -->" }
  *  `path` is used to “resolve” relative I·R·I’s.
  */
 const document= ( object, path= "" ) => {
-  if ( object.KIND == null )
+  if ( object?.KIND == null )
     return null
-  else if ( Array.isArray(object.KIND) ) {
+  else if ( Array.isArray(object.KIND) && (
+    object.KIND.includes("Sequence") || object.KIND.includes("Set")
+  ) ) {
     let doctype= (( ) => {
       switch ( false ) {
         case !object.KIND.includes("Video"):
@@ -201,23 +215,19 @@ const document= ( object, path= "" ) => {
             : `../${ path }/${ String(page).replace(/^\.\//, "") }`
           }"/>`)
       } }
-      if ( object.KIND.includes("Sequence") )
-        return `<rdf:Seq rdf:type="${ doctype }">${ object.FORMAT != null ? `
+      return `<bns:FileSequence>
+	<rdf:type rdf:resource="${ doctype }"/>
+	<rdf:type rdf:resource="${
+        object.KIND.includes("Sequence") ? "rdf:Seq" : "rdf:Set"
+      }"/>${ object.FORMAT != null ? `
 	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ object.FORMAT }</mediaType>` : "" }
   ${ result.join(`
 	`) || "<!-- empty -->" }
-</rdf:Seq>`
-      else if ( object.KIND.includes("Set") )
-        return `<rdf:Bag rdf:type="${ doctype }">${ object.FORMAT != null ? `
-	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ object.FORMAT }</mediaType>` : "" }
-  ${ result.join(`
-	`) || "<!-- empty -->" }
-</rdf:Bag>`
-      else return null
+</bns:FileSequence>`
   } }
   else {
     let doctype= (( ) => {
-      switch ( object?.KIND ) {
+      switch ( `${object.KIND}` ) {
         case "Audio":
           return "dcmitype:Sound"
         case "Image":
@@ -232,15 +242,16 @@ const document= ( object, path= "" ) => {
     if ( !doctype )
       return null
     else
-      return `<${ doctype } rdf:about="${
+      return `<bns:File rdf:about="${
         object.IRI != null ?
           /^[^/]+\x3A/.test(object.IRI) ? object.IRI
           : `../${ path }/${ String(object.IRI).replace(/^\.\//, "") }`
         : `../${ path }/${ String(object).replace(/^\.\//, "") }`
-      }">${ object.FORMAT != null ? `
+      }">
+	<rdf:type rdf:resource="${ doctype }"/>${ object.FORMAT != null ? `
 	<mediaType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ object.FORMAT }</mediaType>` : "" }${ object.FILELABEL != null ? `
-	<fileLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ object.FILELABEL }</fileLabel>` : "" }
-</${ doctype }>`
+	${ textElement("textLabel", object.FILELABEL) }` : "" }
+</bns:File>`
 } }
 
 /**
@@ -283,16 +294,8 @@ const properties= ( object, path= "" ) => {
       result.push(textElement("fullTitle", object.TITLE))
     if ( object.SHORTTITLE != null )
       result.push(textElement("shortTitle", object.SHORTTITLE))
-    if ( object.AUTHOR != null )
-      for ( const author of [ ].concat(object.AUTHOR) ) {
-        result.push(`<hasAuthor>
-<Pseud${ author.IRI != null ? ` rdf:about="${ author.IRI }"` : "" }>
-	${ properties(author, path) || "" }
-</Pseud>
-	</hasAuthor>`)
-      }
     if ( object.CITATION != null )
-      result.push(`<citation rdf:parseType="Literal">${ object.CITATION }</citation>`)
+      result.push(textElement("citation", object.CITATION))
     if ( object.TAG != null )
       for ( const tag of [ ].concat(object.TAG) ) {
         result.push(`<hasTag rdf:resource="${ object.$TAGS[tag] }"/>`)
@@ -301,19 +304,17 @@ const properties= ( object, path= "" ) => {
       result.push
         ( object.COVER.CONTENTS != null
           ? `<hasCover rdf:parseType="Resource">
-		<contents rdf:parseType="Literal">${ object.COVER.CONTENTS }</contents>
+		${ textElement("contents", object.COVER.CONTENTS) }
 	</hasCover>`
         : `<hasCover>
 ${ document(object.COVER, path) || "<!-- empty -->" }
 	</hasCover>` )
     if ( object.DESCRIPTION?.CONTENTS != null )
       result.push(`<hasDescription rdf:parseType="Resource">
-		<contents rdf:parseType="Literal">${ object.DESCRIPTION.CONTENTS }</contents>
+		${ textElement("contents", object.DESCRIPTION.CONTENTS) }
 	</hasDescription>`)
     if ( object.CONTENTS != null )
-      result.push(`<contents rdf:parseType="Literal">${ object.CONTENTS }</contents>`)
-    else if ( object.TEXTCONTENTS != null )
-      result.push(textElement("contents", object.TEXTCONTENTS))
+      result.push(textElement("contents", object.CONTENTS))
     if ( object.FILE != null )
       for ( const published of [ ].concat(object.FILE) ) {
         result.push(`<hasFile>
@@ -322,7 +323,7 @@ ${ document(published, path) || "<!-- empty -->" }
       }
     if ( object.AKA != null )
       for ( const aka of [ ].concat(object.AKA) ) {
-        result.push(`<skos:closeMatch rdf:resource="${ aka }"/>`)
+        result.push(`<ore:similarTo rdf:resource="${ aka }"/>`)
       }
     if ( object.FANDOM != null )
       for ( const fandom of [ ].concat(object.FANDOM) ) {
@@ -350,8 +351,7 @@ ${ document(published, path) || "<!-- empty -->" }
           continue
         else
             result.push(`<isMadeAvailableBy rdf:parseType="Resource">
-		<url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ published.URL }</url>${ published.SITELABEL != null ? `
-		<siteLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">${ published.SITELABEL }</siteLabel>` : "" }
+		<url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${ published.URL }</url>${ published.SITELABEL != null ? textElement("textLabel", published.SITELABEL) : "" }
 	</isMadeAvailableBy>`)
       }
     return result.join(`
@@ -639,7 +639,7 @@ function corpus ( path ) {
 	xmlns:dcmitype="http://purl.org/dc/dcmitype"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:ore="http://www.openarchives.org/ore/terms/"
 >
 <owl:Ontology rdf:about="#">
 	<owl:imports rdf:resource="https://ns.1024.gdn/BNS/#"/>
